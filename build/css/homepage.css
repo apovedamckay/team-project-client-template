@@ -1,13 +1,12 @@
-.navbar-header
+.navbar-brand
 {
     position: absolute;
     width: 100%;
-    text-align: center;
+    text-align: left;
     color: #63D4CD;
-    font-size: 3em;
+    font-size: 40px;
     font-weight: bold;
     font-family: "Trebuchet MS", Helvetica, sans-serif;
-    vertical-align: text-bottom;
 }
 
 .navbar-toggle {
@@ -19,10 +18,19 @@
 }
 
 .navbar-text {
-	font-size: 1.5em;
 	color: #63D4CD;
 }
 
+body {
+    padding-top: 60px;
+}
+
+.buttonfun {
+    border-radius: 20px;
+    position: absolute;
+    background-color: #D96C1C;
+    color: #63D4CD;
+}
 /*!
  * Bootstrap v3.3.6 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
