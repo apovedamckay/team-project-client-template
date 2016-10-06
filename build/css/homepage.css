@@ -1,12 +1,28 @@
-.navbar-brand
+.navbar-header
 {
     position: absolute;
     width: 100%;
     text-align: center;
+    color: #63D4CD;
+    font-size: 3em;
+    font-weight: bold;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    vertical-align: text-bottom;
 }
+
 .navbar-toggle {
     z-index:3;
 }
+
+.navbar-custom {
+	background-color: #D96C1C;
+}
+
+.navbar-text {
+	font-size: 1.5em;
+	color: #63D4CD;
+}
+
 /*!
  * Bootstrap v3.3.6 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
