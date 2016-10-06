@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bootstrap Template</title>
+
+    <!-- Bootstrap -->
+    <link href="css/homepage.css" rel="stylesheet">
+    <link href="css/sidebar.css" rel="stylesheet">
+    <link href="css/teampage.css" rel="stylesheet">
+
+    <!-- Custom CSS goes here -->
+</head>
+
+<body>
+    <!-- Custom HTML goes here -->
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+            <a class="navbar-brand" href="#">Welcome To MatchUp!</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#about">Sign Up</a></li>
+                <li><a href="#contact">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- This is the static sidebar -->
+    <div class="col-md-2 static-sidebar">
+        <div class="panel panel-default side-profile">
+            <div class="panel-body">
+                <img src="img/person.jpg" width="100%">
+                <h3><p class="text-center">Full Name</p></h3>
+                <h4><p class="text-center">@Username</p></h4>
+                <hr>
+                <a href="#">
+                    <p class="text-center"> Profile</p>
+                </a>
+                <br>
+                <a href="#">
+                    <p class="text-center"> Teams</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- The container for our grid. The outermost grid must be placed withina `container` or `container-fluid` class. (Meaning: If you nest a gridwithin a grid, you should not define another `container`)What's the difference between these two types of container? There's agood answer here: http://stackoverflow.com/a/22263969 -->
+    <div class="container">
+        <!-- The row that contains the three main columns of the website. -->
+        <div class="row">
+            <!-- Main feed: A cell that spans 7 columns -->
+            <div class="col-md-7">
+                <!-- Status update entry -->
+                <h1>Team Awesome</h1>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="col-md-2">
+                            Sportsmanship:
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                        </div>
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-md-3">
+                            Amherst, MA
+                        </div>
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-md-3">
+                            5 wins, 7 losses
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default fb-status-update-entry">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Reviews-->
+                <h4>Reviews</h4>
+                <div class="panel panel-default fb-status-update">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                Sportsmanship:
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <hr>
+                            <div class="col-md-12">
+                                This team was awesome to play against! I loved them!
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right sidebar: A cell that spans 2 columns -->
+            <div class="col-md-2 right-sidebar">
+                <ul class="nav nav-pills nav-stacked">
+                    <li role="presentation">Team Members</li>
+                    <li role="presentation"><a href="#">Adrian Poveda McKay</a></li>
+                    <li role="presentation"><a href="#">Andrew Caccavaro</a></li>
+                    <li role="presentation"><a href="#">Ilan Shenar</a></li>
+                    <li role="presentation"><a href="#">Kimberly Smith</a></li>
+                    <li role="presentation"><a href="#">Max Galat</a></li>
+                    <li role="presentation"><a href="#">Nicholas Hower</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- App code -->
+    <script src="js/bundle.js"></script>
+</body>
+
+</html>
