@@ -5,34 +5,62 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap Template</title>
+    <title>MatchUp Homepage</title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/nb.css" rel="stylesheet">
     <link href="css/schedule.css" rel="stylesheet">
 
-    </head>
-
+    <!-- Custom CSS goes here -->
+  </head>
   <body>
-    <!-- NAVBAR -->
-<nav class="navbar navbar-default" role="navigation">
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      </button>
-    <a class="navbar-brand" href="#">Welcome To MatchUp!</a>
-  </div>
-  <div class="navbar-collapse collapse">
-    <ul class="nav navbar-nav navbar-right">
-     <li><a href="#about">Sign Up</a></li>
-      <li><a href="#contact">Login</a></li>
-    </ul>
-  </div>
+    <!-- Custom HTML goes here -->
+
+<nav class="navbar navbar-custom navbar-fixed-top">
+  <div class="container">
+
+      <form class="navbar-form navbar-left" role="search">
+        <div class="input-group">
+          <input type="text" class="form-control fb-search" placeholder="Search MatchUp">
+          <span class="input-group-btn">
+          <button type="submit" class="btn btn-default">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+          </span>
+        </div>
+      </form>
+       <div class="btn-group" role="group">
+         <button type="button" class="btn navbar-btn buttonfun">
+           Sports
+        </button>
+      </div>
+
+     <div class="btn-group" role="group">
+         <button type="button" class="btn navbar-btn buttonfun navbar-center">
+           MatchUp
+        </button>
+      </div>
+
+
+      <ul class="navbar-form navbar-right">
+        <div class="dropdown open">
+          <button class="btn btn-secondary dropdown-toggle buttonfun" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             <a href="#">
+                <span class="glyphicon glyphicon-user"></span>
+             </a>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">My Profile</a><br>
+            <a class="dropdown-item" href="#">Team 1</a><br>
+            <a class="dropdown-item" href="#">Log Out :(</a>
+          </div>
+        </div>
+      </ul>
+ </div>
+
 </nav>
 
-<div class="container red">
+<div class="container">
   <div class="row">
     <div class="col-md-2">
       <div class= "panel panel-default side-profile">
@@ -45,7 +73,6 @@
           <br>
           <a href="#"><p class="text-center"> Teams</p> </a>
           <br>
-          <a href="#"><p class="text-center"> Schedule</p> </a>
         </div>
       </div>
     </div>
