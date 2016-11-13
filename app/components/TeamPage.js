@@ -1,9 +1,10 @@
 import React from 'react';
 import TeamReview from './teamReview';
 import TeamSummary from './teamSummary';
+import TeamList from './teamList';
 
 
-export default class Feed extends React.Component {
+export default class TeamPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,6 +23,7 @@ render() {
         )
       })
     }
+    <TeamList />
     </div>
     )
   }
