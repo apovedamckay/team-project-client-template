@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export default class TeamSummary extends React.Component {
+export default class TeamReview extends React.Component {
   render() {
     return (
       <div className="panel panel-default fb-status-update">
