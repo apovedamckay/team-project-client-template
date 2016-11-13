@@ -5,13 +5,78 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Facebook</title>
+    <title>MatchUp</title>
 
     <!-- Bootstrap's CSS -->
+     <link href="css/nb.css" rel="stylesheet">
+
 
   </head>
+    <body>
+    <!-- NAVBAR -->
+     <nav class="navbar navbar-custom navbar-fixed-top" id="navbar">
+      <div class="container">
+        <form class="navbar-form navbar-left" role="search">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search MatchUp">
+            <span class="input-group-btn">
+              <button type="submit" class="btn btn-default">
+                <span class="glyphicon glyphicon-search"></span>
+              </button>
+            </span>
+          </div>
+        </form>
+        <div class="btn-group" role="group">
+          <a href="sportslist.html" class="btn navbar-btn buttonfun navbar-center" role="button">Sports</a>
+        </div>
+        <div class="btn-group" role="group">
+          <a href="sportslist.html" class="btn navbar-btn buttonfun navbar-center" role="button">MatchUp</a>
+        </div>
+        <ul class="navbar-form navbar-right">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle buttonfun" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a href="#">
+                <span class="glyphicon glyphicon-user"></span>
+              </a>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="profile.html">My Profile</a><br>
+              <a class="dropdown-item" href="TeamPage.html">Team 1</a><br>
+              <a class="dropdown-item" href="homepage.html">Log Out :(</a>
+            </div>
+          </div>
+        </ul>
+      </div>
+    </nav>
 
-  <body>
+
+    <!-- Left Sidebar -->
+    <div class="col-md-2" id="left-sidebar">
+      <div class= "panel panel-default side-profile">
+        <div class="panel-body">
+          <img src="img/person.jpg" width="100%">
+          <h3><p class="text-center">Full Name</p></h3>
+          <h4><p class="text-center">@Username</p></h4>
+          <hr>
+          <a href="profile.html"><p class="text-center"> Profile</p> </a>
+          <br>
+          <a href="Teampage.html"><p class="text-center"> Teams</p> </a>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Main Feed -->
+    <div class="col-md-8" id="main-feed">
+    </div>
+
+
+
+    <!-- Right Sidebar -->
+    <div class="col-md-2 right-sidebar" id="right-sidebar">
+    </div>
+
       
-  </body>
+    </body>
   </html>
