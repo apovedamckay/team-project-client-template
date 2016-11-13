@@ -9,7 +9,8 @@ class SportsPage extends React.Component {
     return (
       <p>This is the sports page!</p>
     );
-} }
+  }
+}
 
 class ProfilePage extends React.Component {
   render() {
@@ -90,4 +91,4 @@ ReactDOM.render((
       <Route path="search/:query" component={SearchTeamPage} />
     </Route>
   </Router>
-),document.getElementById('fb-feed'));
+),document.getElementById('main-feed'));
