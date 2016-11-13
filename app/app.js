@@ -75,7 +75,8 @@ class App extends React.Component {
     return (
       <div>{this.props.children}</div>
     )
-} }
+  } 
+}
 
 
 ReactDOM.render((
