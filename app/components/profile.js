@@ -1,10 +1,10 @@
 import React from 'react';
-import Review from './pageReview';
-import TeamSummary from './teamSummary';
+import PlayerReview from './teamReview';
+import PlayerSummary from './teamSummary';
 import TeamList from './teamList';
 
 
-export default class TeamPage extends React.Component {
+export default class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,11 +15,11 @@ export default class TeamPage extends React.Component {
 render() {
   return (
     <div>
-      <TeamSummary data={this.state.summary}/>
-      <TeamDescription data={this.state}/>
+      <PlayerSummary data={this.state.summary}/>
+      <PlayerDescription data={this.state}/>
       {this.state.contents.map((review) => {
       return (
-          <Review key={review._id} data={review} />
+          <PlayerReview key={review._id} data={review} />
         )
       })
     }

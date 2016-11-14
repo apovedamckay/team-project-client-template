@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export default class TeamReview extends React.Component {
+export default class Review extends React.Component {
 
   constructor(props) {
     super(props);
