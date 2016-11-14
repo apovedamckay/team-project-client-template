@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Feed from './components/feed';
+import TeamPage from './components/teamPage';
 import { IndexRoute, Router, Route, browserHistory } from 'react-router'
 
 
@@ -44,32 +44,13 @@ class RefereePage extends React.Component {
   }
 }
 
-class TeamPage extends React.Component {
+class Team extends React.Component {
   render() {
-    return (
-      <TeamPage team={4} />
-    );
+    return <TeamPage team={1} />;
   }
 }
 
-/**
- * The Feed page. We created a new component just
- * to fix the userId at 4.
- */
-class HomePage extends React.Component {
-  render() {
-    return <Feed user={4} />;
-  }
-}
-/**
- * The primary component in our application.
- * The Router will give it different child Components
- * as the user clicks around the application.
- *
- * If we implemented all of Facebook, this App would
- * also contain Component objects for the left and
-  * right content panes.
- */
+
 class App extends React.Component {
   render() {
     return (
@@ -83,7 +64,7 @@ ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       {/* Show the Feed at / */}
-      <IndexRoute component={HomePage} />
+      <IndexRoute component={Team} />
       <Route path="profile/:id" component={ProfilePage} />
       <Route path="sports/" component={SportsPage} />
       <Route path="team/:id" component={TeamPage} />

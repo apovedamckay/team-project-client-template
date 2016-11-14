@@ -6,7 +6,23 @@ var startupName = null;
 
 // Put your mock objects here, as in Workshop 4
 var initialData = {
-
+  "teams" : {
+        "1": {
+            "summary": {
+              "name": "Team Awesome",
+              "stars": [1,2,3,4],
+              "location": "Amherst, MA",
+              "record": "5 wins, 2 losses"
+            },
+            "description": "We are the best team in the entire world",
+            "reviews": [
+              {
+                "stars": [1,2],
+                "text": "This is not the best team in the world. They are liars."
+              }
+            ]
+        }
+    }
 };
 
 var data = JSON.parse(localStorage.getItem(startupName));

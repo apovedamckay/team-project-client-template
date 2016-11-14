@@ -8,9 +8,9 @@ import {getTeamData} from '../server';
 export default class TeamPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      contents: []
-    };
+    //this.state = this.props;
+    console.log(this.props.team);
+    console.log("HERE");
   }
 
   refresh() {
