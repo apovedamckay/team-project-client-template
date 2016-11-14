@@ -1,5 +1,5 @@
 import React from 'react';
-import Review from './pageReview';
+import Review from './pageReviews';
 import TeamSummary from './teamSummary';
 import Roster from './roster';
 import {getTeamData} from '../server';
@@ -9,8 +9,6 @@ export default class TeamPage extends React.Component {
   constructor(props) {
     super(props);
     //this.state = this.props;
-    console.log(this.props.team);
-    console.log("HERE");
   }
 
   refresh() {
