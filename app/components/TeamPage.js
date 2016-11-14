@@ -2,6 +2,7 @@ import React from 'react';
 import Review from './pageReview';
 import TeamSummary from './teamSummary';
 import TeamList from './teamList';
+import {getTeamData} from '../server';
 
 
 export default class TeamPage extends React.Component {
@@ -10,6 +11,12 @@ export default class TeamPage extends React.Component {
     this.state = {
       contents: []
     };
+  }
+
+  refresh() {
+    getTeamData(this.props.team, (teamData) => {
+      this.setState(teamData);
+    });
   }
 
 render() {

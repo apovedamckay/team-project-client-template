@@ -9,3 +9,8 @@ function emulateServerReturn(data, cb) {
     cb(data);
   }, 4);
 }
+
+export function getTeamData(id, cb) {
+    var teamData = readDocument('teams', id);
+    emulateServerReturn(teamData, cb);
+}
