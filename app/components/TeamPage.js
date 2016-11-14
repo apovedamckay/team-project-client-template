@@ -1,7 +1,7 @@
 import React from 'react';
 import Review from './pageReview';
 import TeamSummary from './teamSummary';
-import TeamList from './teamList';
+import Roster from './roster';
 import {getTeamData} from '../server';
 
 
@@ -30,7 +30,7 @@ render() {
         )
       })
     }
-    <TeamList data={this.state.list}/>
+    <Roster data={this.state.list}/>
 
     </div>
     )

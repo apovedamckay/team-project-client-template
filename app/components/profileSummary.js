@@ -5,7 +5,7 @@ export default class ProfileSummary extends React.Component {
 
   render(){
    return (
-    <div className="col-md-4">
+    <div className="col-md-3">
       <div className="panel panel-default">
         <div className="panel-body">
           <img src="img/person.jpg" width="100%"></img>

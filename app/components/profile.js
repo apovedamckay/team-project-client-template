@@ -1,7 +1,8 @@
 import React from 'react';
-import PlayerReview from './teamReview';
+import Review from './pageReviews';
 import PlayerSummary from './teamSummary';
 import TeamList from './teamList';
+import Schedule from './pageSchedule';
 
 
 export default class Profile extends React.Component {
@@ -19,12 +20,12 @@ render() {
       <PlayerDescription data={this.state}/>
       {this.state.contents.map((review) => {
       return (
-          <PlayerReview key={review._id} data={review} />
+          <Review key={review._id} data={review} />
         )
       })
     }
+    <Schedule data={this.state.schedule}/>
     <TeamList data={this.state.list}/>
-
     </div>
     )
   }
