@@ -16,10 +16,12 @@ export default class TeamSummary extends React.Component {
                 <div className="panel-body">
                     <div className="col-md-2">
                         Sportsmanship:
-                        <span className="glyphicon glyphicon-star"></span>
-                        <span className="glyphicon glyphicon-star"></span>
-                        <span className="glyphicon glyphicon-star"></span>
-                        <span className="glyphicon glyphicon-star"></span>
+                        {this.state.stars.map((star) => {
+                          return (
+                                <span className="glyphicon glyphicon-star"></span>
+                              )
+                          })
+                        }
                     </div>
                     <div className="col-md-2">
                     </div>
