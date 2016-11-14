@@ -53,7 +53,6 @@ class Team extends React.Component {
 
 class App extends React.Component {
   render() {
-    console.log("HERE");
     return (
       <div>{this.props.children}</div>
     )
