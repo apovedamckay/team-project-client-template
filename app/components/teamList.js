@@ -12,9 +12,9 @@ export default class TeamList extends React.Component {
       <div className="col-md-2 right-sidebar">
           <ul className="nav nav-pills nav-stacked">
               <li role="presentation">Team Members</li>
-              {this.state.members.map((member) => {
+              {this.state.members.map((team) => {
                 return (
-                      <li role="presentation"><a href="#">{member.name}</a></li>
+                      <li role="presentation"><a href="#">{team.name}</a></li>
                     )
                   })
                 }
