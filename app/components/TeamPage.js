@@ -15,15 +15,16 @@ export default class TeamPage extends React.Component {
 render() {
   return (
     <div>
-      <TeamSummary />
-      <TeamDescription />
+      <TeamSummary data={this.state.summary}/>
+      <TeamDescription data={this.state}/>
       {this.state.contents.map((review) => {
       return (
           <TeamReview key={review._id} data={review} />
         )
       })
     }
-    <TeamList />
+    <TeamList data={this.state.list}/>
+
     </div>
     )
   }

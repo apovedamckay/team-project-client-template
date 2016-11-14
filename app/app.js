@@ -47,7 +47,7 @@ class RefereePage extends React.Component {
 class TeamPage extends React.Component {
   render() {
     return (
-      <p>This is the home page!</p>
+      <TeamPage team={4} />
     );
   }
 }
@@ -75,7 +75,7 @@ class App extends React.Component {
     return (
       <div>{this.props.children}</div>
     )
-  } 
+  }
 }
 
 

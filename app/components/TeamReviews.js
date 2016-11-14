@@ -2,6 +2,12 @@ import React from 'react';
 
 
 export default class TeamReview extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = props.data;
+  }
+
   render() {
     return (
       <div className="panel panel-default fb-status-update">
@@ -9,15 +15,17 @@ export default class TeamReview extends React.Component {
               <div className="row">
                   <div className="col-md-12">
                       Sportsmanship:
-                      <span className="glyphicon glyphicon-star"></span>
-                      <span className="glyphicon glyphicon-star"></span>
-                      <span className="glyphicon glyphicon-star"></span>
-                      <span className="glyphicon glyphicon-star"></span>
+                      {this.state.stars.map((star) => {
+                        return (
+                              <span className="glyphicon glyphicon-star"></span>
+                            )
+                        })
+                      }
                   </div>
               </div>
               <div className="row">
                   <div className="col-md-12">
-                      This team was awesome to play against! I loved them!
+                      {this.state.text}
                   </div>
               </div>
 

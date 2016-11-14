@@ -2,11 +2,16 @@ import React from 'react';
 
 
 export default class TeamSummary extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = props.data;
+  }
+
   render() {
     return (
-
         <div className="col-md-7">
-            <h1>Team Awesome</h1>
+            <h1>{this.state.teamName}</h1>
             <div className="panel panel-default">
                 <div className="panel-body">
                     <div className="col-md-2">
@@ -19,12 +24,12 @@ export default class TeamSummary extends React.Component {
                     <div className="col-md-2">
                     </div>
                     <div className="col-md-3">
-                        Amherst, MA
+                        {this.state.location}
                     </div>
                     <div className="col-md-2">
                     </div>
                     <div className="col-md-3">
-                        5 wins, 7 losses
+                      {this.state.reccord}
                     </div>
                 </div>
             </div>
