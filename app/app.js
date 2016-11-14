@@ -66,12 +66,12 @@ ReactDOM.render((
     <Route path="/" component={App}>
       {/* Show the Feed at / */}
       <IndexRoute component={Team} />
-      <Route path="profile/:id" component={ProfilePage} />
+      <Route path="profile/" component={ProfilePage} />
       <Route path="sports/" component={SportsPage} />
-      <Route path="team/:id" component={TeamPage} />
-      <Route path="referee/:id" component={RefereePage} />
-      <Route path="schedule/:id" component={SchedulePage} />
-      <Route path="search/:query" component={SearchTeamPage} />
+      <Route path="team/" component={TeamPage} />
+      <Route path="referee/" component={RefereePage} />
+      <Route path="schedule/" component={SchedulePage} />
+      <Route path="search/" component={SearchTeamPage} />
     </Route>
   </Router>
 ),document.getElementById('main-feed'));
