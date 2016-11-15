@@ -18,7 +18,7 @@ export default class Navbar extends React.Component {
             </input>
           </div>
         </form>
-        <Link to={"/sports"}>
+        <Link to={"/sports/"}>
           Sports
         </Link>
         <div className="btn-group" role="group">
