@@ -15,7 +15,8 @@ export default class Profile extends React.Component {
 
 render() {
   return (
-    <div>
+    <Schedule />
+    /*<div>
       <PlayerSummary data={this.state.summary}/>
       <PlayerDescription data={this.state}/>
       {this.state.contents.map((review) => {
@@ -24,9 +25,8 @@ render() {
         )
       })
     }
-    <Schedule data={this.state.schedule}/>
     <TeamList data={this.state.list}/>
-    </div>
+    </div>*/
     )
   }
 }
