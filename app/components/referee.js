@@ -15,7 +15,7 @@ export default class referee extends React.Component {
 render() {
   return (
     <div>
-      <AboutMe data={this.state.aboutme}/>
+      <ProfileSummary data={this.state.ProfileSummary}/>
       <PlayerDescription data={this.state}/>
       {this.state.contents.map((review) => {
       return (
