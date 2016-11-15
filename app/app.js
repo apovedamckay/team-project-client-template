@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TeamPage from './components/teamPage';
-import { IndexRoute, Router, Route, browserHistory } from 'react-router'
+import Navbar from './components/navbar';
+import LeftSidebar from './components/LeftSidebar';
+import { IndexRoute, Router, Route, browserHistory } from 'react-router';
 
 
 class SportsPage extends React.Component {
   render() {
     return (
+      <div><LeftSidebar/>
       <p>This is the sports page!</p>
+      </div>
     );
   }
 }
@@ -31,7 +35,9 @@ class SchedulePage extends React.Component {
 class SearchTeamPage extends React.Component {
   render() {
     return (
+     <div><LeftSidebar/>
       <p>This is the search page!</p>
+     </div>
     );
   }
 }
@@ -46,7 +52,7 @@ class RefereePage extends React.Component {
 
 class Team extends React.Component {
   render() {
-    return <TeamPage team={1} />;
+    return <TeamPage team={1} />
   }
 }
 
@@ -54,7 +60,9 @@ class Team extends React.Component {
 class App extends React.Component {
   render() {
     return (
-      <div>{this.props.children}</div>
+      <div><Navbar/>
+      <LeftSidebar/>
+      {this.props.children}</div>
     )
   }
 }
@@ -63,8 +71,7 @@ class App extends React.Component {
 ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
-      {/* Show the Feed at / */}
-      <IndexRoute component={Team} />
+      <IndexRoute component={App} />
       <Route path="profile/" component={ProfilePage} />
       <Route path="sports/" component={SportsPage} />
       <Route path="team/" component={TeamPage} />
