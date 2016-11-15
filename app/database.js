@@ -29,7 +29,7 @@ var initialData = {
         "name": "Team Awesome",
         "stars": [1,2,3,4],
         "location": "Amherst, MA",
-        "record": "5 wins, 2 losses"
+        "record": "51 wins, 22 losses"
       },
       "description": "We are the best team in the entire world",
       "reviews": [
@@ -43,15 +43,15 @@ var initialData = {
     "2": {
       "summary": {
         "name": "Team Dope",
-        "stars": [1,2,3,4],
-        "location": "Amherst, MA",
+        "stars": [1,2],
+        "location": "Needham, MA",
         "record": "5 wins, 2 losses"
       },
-      "description": "We are the best team in the entire world",
+      "description": "We are just people having fun",
       "reviews": [
         {
           "stars": [1,2],
-          "text": "This is not the best team in the world. They are liars."
+          "text": "Respectful team."
         }
       ]
     },
@@ -59,15 +59,15 @@ var initialData = {
     "3": {
       "summary": {
         "name": "Team Fun",
-        "stars": [1,2,3,4],
-        "location": "Amherst, MA",
-        "record": "5 wins, 2 losses"
+        "stars": [1],
+        "location": "Redding, MA",
+        "record": "1 wins, 2 losses"
       },
-      "description": "We are the best team in the entire world",
+      "description": "We are a very solid team",
       "reviews": [
         {
-          "stars": [1,2],
-          "text": "This is not the best team in the world. They are liars."
+          "stars": [1],
+          "text": "Bad sportsmanship."
         }
       ]
     }
