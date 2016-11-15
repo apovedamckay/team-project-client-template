@@ -71,7 +71,7 @@ class App extends React.Component {
 ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
-      <IndexRoute component={App} />
+      <IndexRoute component={Team} />
       <Route path="profile/" component={ProfilePage} />
       <Route path="sports/" component={SportsPage} />
       <Route path="team/" component={TeamPage} />
