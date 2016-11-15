@@ -1,15 +1,25 @@
 import React from 'react';
-import Review from './pageReviews';
+//import Review from './pageReviews';
 import TeamSummary from './teamSummary';
 import TeamDescription from './teamDescription';
 import Roster from './roster';
+import TeamReview from "./teamReview";
 import {getTeamData} from '../server';
 
 
 export default class TeamPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props;
+    this.state = {
+      summary:{
+        name: "",
+        stars: [],
+        location: "",
+        record: ""
+      },
+      reviews: [],
+      list:[]
+    };
   }
 
   componentDidMount() {
@@ -25,15 +35,16 @@ export default class TeamPage extends React.Component {
 render() {
   return (
     <div>
+      {console.log(this.state)}
       <TeamSummary data={this.state.summary}/>
       <TeamDescription data={this.state}/>
-      {this.state.reviews.map((review) => {
+      {this.state.reviews.map((review, i) => {
       return (
-          <Review key={review._id} data={review} />
+          <TeamReview key={i} data={review} />
         )
       })
     }
-    <Roster data={this.state.list}/>
+    <Roster data={this.state}/>
 
     </div>
     )

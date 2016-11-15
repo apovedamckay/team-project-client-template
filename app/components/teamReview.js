@@ -15,9 +15,9 @@ export default class TeamReview extends React.Component {
               <div className="row">
                   <div className="col-md-12">
                       Sportsmanship:
-                      {this.state.stars.map((star) => {
+                      {this.state.stars.map((star, i) => {
                         return (
-                              <span className="glyphicon glyphicon-star"></span>
+                              <span key={i} className="glyphicon glyphicon-star"></span>
                             )
                         })
                       }

@@ -26,7 +26,7 @@ var initialData = {
   "teams" : {
     "1": {
       "summary": {
-        "name": "Team Awesome",
+        "teamName": "Team Awesome",
         "stars": [1,2,3,4],
         "location": "Amherst, MA",
         "record": "51 wins, 22 losses"
@@ -34,10 +34,12 @@ var initialData = {
       "description": "We are the best team in the entire world",
       "reviews": [
         {
+          "_id": 1,
           "stars": [1,2],
           "text": "This is not the best team in the world. They are liars."
         }
-      ]
+      ],
+      "list": ["Max Galat"]
     },
 
     "2": {
