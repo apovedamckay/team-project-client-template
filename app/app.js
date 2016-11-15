@@ -5,6 +5,7 @@ import Navbar from './components/navbar';
 import LeftSidebar from './components/LeftSidebar';
 import Profile from './components/profile';
 import { IndexRoute, Router, Route, browserHistory } from 'react-router';
+import Schedule from './components/pageSchedule';
 
 
 class SportsPage extends React.Component {

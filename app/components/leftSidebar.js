@@ -1,5 +1,5 @@
 import React from 'react';
-//import {Link} from 'react-router';
+import {Link} from 'react-router';
 
 export default class LeftSidebar extends React.Component {
   render() {
@@ -11,9 +11,9 @@ export default class LeftSidebar extends React.Component {
           <h3><p className="text-center">Full Name</p></h3>
           <h4><p className="text-center">@Username</p></h4>
           <hr></hr>
-          <a href="profile.html"><p className="text-center"> Profile</p> </a>
+          <Link to="{/profile/1}"><p className="text-center"> Profile</p></Link>
           <br></br>
-          <a href="Teampage.html"><p className="text-center"> Teams</p> </a>
+          <Link to="{/Team/1}"><p className="text-center"> Team</p></Link>
         </div>
       </div>
     </div>
