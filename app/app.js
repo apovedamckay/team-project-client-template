@@ -2,13 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import TeamPage from './components/teamPage';
 import Navbar from './components/navbar';
+import LeftSidebar from './components/LeftSidebar';
 import { IndexRoute, Router, Route, browserHistory } from 'react-router';
 
 
 class SportsPage extends React.Component {
   render() {
     return (
+      <div><LeftSidebar/>
       <p>This is the sports page!</p>
+      </div>
     );
   }
 }
@@ -32,7 +35,9 @@ class SchedulePage extends React.Component {
 class SearchTeamPage extends React.Component {
   render() {
     return (
+     <div><LeftSidebar/>
       <p>This is the search page!</p>
+     </div>
     );
   }
 }
