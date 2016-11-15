@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import TeamPage from './components/teamPage';
 import Navbar from './components/navbar';
 import LeftSidebar from './components/LeftSidebar';
+import Profile from './components/profile';
 import { IndexRoute, Router, Route, browserHistory } from 'react-router';
 
 
@@ -19,7 +20,9 @@ class SportsPage extends React.Component {
 class ProfilePage extends React.Component {
   render() {
     return (
-      <p>This is the Profile page!</p>
+      <p>This is the profile page for a user
+        with ID {this.props.params.id}.</p>
+        //<Profile user = {this.props.params.id} />
     );
   }
 }
@@ -71,9 +74,9 @@ ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={App} />
-      <Route path="profile/" component={ProfilePage} />
+      <Route path="profile/:id" component={ProfilePage} />
       <Route path="sports/" component={SportsPage} />
-      <Route path="team/" component={TeamPage} />
+      <Route path="team/" component={Team} />
       <Route path="referee/" component={RefereePage} />
       <Route path="schedule/" component={SchedulePage} />
       <Route path="search/" component={SearchTeamPage} />

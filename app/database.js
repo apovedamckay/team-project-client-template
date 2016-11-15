@@ -8,7 +8,7 @@ var startupName = "MatchUp";
 var initialData = {
 
   "users" : {
-    "1":{"first_name":"Dennis", "last_name":"Myers","email":"dmyers0@moonfruit.com","referee":false},
+    "1":{"_id": 1,"first_name":"Dennis", "last_name":"Myers","email":"dmyers0@moonfruit.com","referee":false},
     "2":{"first_name":"Jean","last_name":"Webb","email":"jwebb1@creativecommons.org","referee":false},
     "3":{"first_name":"Roger","last_name":"Hayes","email":"rhayes2@php.net","referee":true},
     "4":{"first_name":"Ernest","last_name":"Brooks","email":"ebrooks3@shareasale.com","referee":true},
