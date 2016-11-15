@@ -4,7 +4,7 @@ import TeamList from './teamList';
 import Schedule from './pageSchedule';
 
 
-export default class referee extends React.Component {
+export default class Referee extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

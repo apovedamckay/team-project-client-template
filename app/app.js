@@ -52,7 +52,7 @@ class RefereePage extends React.Component {
 
 class Team extends React.Component {
   render() {
-    return <TeamPage team={1} />;
+    return <TeamPage team={1} />
   }
 }
 
@@ -61,6 +61,7 @@ class App extends React.Component {
   render() {
     return (
       <div><Navbar/>
+      <LeftSidebar/>
       {this.props.children}</div>
     )
   }
@@ -70,13 +71,13 @@ class App extends React.Component {
 ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
-      <IndexRoute component={Team} />
-      <Route path="/profile" component={ProfilePage} />
-      <Route path="/sports" component={SportsPage} />
-      <Route path="/team" component={TeamPage} />
-      <Route path="/referee" component={RefereePage} />
-      <Route path="/schedule" component={SchedulePage} />
-      <Route path="/search" component={SearchTeamPage} />
+      <IndexRoute component={App} />
+      <Route path="profile/" component={ProfilePage} />
+      <Route path="sports/" component={SportsPage} />
+      <Route path="team/" component={TeamPage} />
+      <Route path="referee/" component={RefereePage} />
+      <Route path="schedule/" component={SchedulePage} />
+      <Route path="search/" component={SearchTeamPage} />
     </Route>
   </Router>
 ),document.getElementById('main-feed'));
