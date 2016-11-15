@@ -19,7 +19,9 @@ export default class Navbar extends React.Component {
           </div>
         </form>
         <Link to={"/sports/"}>
+        <button type="button" className="btn navbar-btn btn-default">
           Sports
+        </button>
         </Link>
         <div className="btn-group" role="group">
           <a href="#" className="btn navbar-btn buttonfun navbar-center" role="button">MatchUp</a>
@@ -32,9 +34,9 @@ export default class Navbar extends React.Component {
               </a>
             </button>
             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a className="dropdown-item">My Profile</a><br></br>
-              <a className="dropdown-item">Team 1</a><br></br>
-              <a className="dropdown-item">Log Out :(</a>
+              <li><Link to={"/profile/"}><a className="dropdown-item">My Profile</a></Link></li>
+              <li><Link to={"/team/"}><a className="dropdown-item">Team 1</a></Link></li>
+              <li><Link to={"/sports/"}><a className="dropdown-item">Log Out</a></Link></li>
             </div>
           </div>
         </ul>
