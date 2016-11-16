@@ -3,9 +3,13 @@ import React from 'react';
 export default class Challenge extends React.Component {
     constructor(props) {
       super(props)
-      this.state = { isFancyWindowOpen: false }
+      this.state = {
+        isFancyWindowOpen: false,
+        challenger: "",
+        challengedate: "",
+        challengetime: ""
+      }
     }
-
     render() {
       return (
         <div>
@@ -15,9 +19,9 @@ export default class Challenge extends React.Component {
             <form onSubmit={this.handleSubmit}>
               Team:
               <input type="text" value={this.state.challenger} onChange={this.handleChange} />
-              Date:
+              <br></br>Date:
               <input type="text" value={this.state.challengedate} onChange={this.handleChange} />
-              Time:
+              <br></br>Time:
               <input type="text" value={this.state.challengetime} onChange={this.handleChange} />
               <input type="submit" value="Submit" />
             </form>
@@ -29,11 +33,10 @@ export default class Challenge extends React.Component {
 
     handleChange(event) {
     this.setState({value: event.target.value});
-    console.log(this.state);
   }
 
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
+    alert('submitted challenge' + this.state.challenger + this.state.challengedate + this.state.challengetime);
     event.preventDefault();
   }
 
