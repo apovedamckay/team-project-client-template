@@ -9,24 +9,24 @@ export default class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      contents: []
+      first_name: "Ilan",
+      last_name: "Shenar",
+      email: "ishenar@umass.edu",
+      referee: false
     };
   }
 
 render() {
   return (
-    <Schedule />
-    /*<div>
-      <PlayerSummary data={this.state.summary}/>
-      <PlayerDescription data={this.state}/>
+     <div>
+      <Schedule />
       {this.state.contents.map((review) => {
       return (
           <Review key={review._id} data={review} />
         )
       })
     }
-    <TeamList data={this.state.list}/>
-    </div>*/
+    </div>
     )
   }
 }

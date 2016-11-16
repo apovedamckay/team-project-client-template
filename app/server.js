@@ -14,3 +14,8 @@ export function getTeamData(id, cb) {
     var teamData = readDocument('teams', id);
     emulateServerReturn(teamData, cb);
 }
+
+export function getUserData(user, cb){
+	var userData = readDocument('users', user);
+	emulateServerReturn(userData, cb);
+}

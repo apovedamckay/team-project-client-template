@@ -6,16 +6,16 @@ import LeftSidebar from './components/LeftSidebar';
 import Profile from './components/profile';
 import { IndexRoute, Router, Route, browserHistory, Link } from 'react-router';
 import Schedule from './components/pageSchedule';
+import SportsBox from './components/sportsBox';
+import SportsList from './components/sportsList';
 
 
 class SportsPage extends React.Component {
   render() {
     return (
       <div>
-        <Navbar/>
         <LeftSidebar/>
-        <Link to={"/team/"}>Team</Link>
-        <p>This is the sports page!</p>
+        <SportsList />
       </div>
     );
   }
@@ -68,6 +68,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+      <Navbar />
       {this.props.children}</div>
     )
   }
@@ -77,7 +78,7 @@ class App extends React.Component {
 ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
-      <IndexRoute component={SportsPage} />
+      <IndexRoute component={App} />
       <Route path="profile/" component={ProfilePage} />
       <Route path="sports/" component={SportsPage} />
       <Route path="team/" component={Team} />
