@@ -7,7 +7,7 @@ export default class LeftSidebar extends React.Component {
     <div className="col-md-2" id="left-sidebar">
       <div className= "panel panel-default side-profile">
         <div className="panel-body">
-          <img src="img/person.jpg" width="100%"></img>
+          <img src="../img/person.jpg" width="100%"></img>
           <h3><p className="text-center">Full Name</p></h3>
           <h4><p className="text-center">@Username</p></h4>
           <hr></hr>
