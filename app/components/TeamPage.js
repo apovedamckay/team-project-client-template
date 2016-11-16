@@ -4,9 +4,10 @@ import TeamSummary from './teamSummary';
 import TeamDescription from './teamDescription';
 import Roster from './roster';
 import TeamReview from "./teamReview";
-import {getTeamData} from '../server';
+import {getTeamData, postReview} from '../server';
 import Navbar from './navbar';
 import LeftSidebar from './LeftSidebar';
+import ReviewWriter from './reviewWriter';
 
 
 export default class TeamPage extends React.Component {
@@ -35,7 +36,15 @@ export default class TeamPage extends React.Component {
     });
   }
 
+  onPost(postContents) {
+    postReview(postContents, 1, (teamReturn) => {
+      this.setState(teamReturn);
+      this.refresh();
+    });
+  }
+
 render() {
+    console.log(this.state);
     var summary = null;
     var description = null;
     var roster = null;
@@ -44,7 +53,6 @@ render() {
         description = <TeamDescription data={this.state}/>;
         roster = <Roster data={this.state}/>;
     }
-
     return (
       <div>
         <Navbar/>
@@ -63,6 +71,7 @@ render() {
                 })
               }
               <h4>Write a Review:</h4>
+              <ReviewWriter onPost={(postContents) => this.onPost(postContents)}/>
             </div>
         {roster}
     </div>
