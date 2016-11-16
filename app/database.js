@@ -7,102 +7,223 @@ var startupName = "MatchUp";
 // Put your mock objects here, as in Workshop 4
 var initialData = {
 
-  "users" : {
-    "1":{"_id": 1,"first_name":"Dennis", "last_name":"Myers","email":"dmyers0@moonfruit.com","referee":false},
-    "2":{"first_name":"Jean","last_name":"Webb","email":"jwebb1@creativecommons.org","referee":false},
-    "3":{"first_name":"Roger","last_name":"Hayes","email":"rhayes2@php.net","referee":true},
-    "4":{"first_name":"Ernest","last_name":"Brooks","email":"ebrooks3@shareasale.com","referee":true},
-    "5":{"first_name":"Virginia","last_name":"Shaw","email":"vshaw4@slate.com","referee":false},
-    "6":{"first_name":"Ryan","last_name":"Sanchez","email":"rsanchez5@vistaprint.com","referee":true},
-    "7":{"first_name":"Kimberly","last_name":"Tucker","email":"ktucker6@yahoo.com","referee":true},
-    "8":{"first_name":"Kathy","last_name":"Long","email":"klong7@ezinearticles.com","referee":true},
-    "9":{"first_name":"Katherine","last_name":"Jones","email":"kjones8@admin.ch","referee":true},
-    "10":{"first_name":"Teresa","last_name":"Hughes","email":"thughes9@ehow.com","referee":true},
-    "11":{"first_name":"Larry","last_name":"Fox","email":"lfoxa@nps.gov","referee":false},
-    "12":{"first_name":"Evelyn","last_name":"Hawkins","email":"ehawkinsb@theglobeandmail.com","referee":false}
+    "users": {
+        "1": {
+            "_id": 1,
+            "first_name": "Ilan",
+            "last_name": "Shenar",
+            "player_review": [],
+            "ref_review": [],
+            "email": "ISUCK@Everything.com",
+            "referee": false
+        },
+        "2": {
+          "_id": 2,
+            "first_name": "Jean",
+            "last_name": "Webb",
+            "player_review": [],
+            "ref_review": [],
+            "email": "jwebb1@creativecommons.org",
+            "referee": false
+        },
+        "3": {
+          "_id": 3,
+            "first_name": "Roger",
+            "last_name": "Hayes",
+            "player_review": [],
+            "ref_review": [],
+            "email": "rhayes2@php.net",
+            "referee": true
+        },
+        "4": {
+          "_id": 4,
+            "first_name": "Ernest",
+            "last_name": "Brooks",
+            "player_review": [],
+            "ref_review": [],
+            "email": "ebrooks3@shareasale.com",
+            "referee": true
+        },
+        "5": {
+          "_id": 5,
+            "first_name": "Virginia",
+            "last_name": "Shaw",
+            "player_review": [],
+            "ref_review": [],
+            "email": "vshaw4@slate.com",
+            "referee": false
+        },
+        "6": {
+          "_id": 6,
+            "first_name": "Ryan",
+            "last_name": "Sanchez",
+            "player_review": [],
+            "ref_review": [],
+            "email": "rsanchez5@vistaprint.com",
+            "referee": true
+        },
+        "7": {
+          "_id": 7,
+            "first_name": "Kimberly",
+            "last_name": "Tucker",
+            "player_review": [],
+            "ref_review": [],
+            "email": "ktucker6@yahoo.com",
+            "referee": true
+        },
+        "8": {
+          "_id": 8,
+            "first_name": "Kathy",
+            "last_name": "Long",
+            "player_review": [],
+            "ref_review": [],
+            "email": "klong7@ezinearticles.com",
+            "referee": true
+        },
+        "9": {
+          "_id": 9,
+            "first_name": "Katherine",
+            "last_name": "Jones",
+            "player_review": [],
+            "ref_review": [],
+            "email": "kjones8@admin.ch",
+            "referee": true
+        },
+        "10": {
+          "_id": 10,
+            "first_name": "Teresa",
+            "last_name": "Hughes",
+            "player_review": [],
+            "ref_review": [],
+            "email": "thughes9@ehow.com",
+            "referee": true
+        },
+        "11": {
+          "_id": 11,
+            "first_name": "Larry",
+            "last_name": "Fox",
+            "player_review": [],
+            "ref_review": [],
+            "email": "lfoxa@nps.gov",
+            "referee": false
+        },
+        "12": {
+          "_id": 12,
+            "first_name": "Evelyn",
+            "last_name": "Hawkins",
+            "player_review": [],
+            "ref_review": [],
+            "email": "ehawkinsb@theglobeandmail.com",
+            "referee": false
+        }
 
-  },
+    },
 
-  "teams" : {
-    "1": {
-      "summary": {
-        "teamName": "Team Awesome",
-        "stars": [1,2,3,4],
-        "location": "Amherst, MA",
-        "record": "51 wins, 22 losses"
-      },
-      "description": "We are the best team in the entire world",
-      "reviews": [
-        {
+    "teams": {
+        "1": {
           "_id": 1,
-          "stars": [1,2],
-          "text": "This is not the best team in the world. They are liars."
+            "summary": {
+                "teamName": "Team Awesome",
+                "stars": [
+                    1, 2, 3, 4
+                ],
+                "location": "Amherst, MA",
+                "record": "51 wins, 22 losses"
+            },
+            "description": "We are the best team in the entire world",
+            "reviews": [
+                {
+                    "_id": 1,
+                    "stars": [
+                        1, 2
+                    ],
+                    "text": "This is not the best team in the world. They are liars."
+                }
+            ],
+            "list": ["Max Galat"]
+        },
+
+        "2": {
+          "_id": 2,
+            "summary": {
+                "name": "Team Dope",
+                "stars": [
+                    1, 2
+                ],
+                "location": "Needham, MA",
+                "record": "5 wins, 2 losses"
+            },
+            "description": "We are just people having fun",
+            "reviews": [
+                {
+                  "_id": 1,
+                    "stars": [
+                        1, 2
+                    ],
+                    "text": "Respectful team."
+                }
+            ]
+        },
+
+        "3": {
+          "_id": 3,
+            "summary": {
+                "name": "Team Fun",
+                "stars": [1],
+                "location": "Redding, MA",
+                "record": "1 wins, 2 losses"
+            },
+            "description": "We are a very solid team",
+            "reviews": [
+                {
+                  "_id": 1,
+                    "stars": [1],
+                    "text": "Bad sportsmanship."
+                },
+                {
+                  "_id": 2,
+                    "stars": [1,2],
+                    "text": "Average sportsmanship."
+                }
+            ]
         }
-      ],
-      "list": ["Max Galat"]
     },
 
-    "2": {
-      "summary": {
-        "name": "Team Dope",
-        "stars": [1,2],
-        "location": "Needham, MA",
-        "record": "5 wins, 2 losses"
-      },
-      "description": "We are just people having fun",
-      "reviews": [
-        {
-          "stars": [1,2],
-          "text": "Respectful team."
+    "sports": {
+        "1": {
+          "_id": 1,
+            "name": "football"
+        },
+        "2": {
+          "_id": 2,
+            "name": "wiffle ball"
+        },
+        "3": {
+          "_id": 3,
+            "name": "tennis"
+        },
+        "4": {
+          "_id": 4,
+            "name": "basketball"
+        },
+        "5": {
+          "_id": 5,
+            "name": "volleyball"
+        },
+        "6": {
+          "_id": 6,
+            "name": "soccer"
+        },
+        "7": {
+          "_id": 7,
+            "name": "lacrosse"
         }
-      ]
-    },
-
-    "3": {
-      "summary": {
-        "name": "Team Fun",
-        "stars": [1],
-        "location": "Redding, MA",
-        "record": "1 wins, 2 losses"
-      },
-      "description": "We are a very solid team",
-      "reviews": [
-        {
-          "stars": [1],
-          "text": "Bad sportsmanship."
-        }
-      ]
     }
-  },
-
-  "sports" : {
-    "1": {
-      "name": "football"
-    },
-    "2": {
-      "name": "wiffle ball"
-    },
-    "3": {
-      "name": "tennis"
-    },
-    "4": {
-      "name": "basketball"
-    },
-    "5": {
-      "name": "volleyball"
-    },
-    "6": {
-      "name": "soccer"
-    },
-    "7": {
-      "name": "lacrosse"
-    }
-  }
 };
 
 var data = JSON.parse(localStorage.getItem(startupName));
 if (data === null) {
-  data = JSONClone(initialData);
+    data = JSONClone(initialData);
 }
 
 /**
@@ -110,7 +231,7 @@ if (data === null) {
 * deserializes it.
 */
 function JSONClone(obj) {
-  return JSON.parse(JSON.stringify(obj));
+    return JSON.parse(JSON.stringify(obj));
 }
 
 /**
@@ -119,60 +240,58 @@ function JSONClone(obj) {
 * half of the course. :)
 */
 export function readDocument(collection, id) {
-  // Clone the data. We do this to model a database, where you receive a
-  // *copy* of an object and not the object itself.
-  return JSONClone(data[collection][id]);
+    // Clone the data. We do this to model a database, where you receive a
+    // *copy* of an object and not the object itself.
+    return JSONClone(data[collection][id]);
 }
 
 /**
 * Emulates writing a "document" to a NoSQL database.
 */
 export function writeDocument(collection, changedDocument) {
-  var id = changedDocument._id;
-  // Store a copy of the object into the database. Models a database's behavior.
-  data[collection][id] = JSONClone(changedDocument);
-  // Update our 'database'.
-  localStorage.setItem(startupName, JSON.stringify(data));
+    var id = changedDocument._id;
+    // Store a copy of the object into the database. Models a database's behavior.
+    data[collection][id] = JSONClone(changedDocument);
+    // Update our 'database'.
+    localStorage.setItem(startupName, JSON.stringify(data));
 }
 
 /**
 * Adds a new document to the NoSQL database.
 */
 export function addDocument(collectionName, newDoc) {
-  var collection = data[collectionName];
-  var nextId = Object.keys(collection).length;
-  while (collection[nextId]) {
-    nextId++;
-  }
-  newDoc._id = nextId;
-  writeDocument(collectionName, newDoc);
-  return newDoc;
+    var collection = data[collectionName];
+    var nextId = Object.keys(collection).length;
+    while (collection[nextId]) {
+        nextId++;
+    }
+    newDoc._id = nextId;
+    writeDocument(collectionName, newDoc);
+    return newDoc;
 }
 
 /**
 * Reset our browser-local database.
 */
 export function resetDatabase() {
-  localStorage.setItem(startupName, JSON.stringify(initialData));
-  data = JSONClone(initialData);
+    localStorage.setItem(startupName, JSON.stringify(initialData));
+    data = JSONClone(initialData);
 }
 
 /**
 * Reset database button.
 */
 class ResetDatabase extends React.Component {
-  render() {
-    return (
-      <button className="btn btn-default" type="button" onClick={() => {
-        resetDatabase();
-        window.alert("Database reset! Refreshing the page now...");
-        document.location.reload(false);
-      }}>Reset Mock DB</button>
-    );
-  }
+    render() {
+        return (
+            <button className="btn btn-default" type="button" onClick={() => {
+                resetDatabase();
+                window.alert("Database reset! Refreshing the page now...");
+                document.location.reload(false);
+            }}>Reset Mock DB</button>
+        );
+    }
 }
 
 ReactDOM.render(
-  <ResetDatabase />,
-  document.getElementById('db-reset')
-);
+    <ResetDatabase/>, document.getElementById('db-reset'));

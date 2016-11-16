@@ -24,7 +24,6 @@ export default class TeamPage extends React.Component {
       list:[]
     };
   }
-
   componentDidMount() {
     this.refresh();
   }

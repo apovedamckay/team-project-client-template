@@ -4,19 +4,21 @@ import PlayerSummary from './teamSummary';
 import TeamList from './teamList';
 import Schedule from './pageSchedule';
 
-
 export default class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      contents: []
+      first_name: "Ilan",
+      last_name: "Shenar",
+      email: "ishenar@umass.edu",
+      referee: false
     };
   }
 
 render() {
+  if(this.state.referee === true){
   return (
-    <Schedule />
-    /*<div>
+    <div>
       <PlayerSummary data={this.state.summary}/>
       <PlayerDescription data={this.state}/>
       {this.state.contents.map((review) => {
@@ -25,8 +27,26 @@ render() {
         )
       })
     }
-    <TeamList data={this.state.list}/>
-    </div>*/
+    <Schedule data={this.state.schedule}/>
+  </div>
     )
   }
+
+  if(this.state.referee === false){
+  return (
+     <div>
+      <PlayerSummary data={this.state.summary}/>
+      <PlayerDescription data={this.state}/>
+      {this.state.contents.map((review) => {
+      return (
+          <Review key={review._id} data={review} />
+        )
+      })
+    }
+    <Schedule data={this.state.schedule}/>
+    <TeamList data={this.state.list}/>
+  </div>
+    )
+  }
+}
 }

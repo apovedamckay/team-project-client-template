@@ -14,3 +14,16 @@ export function getTeamData(id, cb) {
     var teamData = readDocument('teams', id);
     emulateServerReturn(teamData, cb);
 }
+
+export function getUserData(user, cb){
+	var userData = readDocument('users', user);
+	emulateServerReturn(userData, cb);
+}
+
+export function getSportData(id, cb){
+	var sportsArray = [];
+	for(var i = 1; i < 8; i++){
+		sportsArray[i-1] = readDocument("sports", i);
+	}
+	emulateServerReturn({sports: sportsArray}, cb);
+}
