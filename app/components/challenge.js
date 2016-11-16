@@ -4,10 +4,10 @@ export default class Challenge extends React.Component {
     constructor(props) {
       super(props)
       this.state = {
-        isFancyWindowOpen: false,
-        challenger: "",
-        challengedate: "",
-        challengetime: ""
+        isFancyWindowOpen: false//,
+        //challenger: "",
+      //  challengedate: "",
+      //  challengetime: ""
       }
     }
     render() {
@@ -15,8 +15,8 @@ export default class Challenge extends React.Component {
         <div>
           <button onClick={() => this.openFancyWindow()}>Challenge Us!</button>
           <FancyWindow isOpen={this.state.isFancyWindowOpen} onClose={() => this.closeFancyWindow()}>
-            <h1>Work in Progress!</h1>
-            <form onSubmit={this.handleSubmit}>
+            <h1>Challenge Sent!</h1>
+            /*<form onSubmit={this.handleSubmit}>
               Team:
               <input type="text" value={this.state.challenger} onChange={this.handleChange} />
               <br></br>Date:
@@ -24,7 +24,7 @@ export default class Challenge extends React.Component {
               <br></br>Time:
               <input type="text" value={this.state.challengetime} onChange={this.handleChange} />
               <input type="submit" value="Submit" />
-            </form>
+            </form>*/
             <p><button onClick={() => this.closeFancyWindow()}>Close</button></p>
           </FancyWindow>
         </div>
