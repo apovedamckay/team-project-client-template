@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import TeamPage from './components/teamPage';
 import Navbar from './components/navbar';
 import LeftSidebar from './components/LeftSidebar';
-import Profile from './components/profile';
+import Challenge from './components/challenge';
 import { IndexRoute, Router, Route, browserHistory } from 'react-router';
 
 
@@ -11,7 +11,9 @@ class SportsPage extends React.Component {
   render() {
     return (
       <div><LeftSidebar/>
+      <Navbar/>
       <p>This is the sports page!</p>
+      <Challenge/>
       </div>
     );
   }
@@ -63,7 +65,7 @@ class Team extends React.Component {
 class App extends React.Component {
   render() {
     return (
-      <div><Navbar/>
+      <div>
       {this.props.children}</div>
     )
   }
@@ -73,7 +75,7 @@ class App extends React.Component {
 ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
-      <IndexRoute component={App} />
+      <IndexRoute component={SportsPage} />
       <Route path="profile/:id" component={ProfilePage} />
       <Route path="sports/" component={SportsPage} />
       <Route path="team/" component={Team} />
