@@ -35,4 +35,3 @@ export default class SportsList extends React.Component {
     )
 	}
 }
-    
