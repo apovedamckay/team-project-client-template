@@ -16,7 +16,7 @@ export default class Profile extends React.Component {
   }
 
 render() {
-  if(this.state.referee === false){
+  if(this.state.referee === true){
   return (
     <div>
       <PlayerSummary data={this.state.summary}/>
@@ -32,7 +32,7 @@ render() {
     )
   }
 
-  if(this.state.referee === true){
+  if(this.state.referee === false){
   return (
      <div>
       <PlayerSummary data={this.state.summary}/>
