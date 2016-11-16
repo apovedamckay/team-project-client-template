@@ -15,17 +15,8 @@ export default class Profile extends React.Component {
     };
   }
 
-  checkReferee(){
-    var refCheck = true;
-    if(this.state.referee === false){
-      refCheck = false;
-    }
-    return refCheck;
-  }
-
 render() {
-
-  if(this.checkReferee() === true){
+  if(this.state.referee === false){
   return (
     <div>
       <PlayerSummary data={this.state.summary}/>
@@ -41,7 +32,7 @@ render() {
     )
   }
 
-  if(this.checkReferee() === false){
+  if(this.state.referee === true){
   return (
      <div>
       <PlayerSummary data={this.state.summary}/>
