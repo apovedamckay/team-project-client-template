@@ -6,12 +6,11 @@ export default class TeamSummary extends React.Component {
   constructor(props) {
     super(props);
     this.state = props.data;
+    console.log(props.data);
   }
 
   render() {
     return (
-        <div className="col-md-7">
-            <h1>{this.state.teamName}</h1>
             <div className="panel panel-default">
                 <div className="panel-body">
                     <div className="col-md-2">
@@ -35,7 +34,6 @@ export default class TeamSummary extends React.Component {
                     </div>
                 </div>
             </div>
-          </div>
         )
       }
 }

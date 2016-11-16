@@ -13,7 +13,7 @@ export default class TeamDescription extends React.Component {
           <div className="panel-body">
               <div className="row">
                   <div className="col-md-12">
-                      {this.state.summary.description}
+                      {this.state.description}
                   </div>
               </div>
           </div>

@@ -14,7 +14,6 @@ class SportsPage extends React.Component {
       <div>
         <Navbar/>
         <LeftSidebar/>
-        <Link to={"/team/"}>Team</Link>
         <p>This is the sports page!</p>
       </div>
     );
@@ -59,7 +58,11 @@ class RefereePage extends React.Component {
 
 class Team extends React.Component {
   render() {
-    return <TeamPage team={1} />
+    return(
+      <div>
+      <TeamPage team={1} />
+      </div>
+    )
   }
 }
 
