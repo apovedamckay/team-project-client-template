@@ -1,5 +1,4 @@
 import React from 'react';
-import Review from './pageReviews';
 import UserSummary from './UserSummary';
 import TeamList from './teamList';
 import Schedule from './pageSchedule';
