@@ -8,10 +8,7 @@ export default class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      first_name: "Ilan",
-      last_name: "Shenar",
-      email: "ishenar@umass.edu",
-      referee: false
+      users: []
     };
   }
 

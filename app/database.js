@@ -193,7 +193,7 @@ var initialData = {
         "1": {
           "_id": 1,
             "name": "Football",
-            "img": '../img/football.png'
+            "img": '../img/football.jpg'
         },
         "2": {
           "_id": 2,
@@ -213,7 +213,7 @@ var initialData = {
         "5": {
           "_id": 5,
             "name": "Volleyball",
-            "img": '../img/volley.png'
+            "img": '../img/volley.jpg'
         },
         "6": {
           "_id": 6,
