@@ -12,9 +12,9 @@ export default class Roster extends React.Component {
       <div className="col-md-2 right-sidebar">
           <ul className="nav nav-pills nav-stacked">
               <li role="presentation">Team Members</li>
-              {this.state.members.map((team) => {
+              {this.state.list.map((member) => {
                 return (
-                      <li role="presentation"><a href="#">{team.name}</a></li>
+                      <li role="presentation"><a href="#">{member}</a></li>
                     )
                   })
                 }

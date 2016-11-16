@@ -8,25 +8,25 @@ var startupName = "MatchUp";
 var initialData = {
 
   "users" : {
-    "1":{"_id": 1,"first_name":"Dennis", "last_name":"Myers","email":"dmyers0@moonfruit.com","referee":false},
-    "2":{"first_name":"Jean","last_name":"Webb","email":"jwebb1@creativecommons.org","referee":false},
-    "3":{"first_name":"Roger","last_name":"Hayes","email":"rhayes2@php.net","referee":true},
-    "4":{"first_name":"Ernest","last_name":"Brooks","email":"ebrooks3@shareasale.com","referee":true},
-    "5":{"first_name":"Virginia","last_name":"Shaw","email":"vshaw4@slate.com","referee":false},
-    "6":{"first_name":"Ryan","last_name":"Sanchez","email":"rsanchez5@vistaprint.com","referee":true},
-    "7":{"first_name":"Kimberly","last_name":"Tucker","email":"ktucker6@yahoo.com","referee":true},
-    "8":{"first_name":"Kathy","last_name":"Long","email":"klong7@ezinearticles.com","referee":true},
-    "9":{"first_name":"Katherine","last_name":"Jones","email":"kjones8@admin.ch","referee":true},
-    "10":{"first_name":"Teresa","last_name":"Hughes","email":"thughes9@ehow.com","referee":true},
-    "11":{"first_name":"Larry","last_name":"Fox","email":"lfoxa@nps.gov","referee":false},
-    "12":{"first_name":"Evelyn","last_name":"Hawkins","email":"ehawkinsb@theglobeandmail.com","referee":false}
+    "1":{"_id": 1,"first_name":"Dennis", "last_name":"Myers", "player_review":[], "ref_review":[], "email":"dmyers0@moonfruit.com","referee":false},
+    "2":{"first_name":"Jean","last_name":"Webb","player_review":[], "ref_review":[], "email":"jwebb1@creativecommons.org","referee":false},
+    "3":{"first_name":"Roger","last_name":"Hayes","player_review":[], "ref_review":[],"email":"rhayes2@php.net","referee":true},
+    "4":{"first_name":"Ernest","last_name":"Brooks","player_review":[], "ref_review":[],"email":"ebrooks3@shareasale.com","referee":true},
+    "5":{"first_name":"Virginia","last_name":"Shaw","player_review":[], "ref_review":[],"email":"vshaw4@slate.com","referee":false},
+    "6":{"first_name":"Ryan","last_name":"Sanchez","player_review":[], "ref_review":[],"email":"rsanchez5@vistaprint.com","referee":true},
+    "7":{"first_name":"Kimberly","last_name":"Tucker","player_review":[], "ref_review":[],"email":"ktucker6@yahoo.com","referee":true},
+    "8":{"first_name":"Kathy","last_name":"Long","player_review":[], "ref_review":[],"email":"klong7@ezinearticles.com","referee":true},
+    "9":{"first_name":"Katherine","last_name":"Jones","player_review":[], "ref_review":[],"email":"kjones8@admin.ch","referee":true},
+    "10":{"first_name":"Teresa","last_name":"Hughes","player_review":[], "ref_review":[],"email":"thughes9@ehow.com","referee":true},
+    "11":{"first_name":"Larry","last_name":"Fox","player_review":[], "ref_review":[],"email":"lfoxa@nps.gov","referee":false},
+    "12":{"first_name":"Evelyn","last_name":"Hawkins","player_review":[], "ref_review":[],"email":"ehawkinsb@theglobeandmail.com","referee":false}
 
   },
 
   "teams" : {
     "1": {
       "summary": {
-        "name": "Team Awesome",
+        "teamName": "Team Awesome",
         "stars": [1,2,3,4],
         "location": "Amherst, MA",
         "record": "51 wins, 22 losses"
@@ -34,10 +34,12 @@ var initialData = {
       "description": "We are the best team in the entire world",
       "reviews": [
         {
+          "_id": 1,
           "stars": [1,2],
           "text": "This is not the best team in the world. They are liars."
         }
-      ]
+      ],
+      "list": ["Max Galat"]
     },
 
     "2": {

@@ -3,17 +3,19 @@ import ReactDOM from 'react-dom';
 import TeamPage from './components/teamPage';
 import Navbar from './components/navbar';
 import LeftSidebar from './components/LeftSidebar';
-import Challenge from './components/challenge';
-import { IndexRoute, Router, Route, browserHistory } from 'react-router';
+import Profile from './components/profile';
+import { IndexRoute, Router, Route, browserHistory, Link } from 'react-router';
+import Schedule from './components/pageSchedule';
 
 
 class SportsPage extends React.Component {
   render() {
     return (
-      <div><LeftSidebar/>
-      <Navbar/>
-      <p>This is the sports page!</p>
-      <Challenge/>
+      <div>
+        <Navbar/>
+        <LeftSidebar/>
+        <Link to={"/team/"}>Team</Link>
+        <p>This is the sports page!</p>
       </div>
     );
   }
