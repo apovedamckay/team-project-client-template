@@ -133,7 +133,6 @@ var initialData = {
             "description": "We are the best team in the entire world",
             "reviews": [
                 {
-                    "_id": 1,
                     "stars": [
                         1, 2
                     ],

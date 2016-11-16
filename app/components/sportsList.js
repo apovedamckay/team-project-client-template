@@ -24,7 +24,6 @@ export default class SportsList extends React.Component {
 		return (
       <div className="col-md-10">
       <h1>SportsList</h1>
-      {console.log(this.state)}
         {this.state.sports.map((sport, i) => {
               return(
                <SportsBox key={i} img={sport.img} name={sport.name} data={sport}/>

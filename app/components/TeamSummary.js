@@ -6,7 +6,6 @@ export default class TeamSummary extends React.Component {
   constructor(props) {
     super(props);
     this.state = props.data;
-    console.log(props.data);
   }
 
   render() {
