@@ -59,7 +59,11 @@ class RefereePage extends React.Component {
 
 class Team extends React.Component {
   render() {
-    return <TeamPage team={1} />
+    return(
+      <div>
+      <TeamPage team={1} />
+      </div>
+    )
   }
 }
 
