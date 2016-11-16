@@ -24,8 +24,7 @@ class SportsPage extends React.Component {
 class ProfilePage extends React.Component {
   render() {
     return (
-      <p>This is the profile page for a user
-        with ID {this.props.params.id}.</p>
+        <Profile user={1}/>
         //<Profile user = {this.props.params.id} />
     );
   }
@@ -82,7 +81,7 @@ class App extends React.Component {
 ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
-      <IndexRoute component={SportsPage} />
+      <IndexRoute component={ProfilePage} />
       <Route path="profile/:id" component={ProfilePage} />
       <Route path="sports/" component={SportsPage} />
       <Route path="team/" component={Team} />

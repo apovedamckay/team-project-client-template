@@ -1,3 +1,15 @@
+.fb-status-update-entry textarea {
+  resize: none;
+  box-shadow: none !important;
+  border: none;
+}
+
+.fb-status-update-entry .media {
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+  margin-bottom: 10px;
+  padding-top: 5px;
+}
 
 .navbar-toggle {
     z-index:3;

@@ -1,8 +1,9 @@
 import React from 'react';
 import Review from './pageReviews';
-import PlayerSummary from './teamSummary';
+import UserSummary from './UserSummary';
 import TeamList from './teamList';
 import Schedule from './pageSchedule';
+import {getUserData} from '../server';
 
 export default class Profile extends React.Component {
   constructor(props) {
@@ -12,7 +13,29 @@ export default class Profile extends React.Component {
     };
   }
 
+
+  refresh() {
+    getUserData(this.props.user, (userData) => {
+         this.setState(userData);
+    });
+}
+
+  componentDidMount() {
+    this.refresh();
+  }
+
+
 render() {
+  return(
+    <div>
+    <h2>Profile</h2>
+    {console.log(this.state)}
+    <UserSummary data={this.state}/>
+    </div>
+
+
+  )
+  /*
   if(this.state.referee === true){
   return (
     <div>
@@ -44,6 +67,6 @@ render() {
     <TeamList data={this.state.list}/>
   </div>
     )
-  }
+  }*/
 }
 }

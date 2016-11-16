@@ -1,4 +1,4 @@
-import {readDocument, writeDocument, addDocument} from './database.js';
+import {readDocument , writeDocument, addDocument} from './database.js';
 
 /**
  * Emulates how a REST call is *asynchronous* -- it calls your function back
@@ -8,6 +8,23 @@ function emulateServerReturn(data, cb) {
   setTimeout(() => {
     cb(data);
   }, 4);
+}
+
+
+export function postReview(contents, teamNumber, cb) {
+  var team = readDocument('teams', teamNumber);
+
+  team.reviews.push({
+    "stars": [
+        1, 2
+    ],
+    "text": contents
+  });
+
+  writeDocument('teams', team);
+  // Return a resolved version of the feed item so React can
+  // render it.
+  emulateServerReturn(team, cb);
 }
 
 export function getTeamData(id, cb) {
