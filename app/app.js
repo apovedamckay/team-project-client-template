@@ -78,8 +78,6 @@ class App extends React.Component {
 ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
-      <IndexRoute component={App} />
-      <Route path="profile/" component={ProfilePage} />
       <IndexRoute component={SportsPage} />
       <Route path="profile/:id" component={ProfilePage} />
       <Route path="sports/" component={SportsPage} />

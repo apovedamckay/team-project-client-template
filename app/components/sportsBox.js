@@ -1,9 +1,16 @@
 import React from 'react';
 
 export default class SportsBox extends React.Component {
+	constructor(props) {
+	super(props);
+	this.state = props.data;
+	}
+	
 	render() {
 		return (
 			<ul>
+			<div className="col-md-2">
+			</div>
 			<div className="col-md-8">
 				<div className= "panel panel-default">
                   <div className="panel-body">
