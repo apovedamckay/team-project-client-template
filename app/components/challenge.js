@@ -12,11 +12,31 @@ export default class Challenge extends React.Component {
           <button onClick={() => this.openFancyWindow()}>Challenge Us!</button>
           <FancyWindow isOpen={this.state.isFancyWindowOpen} onClose={() => this.closeFancyWindow()}>
             <h1>Work in Progress!</h1>
+            <form onSubmit={this.handleSubmit}>
+              Team:
+              <input type="text" value={this.state.challenger} onChange={this.handleChange} />
+              Date:
+              <input type="text" value={this.state.challengedate} onChange={this.handleChange} />
+              Time:
+              <input type="text" value={this.state.challengetime} onChange={this.handleChange} />
+              <input type="submit" value="Submit" />
+            </form>
             <p><button onClick={() => this.closeFancyWindow()}>Close</button></p>
           </FancyWindow>
         </div>
       )
     }
+
+    handleChange(event) {
+    this.setState({value: event.target.value});
+    console.log(this.state);
+  }
+
+  handleSubmit(event) {
+    alert('A name was submitted: ' + this.state.value);
+    event.preventDefault();
+  }
+
 
     openFancyWindow() {
       this.setState({ isFancyWindowOpen: true })
