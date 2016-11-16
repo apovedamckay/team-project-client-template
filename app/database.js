@@ -192,31 +192,38 @@ var initialData = {
     "sports": {
         "1": {
           "_id": 1,
-            "name": "football"
+            "name": "Football",
+            "img": '../img/football.png'
         },
         "2": {
           "_id": 2,
-            "name": "wiffle ball"
+            "name": "Wiffle Ball",
+            "img": '../img/wiffle.jpg'
         },
         "3": {
           "_id": 3,
-            "name": "tennis"
+            "name": "Tennis",
+            "img": '../img/tennis.jpg'
         },
         "4": {
           "_id": 4,
-            "name": "basketball"
+            "name": "Basketball",
+            "img": '../img/Basketball.png'
         },
         "5": {
           "_id": 5,
-            "name": "volleyball"
+            "name": "Volleyball",
+            "img": '../img/volley.png'
         },
         "6": {
           "_id": 6,
-            "name": "soccer"
+            "name": "Soccer",
+            "img": '../img/ball-large.png'
         },
         "7": {
           "_id": 7,
-            "name": "lacrosse"
+            "name": "Lacrosse",
+            "img": '../img/lax.png'
         }
     }
 };
