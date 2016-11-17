@@ -13,6 +13,7 @@ var initialData = {
             "first_name": "Ilan",
             "last_name": "Shenar",
             "username": "Sp0rtsG0d420",
+            "profile_picture": "img/person.jpg",
             "player_review": [
                 {
                     "stars": [ 1, 2, 3, 4 ],
@@ -212,7 +213,8 @@ var initialData = {
         "1": {
           "_id": 1,
             "name": "Football",
-            "img": '../img/football.jpg'
+            "img": '../img/football.jpg',
+            "gameSizes": ["2v2", "3v3"]
         },
         "2": {
           "_id": 2,

@@ -27,6 +27,17 @@ export function postReview(contents, teamNumber, cb) {
   emulateServerReturn(team, cb);
 }
 
+export function postProPic(img, userID, cb) {
+  var user = readDocument('users', userID);
+
+  user.profile_picture.push(img);
+
+  writeDocument('users', user);
+  // Return a resolved version of the feed item so React can
+  // render it.
+  emulateServerReturn(user, cb);
+}
+
 export function getTeamData(id, cb) {
     var teamData = readDocument('teams', id);
     emulateServerReturn(teamData, cb);

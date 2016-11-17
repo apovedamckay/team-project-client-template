@@ -7,7 +7,11 @@ export default class UserSummary extends React.Component {
 	this.state = props.data;
 	}
 
-  render(){
+  render()
+
+
+
+  {
    return (
     <div className="col-md-3">
       <div className="panel panel-default">
@@ -17,7 +21,6 @@ export default class UserSummary extends React.Component {
           <h2><p className="text-center">{this.state.first_name} {this.state.last_name}</p></h2>
           <h5><p className="text-center">@{this.state.username}</p></h5>
           <h6><p className="text-center">{this.state.email}</p></h6>
-
         </div>
       </div>
       <div className="panel panel-default">
