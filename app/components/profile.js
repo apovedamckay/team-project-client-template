@@ -8,6 +8,7 @@ export default class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+       show: null, 
       users: []
     };
   }
@@ -15,6 +16,7 @@ export default class Profile extends React.Component {
 
   refresh() {
     getUserData(this.props.user, (userData) => {
+         this.state.show = true;
          this.setState(userData);
     });
 }
@@ -25,11 +27,14 @@ export default class Profile extends React.Component {
 
 
 render() {
+  var summary = null;
+  if(this.state.show){
+    summary = <UserSummary data={this.state}/>
+  }
   return(
     <div>
-    <h2>Profile</h2>
     {console.log(this.state)}
-    <UserSummary data={this.state}/>
+    {summary}
     </div>
 
 

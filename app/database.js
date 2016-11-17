@@ -12,10 +12,12 @@ var initialData = {
             "_id": 1,
             "first_name": "Ilan",
             "last_name": "Shenar",
+            "username": "Sp0rtsG0d420",
             "player_review": [],
             "ref_review": [],
-            "email": "ISUCK@Everything.com",
-            "referee": false
+            "email": "coolguy@google.com",
+            "referee": false,
+            "summary": "just a guy looking to ball"
         },
         "2": {
           "_id": 2,
