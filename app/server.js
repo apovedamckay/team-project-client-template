@@ -41,6 +41,15 @@ export function postReview(contents, teamNumber, cb) {
       emulateServerReturn(team, cb);
     }
 
+export function getTeamArray(id, cb) {
+    var teamArray = [];
+    for(var i = 1; i < 4; i++){
+      teamArray[i-1] = readDocument('teams', i);
+    }
+    emulateServerReturn({teams: teamArray}, cb);
+}
+
+
 export function getTeamData(id, cb) {
     var teamData = readDocument('teams', id);
     emulateServerReturn(teamData, cb);

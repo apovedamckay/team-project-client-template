@@ -5,7 +5,7 @@ export default class SportsBox extends React.Component {
 	super(props);
 	this.state = props.data;
 	}
-	
+
 	render() {
 		return (
 			<ul>
@@ -47,6 +47,6 @@ export default class SportsBox extends React.Component {
       </div>
       </div>
       </ul>
-		);	
+		);
 	}
 }
