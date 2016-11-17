@@ -157,7 +157,13 @@ var initialData = {
                     "text": "This is not the best team in the world. They are liars."
                 }
             ],
-            "list": ["Max Galat"]
+            "list": ["Max Galat"],
+            "Challenges": [
+              {
+                "_id": 1,
+                "Challenger": "Team Dope"
+              }
+            ]
         },
 
         "2": {
@@ -179,6 +185,13 @@ var initialData = {
                     ],
                     "text": "Respectful team."
                 }
+            ],
+            "list": [],
+            "Challenges": [
+              {
+                "_id": 1,
+                "Challenger": "Team Awesome"
+              }
             ]
         },
 
@@ -202,7 +215,9 @@ var initialData = {
                     "stars": [1,2],
                     "text": "Average sportsmanship."
                 }
-            ]
+            ],
+            "list": [],
+            "Challenges": []
         }
     },
 
