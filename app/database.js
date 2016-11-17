@@ -12,19 +12,37 @@ var initialData = {
             "_id": 1,
             "first_name": "Ilan",
             "last_name": "Shenar",
-            "player_review": [],
+            "username": "Sp0rtsG0d420",
+            "player_review": [
+                {
+                    "stars": [
+                        1, 2
+                    ],
+                    "text": "Respectful guy."
+                }
+            ],
             "ref_review": [],
-            "email": "ISUCK@Everything.com",
-            "referee": false
+            "email": "coolguy@google.com",
+            "referee": true,
+            "player": true,
+            "stars": [1,2,3,4,5,6,7,8,9,10],
+            "location": "The Gym",
+            "summary": "just a guy looking to ball",
+            "teamList": ["Team Awesome", "Dem Boyz"]
         },
         "2": {
           "_id": 2,
             "first_name": "Jean",
             "last_name": "Webb",
+            "username:": "mreasyclean5",
+            "stars": [1,2,3,4,5,6,7,8,9,10],
+            "location": "The Gym",
             "player_review": [],
             "ref_review": [],
             "email": "jwebb1@creativecommons.org",
-            "referee": false
+            "referee": false,
+            "summary": "just a guy looking to ball",
+            "teamList": ["Team Awesome", "Dem Boyz"]
         },
         "3": {
           "_id": 3,
@@ -133,7 +151,6 @@ var initialData = {
             "description": "We are the best team in the entire world",
             "reviews": [
                 {
-                    "_id": 1,
                     "stars": [
                         1, 2
                     ],
@@ -193,7 +210,7 @@ var initialData = {
         "1": {
           "_id": 1,
             "name": "Football",
-            "img": '../img/football.png'
+            "img": '../img/football.jpg'
         },
         "2": {
           "_id": 2,
@@ -213,7 +230,7 @@ var initialData = {
         "5": {
           "_id": 5,
             "name": "Volleyball",
-            "img": '../img/volley.png'
+            "img": '../img/volley.jpg'
         },
         "6": {
           "_id": 6,

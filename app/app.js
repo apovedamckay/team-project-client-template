@@ -5,15 +5,15 @@ import Navbar from './components/navbar';
 import LeftSidebar from './components/LeftSidebar';
 import Profile from './components/profile';
 import { IndexRoute, Router, Route, browserHistory, Link } from 'react-router';
-import Schedule from './components/pageSchedule';
-import SportsBox from './components/sportsBox';
 import SportsList from './components/sportsList';
+import LogOut from './components/LogOut';
 
 
 class SportsPage extends React.Component {
   render() {
     return (
       <div>
+      <Navbar />
         <LeftSidebar/>
         <SportsList />
       </div>
@@ -21,21 +21,22 @@ class SportsPage extends React.Component {
   }
 }
 
-class ProfilePage extends React.Component {
+class LogoutPage extends React.Component {
   render() {
     return (
-      <p>This is the profile page for a user
-        with ID {this.props.params.id}.</p>
-        //<Profile user = {this.props.params.id} />
+    <LogOut />
     );
   }
 }
 
-class SchedulePage extends React.Component {
+class ProfilePage extends React.Component {
   render() {
     return (
-      <p>This is the Schedule page!</p>
-    );
+    <div>
+    <Navbar />
+        <Profile user = {1} />
+        </div>
+        );
   }
 }
 
@@ -61,6 +62,7 @@ class Team extends React.Component {
   render() {
     return(
       <div>
+      <Navbar />
       <TeamPage team={1} />
       </div>
     )
@@ -72,7 +74,6 @@ class App extends React.Component {
   render() {
     return (
       <div>
-      <Navbar />
       {this.props.children}</div>
     )
   }
@@ -82,13 +83,13 @@ class App extends React.Component {
 ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
-      <IndexRoute component={SportsPage} />
+      <IndexRoute component={ProfilePage} />
       <Route path="profile/:id" component={ProfilePage} />
       <Route path="sports/" component={SportsPage} />
       <Route path="team/" component={Team} />
       <Route path="referee/" component={RefereePage} />
-      <Route path="schedule/" component={SchedulePage} />
       <Route path="search/" component={SearchTeamPage} />
+      <Route path="logout/" component={LogoutPage} />
     </Route>
   </Router>
 ),document.getElementById('main-feed'));

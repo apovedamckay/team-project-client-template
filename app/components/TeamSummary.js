@@ -6,7 +6,6 @@ export default class TeamSummary extends React.Component {
   constructor(props) {
     super(props);
     this.state = props.data;
-    console.log(props.data);
   }
 
   render() {
@@ -30,7 +29,7 @@ export default class TeamSummary extends React.Component {
                     <div className="col-md-2">
                     </div>
                     <div className="col-md-3">
-                      {this.state.reccord}
+                      {this.state.record}
                     </div>
                 </div>
             </div>

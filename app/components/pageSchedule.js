@@ -1,11 +1,13 @@
 import React from 'react';
+import Time from 'react-time';
 
 
 export default class Schedule extends React.Component {
 
   render(){
+      var now = new Date();
    return (
-    <div className="col-md-10">
+    <div className="col-md-12">
       <div className= "panel panel-default">
         <div className="panel-body">
           <div className="month">
@@ -13,8 +15,8 @@ export default class Schedule extends React.Component {
             <li className="prev">&#10094;</li>
             <li className="next">&#10095;</li>
             <li>
-             <p className="text-center">October <br></br>
-              <span style="font-size:18px">2016</span>
+             <p className="text-center">   <Time value={now} format="YYYY/MM/DD"/> <br></br> </p>
+             <p className="text-center">   <Time value={now} format="HH:mm"/> <br></br>
              </p>
             </li>
            </ul>
