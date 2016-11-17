@@ -39,9 +39,9 @@ var initialData = {
             "username:": "mreasyclean5",
             "player_review": [
               {
-            "text": "did not like playing with him"
-            "stars": [1,2],
-          }
+                "stars": [1,2],
+                "text": "did not like playing with him"
+              }
         ],
             "location": "The Gym",
             "ref_review": [],
@@ -56,9 +56,9 @@ var initialData = {
           "username:": "goodguytim",
           "player_review": [
             {
-          "text": "great guy"
-          "stars": [1,2,3,4],
-        }
+              "stars": [1,2,3,4],
+              "text": "great guy"
+            }
       ],
           "location": "Ilan Shenars Backyard",
           "ref_review": [],
@@ -74,15 +74,15 @@ var initialData = {
             "username:": "CoolRef",
             "player_review": [
               {
-            "text": "great guy"
-            "stars": [1,2,3,4],
-          }
+                "stars": [1,2,3,4],
+                "text": "great guy"
+              }
         ],
             "location": "The PokeCenter",
             "ref_review": [
               {
-            "text": "great ref"
-            "stars": [1,2,3,4,5],
+                "stars": [1,2,3,4,5],
+                "text": "great ref"
           }],
             "email": "ernest@brooks.org",
             "referee": true,
@@ -96,9 +96,9 @@ var initialData = {
             "username:": "vshaw",
             "player_review": [
               {
-            "text": "nice girl"
-            "stars": [1,2,3],
-          }
+                "stars": [1,2,3],
+                "text": "nice girl"
+              }
         ],
             "location": "Needham, MA",
             "email": "vshaw@hotmail.com",
@@ -113,9 +113,9 @@ var initialData = {
             "username:": "TheDirtySanchez",
             "player_review": [
               {
-            "text": "He butt fumbles a lot"
-            "stars": [1],
-          }
+                "stars": [1],
+                "text": "He butt fumbles a lot"
+              }
         ],
             "location": "Met Life Stadium",
             "email": "TheDirtySanchez@nesn.org",
@@ -130,15 +130,15 @@ var initialData = {
             "username:": "KimTuck",
             "player_review": [
               {
-            "text": "What a player!"
-            "stars": [1,2,3,4,5],
-          }
+                "stars": [1,2,3,4,5],
+                "text": "What a player!"
+              }
         ],
             "location": "The PokeCenter",
             "ref_review": [
               {
-            "text": "great ref"
-            "stars": [1,2,3,4,5],
+                "stars": [1,2,3,4,5],
+                "text": "great ref"
           }],
             "email": "kim@tuck.org",
             "referee": true,
@@ -152,8 +152,8 @@ var initialData = {
             "username:": "katLong",
             "player_review": [
               {
-            "text": "nice woman"
-            "stars": [1,2,3,4],
+            "text": "nice woman",
+            "stars": [1,2,3,4]
           }
         ],
             "location": "My Backyard",
@@ -182,8 +182,8 @@ var initialData = {
             "username:": "Teresa11111",
             "player_review": [
               {
-            "text": "What a player!"
-            "stars": [1,2,3,4,5],
+            "text": "What a player!",
+            "stars": [1,2,3,4,5]
           }
         ],
             "location": "Golds Gym",
