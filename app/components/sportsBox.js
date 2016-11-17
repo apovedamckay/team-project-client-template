@@ -21,26 +21,10 @@ export default class SportsBox extends React.Component {
               <img src={this.state.img} width="100%"></img>
             </div>
             <div className="col-md-2">
-              <a href="searchteampage.html"><h2><p className="text-center">1v1</p></h2></a>
-              <br></br>
-              <br></br>
-              <a href="searchteampage.html"><h2><p className="text-center">2v2</p></h2></a>
-              <br></br>
-              <br></br>
-            </div>
-              <div className="col-md-2">
-              <a href="searchteampage.html"><h2><p className="text-center">3v3</p></h2></a>
-              <br></br>
-              <br></br>
-              <a href="searchteampage.html"><h2><p className="text-center">4v4</p></h2></a>
-              <br></br>
-              <br></br>
-            </div>
-            <div className="col-md-2">
-              <a href="searchteampage.html">  <h2><p className="text-center">5v5</p></h2></a>
-                <br></br>
-                <br></br>
-              <a href="searchteampage.html">  <h2><p className="text-center">6v6</p></h2></a>
+            <br></br>
+                <button type="button" className="btn navbar-btn btn-default">
+					See Whos Playing {this.state.name}!
+				</button>
             </div>
           </div>
         </div>

@@ -6,7 +6,7 @@ export default class SportsList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sports: []
+     sports: []
     };
 }
 

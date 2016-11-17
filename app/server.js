@@ -27,6 +27,16 @@ export function postReview(contents, teamNumber, cb) {
   emulateServerReturn(team, cb);
 }
 
+export function postProPic(img, userID, cb) {
+  var user = readDocument('users', userID);
+
+  user.profile_picture.push(img);
+
+  writeDocument('users', user);
+  // Return a resolved version of the feed item so React can
+  // render it.
+  emulateServerReturn(user, cb);
+}
 
 
   export function submitChallenge(contents, teamNumber, cb) {
@@ -41,6 +51,7 @@ export function postReview(contents, teamNumber, cb) {
       emulateServerReturn(team, cb);
     }
 
+<<<<<<< HEAD
 export function getTeamArray(id, cb) {
     var teamArray = [];
     for(var i = 1; i < 4; i++){
@@ -49,6 +60,8 @@ export function getTeamArray(id, cb) {
     emulateServerReturn({teams: teamArray}, cb);
 }
 
+=======
+>>>>>>> 608f3e8ee728581c029bbcd716022ef510a465a4
 
 export function getTeamData(id, cb) {
     var teamData = readDocument('teams', id);
