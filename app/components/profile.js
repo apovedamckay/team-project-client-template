@@ -1,6 +1,5 @@
 import React from 'react';
 import UserSummary from './UserSummary';
-import TeamList from './teamList';
 import Schedule from './pageSchedule';
 import TeamSummary from './TeamSummary';
 import {getUserData} from '../server';
@@ -32,6 +31,7 @@ export default class Profile extends React.Component {
 render() {
   var summary = null;
   var feedSummary = null;
+
   if(this.state.show){
     summary = <UserSummary data={this.state}/>
     feedSummary = <TeamSummary data ={this.state} />
