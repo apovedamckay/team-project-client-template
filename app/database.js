@@ -278,46 +278,56 @@ var initialData = {
             "list": [],
             "Challenges": []
         }
-    },
+      },
 
-    "sports": {
-        "1": {
-          "_id": 1,
-            "name": "Football",
-            "img": '../img/football.jpg'
-        },
-        "2": {
-          "_id": 2,
-            "name": "Wiffle Ball",
-            "img": '../img/wiffle.jpg'
-        },
-        "3": {
-          "_id": 3,
-            "name": "Tennis",
-            "img": '../img/tennis.jpg'
-        },
-        "4": {
-          "_id": 4,
-            "name": "Basketball",
-            "img": '../img/Basketball.png'
-        },
-        "5": {
-          "_id": 5,
-            "name": "Volleyball",
-            "img": '../img/volley.jpg'
-        },
-        "6": {
-          "_id": 6,
-            "name": "Soccer",
-            "img": '../img/ball-large.png'
-        },
-        "7": {
-          "_id": 7,
-            "name": "Lacrosse",
-            "img": '../img/lax.png'
+        "sports": {
+            "1": {
+              "_id": 1,
+                "name": "Football",
+                "img": '../img/football.jpg',
+                "gameSize": ["2v2","3v3","4v4","5v5","6v6", "6+ Players"]
+            },
+            "2": {
+              "_id": 2,
+                "name": "Wiffle Ball",
+                "img": '../img/wiffle.jpg',
+                "gameSize": ["2v2","3v3","4v4","5v5","6v6", "6+ Players"]
+
+
+            },
+            "3": {
+              "_id": 3,
+                "name": "Tennis",
+                "img": '../img/tennis.jpg',
+                "gameSize":["1v1","2v2","2+ Players"]
+            },
+            "4": {
+              "_id": 4,
+                "name": "Basketball",
+                "img": '../img/Basketball.png',
+                "gameSize": ["1v1","2v2","3v3","4v4","5v5","5+ Players"]
+            },
+            "5": {
+              "_id": 5,
+                "name": "Volleyball",
+                "img": '../img/volley.jpg',
+                "gameSize": ["1v1","2v2","3v3","4v4","5v5","6v6", "6+ Players"]
+            },
+            "6": {
+              "_id": 6,
+                "name": "Soccer",
+                "img": '../img/ball-large.png',
+                "gameSize": ["2v2","3v3","4v4","5v5","6v6", "6+ Players"]
+            },
+            "7": {
+              "_id": 7,
+                "name": "Lacrosse",
+                "img": '../img/lax.png',
+                "gameSize": ["1v1","2v2","3v3","4v4","5v5","6v6", "6+ Players"]
+            }
         }
-    }
-};
+    };
+
 
 var data = JSON.parse(localStorage.getItem(startupName));
 if (data === null) {
