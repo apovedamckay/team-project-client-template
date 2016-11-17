@@ -2,8 +2,9 @@ import React from 'react';
 import UserSummary from './UserSummary';
 import Schedule from './pageSchedule';
 import TeamSummary from './TeamSummary';
-import {getUserData} from '../server';
+import {getUserData, postReview} from '../server';
 import TeamReview from "./teamReview";
+import ReviewWriter from './reviewWriter';
 
 
 export default class Profile extends React.Component {
@@ -15,6 +16,12 @@ export default class Profile extends React.Component {
     };
   }
 
+  onPost(postContents) {
+    postReview(postContents, 1, (teamReturn) => {
+      this.setState(teamReturn);
+      this.refresh();
+    });
+  }
 
   refresh() {
     getUserData(this.props.user, (userData) => {
@@ -50,6 +57,8 @@ render() {
                   )
                 })
               }
+              <h4>Write a Review:</h4>
+              <ReviewWriter onPost={(postContents) => this.onPost(postContents)}/>
     </div>
     </div>
 
