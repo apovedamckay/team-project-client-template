@@ -293,8 +293,6 @@ var initialData = {
                 "name": "Wiffle Ball",
                 "img": '../img/wiffle.jpg',
                 "gameSize": ["2v2","3v3","4v4","5v5","6v6", "6+ Players"]
-
-
             },
             "3": {
               "_id": 3,

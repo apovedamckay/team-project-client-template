@@ -7,6 +7,7 @@ import Profile from './components/profile';
 import { IndexRoute, Router, Route, browserHistory, Link } from 'react-router';
 import SportsList from './components/sportsList';
 import LogOut from './components/LogOut';
+import SearchTeam from './components/searchTeam';
 
 
 class SportsPage extends React.Component {
@@ -43,8 +44,10 @@ class ProfilePage extends React.Component {
 class SearchTeamPage extends React.Component {
   render() {
     return (
-     <div><LeftSidebar/>
-      <p>This is the search page!</p>
+     <div>
+    <Navbar />
+    <LeftSidebar/>
+     <SearchTeam />
      </div>
     );
   }
