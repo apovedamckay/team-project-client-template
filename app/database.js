@@ -15,17 +15,19 @@ var initialData = {
             "username": "Sp0rtsG0d420",
             "player_review": [
                 {
-                    "stars": [
-                        1, 2
-                    ],
+                    "stars": [ 1, 2, 3, 4 ],
                     "text": "Respectful guy."
+                },
+                {
+                    "stars": [1],
+                    "text": "Great sportsman"
                 }
             ],
             "ref_review": [],
             "email": "coolguy@google.com",
             "referee": true,
             "player": true,
-            "stars": [1,2,3,4,5,6,7,8,9,10],
+            "stars": [1,2,3,4],
             "location": "The Gym",
             "summary": "just a guy looking to ball",
             "teamList": ["Team Awesome", "Dem Boyz"]
@@ -35,104 +37,161 @@ var initialData = {
             "first_name": "Jean",
             "last_name": "Webb",
             "username:": "mreasyclean5",
-            "stars": [1,2,3,4,5,6,7,8,9,10],
+            "player_review": [
+              {
+            "text": "did not like playing with him"
+            "stars": [1,2],
+          }
+        ],
             "location": "The Gym",
-            "player_review": [],
             "ref_review": [],
             "email": "jwebb1@creativecommons.org",
             "referee": false,
-            "summary": "just a guy looking to ball",
-            "teamList": ["Team Awesome", "Dem Boyz"]
+            "summary": "just a cool gal looking to have some fun",
+            "teamList": ["Team Awesome"]
         },
         "3": {
-          "_id": 3,
-            "first_name": "Roger",
-            "last_name": "Hayes",
-            "player_review": [],
-            "ref_review": [],
-            "email": "rhayes2@php.net",
-            "referee": true
+          "first_name": "Tim",
+          "last_name": "Smith",
+          "username:": "goodguytim",
+          "player_review": [
+            {
+          "text": "great guy"
+          "stars": [1,2,3,4],
+        }
+      ],
+          "location": "Ilan Shenars Backyard",
+          "ref_review": [],
+          "email": "timothy@creativecommons.org",
+          "referee": false,
+          "summary": "just an under average dude",
+          "teamList": ["Team Awesome"]
         },
         "4": {
           "_id": 4,
             "first_name": "Ernest",
             "last_name": "Brooks",
-            "player_review": [],
-            "ref_review": [],
-            "email": "ebrooks3@shareasale.com",
-            "referee": true
+            "username:": "CoolRef",
+            "player_review": [
+              {
+            "text": "great guy"
+            "stars": [1,2,3,4],
+          }
+        ],
+            "location": "The PokeCenter",
+            "ref_review": [
+              {
+            "text": "great ref"
+            "stars": [1,2,3,4,5],
+          }],
+            "email": "ernest@brooks.org",
+            "referee": true,
+            "summary": "just like to ref and watch ",
+            "teamList": []
         },
         "5": {
           "_id": 5,
             "first_name": "Virginia",
             "last_name": "Shaw",
-            "player_review": [],
-            "ref_review": [],
-            "email": "vshaw4@slate.com",
-            "referee": false
+            "username:": "vshaw",
+            "player_review": [
+              {
+            "text": "nice girl"
+            "stars": [1,2,3],
+          }
+        ],
+            "location": "Needham, MA",
+            "email": "vshaw@hotmail.com",
+            "referee": false,
+            "summary": "just a girl trying to have fun",
+            "teamList": ["Team Awesome"]
         },
         "6": {
           "_id": 6,
-            "first_name": "Ryan",
+            "first_name": "Mark",
             "last_name": "Sanchez",
-            "player_review": [],
-            "ref_review": [],
-            "email": "rsanchez5@vistaprint.com",
-            "referee": true
+            "username:": "TheDirtySanchez",
+            "player_review": [
+              {
+            "text": "He butt fumbles a lot"
+            "stars": [1],
+          }
+        ],
+            "location": "Met Life Stadium",
+            "email": "TheDirtySanchez@nesn.org",
+            "referee": false,
+            "summary": "I like football",
+            "teamList": ["Team Dope"]
         },
         "7": {
           "_id": 7,
             "first_name": "Kimberly",
             "last_name": "Tucker",
-            "player_review": [],
-            "ref_review": [],
-            "email": "ktucker6@yahoo.com",
-            "referee": true
+            "username:": "KimTuck",
+            "player_review": [
+              {
+            "text": "What a player!"
+            "stars": [1,2,3,4,5],
+          }
+        ],
+            "location": "The PokeCenter",
+            "ref_review": [
+              {
+            "text": "great ref"
+            "stars": [1,2,3,4,5],
+          }],
+            "email": "kim@tuck.org",
+            "referee": true,
+            "summary": "just like to ref and play ",
+            "teamList": ["Team Dope"]
         },
         "8": {
           "_id": 8,
             "first_name": "Kathy",
             "last_name": "Long",
-            "player_review": [],
-            "ref_review": [],
-            "email": "klong7@ezinearticles.com",
-            "referee": true
+            "username:": "katLong",
+            "player_review": [
+              {
+            "text": "nice woman"
+            "stars": [1,2,3,4],
+          }
+        ],
+            "location": "My Backyard",
+            "email": "katlong@umass.edu",
+            "referee": false,
+            "summary": "I like soccer a lot",
+            "teamList": ["Team Dope"]
         },
         "9": {
           "_id": 9,
             "first_name": "Katherine",
             "last_name": "Jones",
-            "player_review": [],
-            "ref_review": [],
-            "email": "kjones8@admin.ch",
-            "referee": true
+            "username:": "KatJones",
+            "player_review": [
+        ],
+            "location": "Needham, MA",
+            "email": "KatJones@gmail.com",
+            "referee": false,
+            "summary": "Just starting out. Looking for a team",
+            "teamList": []
         },
         "10": {
           "_id": 10,
             "first_name": "Teresa",
             "last_name": "Hughes",
-            "player_review": [],
+            "username:": "Teresa11111",
+            "player_review": [
+              {
+            "text": "What a player!"
+            "stars": [1,2,3,4,5],
+          }
+        ],
+            "location": "Golds Gym",
             "ref_review": [],
-            "email": "thughes9@ehow.com",
-            "referee": true
-        },
-        "11": {
-          "_id": 11,
-            "first_name": "Larry",
-            "last_name": "Fox",
-            "player_review": [],
-            "ref_review": [],
-            "email": "lfoxa@nps.gov",
-            "referee": false
-        },
-        "12": {
-          "_id": 12,
-            "first_name": "Evelyn",
-            "last_name": "Hawkins",
-            "player_review": [],
-            "ref_review": [],
-            "email": "ehawkinsb@theglobeandmail.com",
-            "referee": false
+            "email": "teresa@hughes.org",
+            "referee": true,
+            "summary": "Just became a ref",
+            "teamList": ["Team Dope"]
         }
 
     },

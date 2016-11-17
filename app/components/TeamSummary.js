@@ -24,7 +24,7 @@ export default class TeamSummary extends React.Component {
                     <div className="col-md-2">
                     </div>
                     <div className="col-md-3">
-                        {this.state.location}
+                       Location: {this.state.location}
                     </div>
                     <div className="col-md-2">
                     </div>
