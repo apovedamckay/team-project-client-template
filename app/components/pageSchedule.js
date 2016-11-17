@@ -13,11 +13,10 @@ export default class Schedule extends React.Component {
           <div className="month">
            <ul>
             <li className="prev">&#10094;</li>
+              <p className="text-center">   <Time value={now} format="YYYY/MM/DD"/> <br></br> </p>
+              <p className="text-center">   <Time value={now} format="HH:mm"/> <br></br> </p>
             <li className="next">&#10095;</li>
             <li>
-             <p className="text-center">   <Time value={now} format="YYYY/MM/DD"/> <br></br> </p>
-             <p className="text-center">   <Time value={now} format="HH:mm"/> <br></br>
-             </p>
             </li>
            </ul>
           </div>

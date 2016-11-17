@@ -4,10 +4,12 @@ import TeamSummary from './teamSummary';
 import TeamDescription from './teamDescription';
 import Roster from './roster';
 import TeamReview from "./teamReview";
-import {getTeamData, postReview} from '../server';
+import {getTeamData, postReview, submitChallenge} from '../server';
 import Navbar from './navbar';
 import LeftSidebar from './LeftSidebar';
 import ReviewWriter from './reviewWriter';
+import TempChallenger from './tempChallenger';
+import TempChallengeSubmit from './tempChallengeSubmit';
 
 
 export default class TeamPage extends React.Component {
@@ -22,7 +24,8 @@ export default class TeamPage extends React.Component {
         record: ""
       },
       reviews: [],
-      list:[]
+      list:[],
+      Challenges: []
     };
   }
   componentDidMount() {
@@ -42,9 +45,14 @@ export default class TeamPage extends React.Component {
       this.refresh();
     });
   }
+  onChallenge(challengeContents) {
+    submitChallenge(challengeContents, 1, (teamReturn) => {
+      this.setState(teamReturn);
+      this.refresh();
+    });
+  }
 
 render() {
-    console.log(this.state);
     var summary = null;
     var description = null;
     var roster = null;
@@ -72,6 +80,15 @@ render() {
               }
               <h4>Write a Review:</h4>
               <ReviewWriter onPost={(postContents) => this.onPost(postContents)}/>
+              <h2>Active Challenges:</h2>
+              {this.state.Challenges.map((challenge, i) => {
+                return (
+                    <TempChallenger key={i} data={challenge} />
+                  )
+                })
+              }
+              <h4>Challenge Them!</h4>
+              <TempChallengeSubmit onChallenge={(challengeContents) => this.onChallenge(challengeContents)}/>
             </div>
         {roster}
     </div>

@@ -38,6 +38,20 @@ export function postProPic(img, userID, cb) {
   emulateServerReturn(user, cb);
 }
 
+
+  export function submitChallenge(contents, teamNumber, cb) {
+    var team = readDocument('teams', teamNumber);
+
+    team.Challenges.push({
+      "Challenger": contents
+    });
+      writeDocument('teams', team);
+      // Return a resolved version of the feed item so React can
+      // render it.
+      emulateServerReturn(team, cb);
+    }
+
+
 export function getTeamData(id, cb) {
     var teamData = readDocument('teams', id);
     emulateServerReturn(teamData, cb);
