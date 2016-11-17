@@ -23,7 +23,7 @@ export default class SportsBox extends React.Component {
             <div className="col-md-2">
             <br></br>
                 <button type="button" className="btn navbar-btn btn-default">
-					See Whos Playing {this.state.name}!
+					<h2>See Whos Playing {this.state.name}!</h2>
 				</button>
             </div>
           </div>
