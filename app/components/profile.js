@@ -11,7 +11,7 @@ export default class Profile extends React.Component {
     super(props);
     this.state = {
        show: null, 
-      users: []
+       player_review: []
     };
   }
 
@@ -44,6 +44,12 @@ render() {
     {console.log(this.state.player_review)}
     <Schedule />
     <h3>Reviews:</h3>
+       {this.state.player_review.map((review, i) => {
+          return (
+             <TeamReview key={i} data={review} />
+                  )
+                })
+              }
     </div>
     </div>
 

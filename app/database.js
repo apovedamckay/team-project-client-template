@@ -15,10 +15,12 @@ var initialData = {
             "username": "Sp0rtsG0d420",
             "player_review": [
                 {
-                    "stars": [
-                        1, 2
-                    ],
+                    "stars": [ 1, 2, 3, 4 ],
                     "text": "Respectful guy."
+                },
+                {
+                    "stars": [1],
+                    "text": "Great sportsman"
                 }
             ],
             "ref_review": [],
