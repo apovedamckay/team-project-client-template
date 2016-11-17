@@ -38,23 +38,18 @@ render() {
   }
   return(
     <div>
-    {console.log(this.state)}
     {summary}
     <div className="col-md-8">
     {feedSummary}
+    {console.log(this.state.player_review)}
+    <Schedule />
+    <h3>Reviews:</h3>
     </div>
     </div>
 
 
   )
-       /*{this.state.player_review.map((review, i) => {
-          return (
-              <TeamReview key={i} data={review} />
-                 )
-           })
-       }*/
 
-  
   /*
   if(this.state.referee === true){
   return (

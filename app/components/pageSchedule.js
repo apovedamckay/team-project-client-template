@@ -5,7 +5,7 @@ export default class Schedule extends React.Component {
 
   render(){
    return (
-    <div className="col-md-10">
+    <div className="col-md-12">
       <div className= "panel panel-default">
         <div className="panel-body">
           <div className="month">
@@ -14,7 +14,6 @@ export default class Schedule extends React.Component {
             <li className="next">&#10095;</li>
             <li>
              <p className="text-center">October <br></br>
-              <span style="font-size:18px">2016</span>
              </p>
             </li>
            </ul>
