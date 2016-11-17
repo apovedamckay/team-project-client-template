@@ -24,9 +24,8 @@ class SportsPage extends React.Component {
 class ProfilePage extends React.Component {
   render() {
     return (
-        <Profile user={1}/>
-        //<Profile user = {this.props.params.id} />
-    );
+        <Profile user = {1} />
+        );
   }
 }
 

@@ -34,10 +34,15 @@ var initialData = {
           "_id": 2,
             "first_name": "Jean",
             "last_name": "Webb",
+            "username:": "mreasyclean5",
+            "stars": [1,2,3,4,5,6,7,8,9,10],
+            "location": "The Gym",
             "player_review": [],
             "ref_review": [],
             "email": "jwebb1@creativecommons.org",
-            "referee": false
+            "referee": false,
+            "summary": "just a guy looking to ball",
+            "teamList": ["Team Awesome", "Dem Boyz"]
         },
         "3": {
           "_id": 3,
