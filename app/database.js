@@ -13,11 +13,22 @@ var initialData = {
             "first_name": "Ilan",
             "last_name": "Shenar",
             "username": "Sp0rtsG0d420",
-            "player_review": [],
+            "player_review": [
+                {
+                    "stars": [
+                        1, 2
+                    ],
+                    "text": "Respectful guy."
+                }
+            ],
             "ref_review": [],
             "email": "coolguy@google.com",
-            "referee": false,
-            "summary": "just a guy looking to ball"
+            "referee": true,
+            "player": true,
+            "stars": [1,2,3,4,5,6,7,8,9,10],
+            "location": "The Gym",
+            "summary": "just a guy looking to ball",
+            "teamList": ["Team Awesome", "Dem Boyz"]
         },
         "2": {
           "_id": 2,

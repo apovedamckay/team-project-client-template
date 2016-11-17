@@ -30,6 +30,18 @@ export default class UserSummary extends React.Component {
             </hr>
         </div>
       </div>
+      <div className="panel panel-default">
+        <div className="panel-body">
+          <div className="text-center">
+            <h3>Teams I'm On:</h3>
+          </div>
+            <hr>
+            {this.state.teamList.map(function(team){
+              return <li>{team}</li>
+            })}
+            </hr>
+        </div>
+      </div>
     </div>
    )
   }
