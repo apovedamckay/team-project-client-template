@@ -2,7 +2,6 @@ import React from 'react';
 //import Review from './pageReviews';
 import TeamSummary from './teamSummary';
 import TeamDescription from './teamDescription';
-import teamList from './teamList';
 import Roster from './roster';
 import TeamReview from "./teamReview";
 import {getTeamData, postReview, submitChallenge, postForumPost} from '../server';
@@ -75,7 +74,6 @@ render() {
       <div>
         <Navbar/>
         <LeftSidebar/>
-        <teamList/>
         <div className="container">
           <div className="row">
             <div className="col-md-7">

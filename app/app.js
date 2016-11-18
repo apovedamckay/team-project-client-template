@@ -8,7 +8,6 @@ import { IndexRoute, Router, Route, browserHistory, Link } from 'react-router';
 import SportsList from './components/sportsList';
 import LogOut from './components/LogOut';
 import SearchTeam from './components/searchTeam';
-import teamList from './components/teamList';
 
 
 class SportsPage extends React.Component {
@@ -68,7 +67,6 @@ class Team extends React.Component {
       <div>
       <Navbar />
       <TeamPage team={1} />
-      <teamList/>
       </div>
     )
   }
