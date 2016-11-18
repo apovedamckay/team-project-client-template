@@ -51,18 +51,6 @@ export function postProPic(img, userID, cb) {
       emulateServerReturn(team, cb);
     }
 
-<<<<<<< HEAD
-export function getTeamArray(id, cb) {
-    var teamArray = [];
-    for(var i = 1; i < 4; i++){
-      teamArray[i-1] = readDocument('teams', i);
-    }
-    emulateServerReturn({teams: teamArray}, cb);
-}
-
-=======
->>>>>>> 608f3e8ee728581c029bbcd716022ef510a465a4
-
 export function getTeamData(id, cb) {
     var teamData = readDocument('teams', id);
     emulateServerReturn(teamData, cb);
@@ -79,4 +67,14 @@ export function getSportData(id, cb){
 		sportsArray[i-1] = readDocument("sports", i);
 	}
 	emulateServerReturn({sports: sportsArray}, cb);
+}
+
+export function postForumPost(author, contents, teamNumber, cb) {
+  var team = readDocument('teams', teamNumber);
+  team.posts.push({
+    "author": author,
+    "text": contents
+  });
+  writeDocument('teams', team);
+  emulateServerReturn(team, cb);
 }
