@@ -223,6 +223,15 @@ var initialData = {
                 "_id": 1,
                 "Challenger": "Team Dope"
               }
+            ],
+            "posts": [
+                {
+                    "author": "Max Galat",
+                    "text": "I wish I had more team members..."
+                },{
+                  "author": "Max Galat",
+                  "text": "I feel so lonely T_T"
+                }
             ]
         },
 
@@ -252,7 +261,8 @@ var initialData = {
                 "_id": 1,
                 "Challenger": "Team Awesome"
               }
-            ]
+            ],
+            "posts": []
         },
 
         "3": {
@@ -277,7 +287,8 @@ var initialData = {
                 }
             ],
             "list": [],
-            "Challenges": []
+            "Challenges": [],
+            "posts": []
         }
       },
 
