@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router';
 
 
 export default class UserSummary extends React.Component {
@@ -37,10 +38,11 @@ export default class UserSummary extends React.Component {
         <div className="panel-body">
           <div className="text-center">
             <h3>Teams I'm On:</h3>
-          </div>
+                      </div>
             <hr>
+            {console.log(this.state.teamList)}
             {this.state.teamList.map(function(team){
-              return <li>{team}</li>
+              return <Link to={"/team/" + team._id}><li>{team.name}</li></Link>
             })}
             </hr>
         </div>

@@ -66,7 +66,7 @@ class Team extends React.Component {
     return(
       <div>
       <Navbar />
-      <TeamPage team={1} />
+      <TeamPage team={this.props.params.id} />
       </div>
     )
   }
@@ -89,7 +89,7 @@ ReactDOM.render((
       <IndexRoute component={ProfilePage} />
       <Route path="profile/:id" component={ProfilePage} />
       <Route path="sports/" component={SportsPage} />
-      <Route path="team/" component={Team} />
+      <Route path="team/:id" component={Team} />
       <Route path="referee/" component={RefereePage} />
       <Route path="search/" component={SearchTeamPage} />
       <Route path="logout/" component={LogoutPage} />

@@ -31,7 +31,11 @@ var initialData = {
             "stars": [1,2,3,4],
             "location": "The Gym",
             "summary": "just a guy looking to ball",
-            "teamList": ["Team Awesome", "Dem Boyz"]
+            "teamList": [
+            { 
+                "name": "Team Awesome",
+                "_id": 1
+            }]
         },
         "2": {
           "_id": 2,
@@ -52,6 +56,7 @@ var initialData = {
             "teamList": ["Team Awesome"]
         },
         "3": {
+          "_id": 3,
           "first_name": "Tim",
           "last_name": "Smith",
           "username:": "goodguytim",
@@ -66,7 +71,11 @@ var initialData = {
           "email": "timothy@creativecommons.org",
           "referee": false,
           "summary": "just an under average dude",
-          "teamList": ["Team Awesome"]
+          "teamList": [
+            { 
+                "name": "Team Awesome",
+                "_id": 1
+            }]
         },
         "4": {
           "_id": 4,

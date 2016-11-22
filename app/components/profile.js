@@ -12,13 +12,28 @@ export default class Profile extends React.Component {
     super(props);
     this.state = {
        show: null, 
-       player_review: []
+       first_name: "",
+       last_name: "",
+       username: "",
+       profile_picture: "",
+       player_review: [
+              {
+          stars: [],
+          text: ""
+              }
+            ],
+            ref_review: [],
+            email: "",
+            stars: [],
+            location: "",
+            summary: "",
+            teamList: []
     };
   }
 
   onPost(postContents) {
-    postReview(postContents, 1, (teamReturn) => {
-      this.setState(teamReturn);
+    postReview(postContents, 1, (reviewReturn) => {
+      this.setState(reviewReturn);
       this.refresh();
     });
   }
@@ -48,7 +63,6 @@ render() {
     {summary}
     <div className="col-md-8">
     {feedSummary}
-    {console.log(this.state.player_review)}
     <Schedule />
     <h3>Reviews:</h3>
        {this.state.player_review.map((review, i) => {
@@ -64,39 +78,5 @@ render() {
 
 
   )
-
-  /*
-  if(this.state.referee === true){
-  return (
-    <div>
-      <PlayerSummary data={this.state.summary}/>
-      <PlayerDescription data={this.state}/>
-      {this.state.contents.map((review) => {
-      return (
-          <Review key={review._id} data={review} />
-        )
-      })
-    }
-    <Schedule data={this.state.schedule}/>
-  </div>
-    )
-  }
-
-  if(this.state.referee === false){
-  return (
-     <div>
-      <PlayerSummary data={this.state.summary}/>
-      <PlayerDescription data={this.state}/>
-      {this.state.contents.map((review) => {
-      return (
-          <Review key={review._id} data={review} />
-        )
-      })
-    }
-    <Schedule data={this.state.schedule}/>
-    <TeamList data={this.state.list}/>
-  </div>
-    )
-  }*/
 }
 }
