@@ -7,7 +7,8 @@ import Profile from './components/profile';
 import { IndexRoute, Router, Route, browserHistory, Link } from 'react-router';
 import SportsList from './components/sportsList';
 import LogOut from './components/LogOut';
-import SearchTeam from './components/searchTeam';
+import BrowseTeam from './components/browseTeam';
+import WelcomePage from './components/welcomePage';
 
 
 class SportsPage extends React.Component {
@@ -17,6 +18,16 @@ class SportsPage extends React.Component {
       <Navbar />
         <LeftSidebar/>
         <SportsList />
+      </div>
+    );
+  }
+}
+
+class Welcome extends React.Component {
+  render() {
+    return (
+      <div>
+      <WelcomePage />
       </div>
     );
   }
@@ -35,19 +46,19 @@ class ProfilePage extends React.Component {
     return (
     <div>
     <Navbar />
-        <Profile user = {1} />
+        <Profile user = {this.props.params.id} />
         </div>
         );
   }
 }
 
-class SearchTeamPage extends React.Component {
+class BrowseTeamPage extends React.Component {
   render() {
     return (
      <div>
     <Navbar />
     <LeftSidebar/>
-     <SearchTeam />
+     <BrowseTeam />
      </div>
     );
   }
@@ -86,13 +97,14 @@ class App extends React.Component {
 ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
-      <IndexRoute component={ProfilePage} />
+      <IndexRoute component={Welcome} />
       <Route path="profile/:id" component={ProfilePage} />
       <Route path="sports/" component={SportsPage} />
       <Route path="team/:id" component={Team} />
       <Route path="referee/" component={RefereePage} />
-      <Route path="search/" component={SearchTeamPage} />
+      <Route path="browse/" component={BrowseTeamPage} />
       <Route path="logout/" component={LogoutPage} />
+      <Route path="Welcome/" component={Welcome} />
     </Route>
   </Router>
 ),document.getElementById('main-feed'));

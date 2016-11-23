@@ -61,6 +61,14 @@ export function getUserData(user, cb){
 	emulateServerReturn(userData, cb);
 }
 
+export function getTeamArray(id, cb){
+  var teamArray = [];
+  for(var i = 1; i < 4; i++){
+    teamArray[i-1] = readDocument('teams', i);
+  }
+  emulateServerReturn({teams: teamArray}, cb);
+}
+
 export function getSportData(id, cb){
 	var sportsArray = [];
 	for(var i = 1; i < 8; i++){

@@ -1,8 +1,8 @@
 import React from 'react';
 import {getTeamArray} from '../server';
-import {SearchTeamBox} from './searchTeamBox';
+import {BrowseTeamBox} from './browseTeamBox';
 
-export default class SearchTeam extends React.Component {
+export default class BrowseTeam extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,6 +13,7 @@ export default class SearchTeam extends React.Component {
 refresh() {
   getTeamArray(1, (teamData) => {
        this.setState(teamData);
+
   });
 }
 
@@ -21,12 +22,12 @@ componentDidMount() {
 }
 
 render() {
+  {console.log(this.state)}
   return (
     <div className="col-md-10">
-    {console.log(this.state.teams)}
       {this.state.teams.map((team, i) => {
             return(
-             <SearchTeamBox key={i} data={team}/>
+             <BrowseTeamBox key={i} data={team}/>
             );
          })
       }

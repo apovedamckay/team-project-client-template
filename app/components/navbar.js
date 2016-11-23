@@ -9,13 +9,12 @@ export default class Navbar extends React.Component {
         <div className="container">
         <form className="navbar-form navbar-left" role="search">
           <div className="input-group">
-            <input type="text" className="form-control" placeholder="Search MatchUp">
+            <input type="text" className="form-control" placeholder="Search MatchUp"></input>
             <span className="input-group-btn">
               <button type="submit" className="btn btn-default">
                 <span className="glyphicon glyphicon-search"></span>
               </button>
             </span>
-            </input>
           </div>
         </form>
         <Link to={"/sports/"}>
@@ -35,7 +34,7 @@ export default class Navbar extends React.Component {
             </button>
             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <li><Link to={"/profile/1"}><a className="dropdown-item">My Profile</a></Link></li>
-              <li><Link to={"/team/"}><a className="dropdown-item">Team 1</a></Link></li>
+              <li><Link to={"/team/1"}><a className="dropdown-item">Team 1</a></Link></li>
               <li><Link to={"/logout/"}><a className="dropdown-item">Log Out</a></Link></li>
             </div>
           </div>

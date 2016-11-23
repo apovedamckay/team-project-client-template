@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router';
 
 export default class SportsBox extends React.Component {
 	constructor(props) {
@@ -22,9 +23,11 @@ export default class SportsBox extends React.Component {
             </div>
             <div className="col-md-2">
             <br></br>
+            <Link to= {"/browse/"}>
                 <button type="button" className="btn navbar-btn btn-default">
 					<h2>See Whos Playing {this.state.name}!</h2>
 				</button>
+        </Link>
             </div>
           </div>
         </div>

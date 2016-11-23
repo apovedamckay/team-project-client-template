@@ -18,7 +18,6 @@ export default class UserSummary extends React.Component {
       <div className="panel panel-default">
         <div className="panel-body">
           <img src="img/person.jpg" width="100%"></img>
-          {console.log(this.state)}
           <h2><p className="text-center">{this.state.first_name} {this.state.last_name}</p></h2>
           <h5><p className="text-center">@{this.state.username}</p></h5>
           <h6><p className="text-center">{this.state.email}</p></h6>
@@ -29,9 +28,8 @@ export default class UserSummary extends React.Component {
           <div className="text-center">
             <h2>About Me</h2>
           </div>
-            <hr>
+            <hr></hr>
             {this.state.summary}
-            </hr>
         </div>
       </div>
       <div className="panel panel-default">
@@ -39,12 +37,10 @@ export default class UserSummary extends React.Component {
           <div className="text-center">
             <h3>Teams I'm On:</h3>
                       </div>
-            <hr>
-            {console.log(this.state.teamList)}
+            <hr></hr>
             {this.state.teamList.map(function(team){
               return <Link to={"/team/" + team._id}><li>{team.name}</li></Link>
             })}
-            </hr>
         </div>
       </div>
     </div>

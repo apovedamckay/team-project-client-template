@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router';
 
 
 export default class Roster extends React.Component {
@@ -14,7 +15,9 @@ export default class Roster extends React.Component {
               <li role="presentation">Team Members</li>
               {this.state.list.map((member) => {
                 return (
-                      <li role="presentation"><a href="#">{member}</a></li>
+                <Link to={"/profile/" + member._id}> 
+                      <li>{member.name}</li>
+                 </Link>
                     )
                   })
                 }

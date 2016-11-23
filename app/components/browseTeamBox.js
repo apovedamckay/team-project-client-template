@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export default class SearchTeamBox extends React.Component {
+export default class BrowseTeamBox extends React.Component {
   constructor(props) {
     super(props);
     this.state = props.data;

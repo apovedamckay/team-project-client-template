@@ -53,13 +53,18 @@ var initialData = {
             "email": "jwebb1@creativecommons.org",
             "referee": false,
             "summary": "just a cool gal looking to have some fun",
-            "teamList": ["Team Awesome"]
+          "teamList": [
+            { 
+                "name": "Team Awesome",
+                "_id": 1
+            }]
         },
         "3": {
           "_id": 3,
-          "first_name": "Tim",
-          "last_name": "Smith",
-          "username:": "goodguytim",
+          "first_name": "Max",
+          "last_name": "Galat",
+          "email": "g@u.com",
+          "username:": "goodguymax",
           "player_review": [
             {
               "stars": [1,2,3,4],
@@ -68,7 +73,6 @@ var initialData = {
       ],
           "location": "Ilan Shenars Backyard",
           "ref_review": [],
-          "email": "timothy@creativecommons.org",
           "referee": false,
           "summary": "just an under average dude",
           "teamList": [
@@ -97,7 +101,11 @@ var initialData = {
             "email": "ernest@brooks.org",
             "referee": true,
             "summary": "just like to ref and watch ",
-            "teamList": []
+          "teamList": [
+            { 
+                "name": "Team Awesome",
+                "_id": 1
+            }]
         },
         "5": {
           "_id": 5,
@@ -114,8 +122,11 @@ var initialData = {
             "email": "vshaw@hotmail.com",
             "referee": false,
             "summary": "just a girl trying to have fun",
-            "teamList": ["Team Awesome"]
-        },
+          "teamList": [
+            { 
+                "name": "Team Awesome",
+                "_id": 1
+            }]        },
         "6": {
           "_id": 6,
             "first_name": "Mark",
@@ -226,7 +237,24 @@ var initialData = {
                     "text": "This is not the best team in the world. They are liars."
                 }
             ],
-            "list": ["Max Galat"],
+            "list": [{
+                "name": "Max Galat",
+                "_id": 3
+            },
+            {
+                "name": "Ilan Shenar",
+                "_id": 1
+            },
+            {
+                "name": "Katherine Jones",
+                "_id": 9
+            },
+            {
+                "name": "Jean Webb",
+                "_id": 2
+            }
+
+            ],
             "Challenges": [
               {
                 "_id": 1,
