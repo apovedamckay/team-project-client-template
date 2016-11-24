@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router';
 
 
 export default class BrowseTeamBox extends React.Component {
@@ -12,8 +13,9 @@ export default class BrowseTeamBox extends React.Component {
 				<div className= "panel panel-default">
                   <div className="panel-body">
           <div className="row">
+          <Link to={"/team/" + this.state._id}>
             <h1><p className="text-center">{this.state.summary.teamName}</p></h1>
-            <hr></hr>
+            </Link>
           </div>
           </div>
           </div>

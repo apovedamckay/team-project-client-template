@@ -53,7 +53,7 @@ var initialData = {
             "email": "jwebb1@creativecommons.org",
             "referee": false,
             "summary": "just a cool gal looking to have some fun",
-          "teamList": [
+            "teamList": [
             { 
                 "name": "Team Awesome",
                 "_id": 1
@@ -275,7 +275,7 @@ var initialData = {
         "2": {
           "_id": 2,
             "summary": {
-                "name": "Team Dope",
+                "teamName": "Team Dope",
                 "stars": [
                     1, 2
                 ],
@@ -292,7 +292,24 @@ var initialData = {
                     "text": "Respectful team."
                 }
             ],
-            "list": [],
+            "list": [{
+                "name": "Max Galat",
+                "_id": 3
+            },
+            {
+                "name": "Ilan Shenar",
+                "_id": 1
+            },
+            {
+                "name": "Katherine Jones",
+                "_id": 9
+            },
+            {
+                "name": "Jean Webb",
+                "_id": 2
+            }
+
+            ],
             "Challenges": [
               {
                 "_id": 1,
@@ -305,7 +322,7 @@ var initialData = {
         "3": {
           "_id": 3,
             "summary": {
-                "name": "Team Fun",
+                "teamName": "Team Fun",
                 "stars": [1],
                 "location": "Redding, MA",
                 "record": "1 wins, 2 losses"
@@ -323,7 +340,24 @@ var initialData = {
                     "text": "Average sportsmanship."
                 }
             ],
-            "list": [],
+            "list": [{
+                "name": "Max Galat",
+                "_id": 3
+            },
+            {
+                "name": "Ilan Shenar",
+                "_id": 1
+            },
+            {
+                "name": "Katherine Jones",
+                "_id": 9
+            },
+            {
+                "name": "Jean Webb",
+                "_id": 2
+            }
+
+            ],
             "Challenges": [],
             "posts": []
         }

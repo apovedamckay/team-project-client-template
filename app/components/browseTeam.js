@@ -1,6 +1,6 @@
 import React from 'react';
 import {getTeamArray} from '../server';
-import {BrowseTeamBox} from './browseTeamBox';
+import BrowseTeamBox from './browseTeamBox';
 
 export default class BrowseTeam extends React.Component {
   constructor(props) {
@@ -22,7 +22,7 @@ componentDidMount() {
 }
 
 render() {
-  {console.log(this.state)}
+  {console.log(this.state.teams)}
   return (
     <div className="col-md-10">
       {this.state.teams.map((team, i) => {

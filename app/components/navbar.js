@@ -33,9 +33,9 @@ export default class Navbar extends React.Component {
               </a>
             </button>
             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <li><Link to={"/profile/1"}><a className="dropdown-item">My Profile</a></Link></li>
-              <li><Link to={"/team/1"}><a className="dropdown-item">Team 1</a></Link></li>
-              <li><Link to={"/logout/"}><a className="dropdown-item">Log Out</a></Link></li>
+              <li><Link to={"/profile/1"}>My Profile</Link></li>
+              <li><Link to={"/team/1"}>Team 1</Link></li>
+              <li><Link to={"/logout/"}>Log Out</Link></li>
             </div>
           </div>
         </ul>

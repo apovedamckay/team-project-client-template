@@ -17,7 +17,7 @@ export default class UserSummary extends React.Component {
     <div className="col-md-3">
       <div className="panel panel-default">
         <div className="panel-body">
-          <img src="img/person.jpg" width="100%"></img>
+          <img src="../img/person.jpg" width="100%"></img>
           <h2><p className="text-center">{this.state.first_name} {this.state.last_name}</p></h2>
           <h5><p className="text-center">@{this.state.username}</p></h5>
           <h6><p className="text-center">{this.state.email}</p></h6>
