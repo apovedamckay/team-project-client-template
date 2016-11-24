@@ -4,7 +4,7 @@ import TeamPage from './components/teamPage';
 import Navbar from './components/navbar';
 import LeftSidebar from './components/LeftSidebar';
 import Profile from './components/profile';
-import { IndexRoute, Router, Route, browserHistory, Link } from 'react-router';
+import { IndexRoute, Router, Route, hashHistory, Link } from 'react-router';
 import SportsList from './components/sportsList';
 import LogOut from './components/LogOut';
 import BrowseTeam from './components/browseTeam';
@@ -95,7 +95,7 @@ class App extends React.Component {
 
 
 ReactDOM.render((
-  <Router history={browserHistory}>
+  <Router history={hashHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Welcome} />
       <Route path="profile/:id" component={ProfilePage} />

@@ -22,7 +22,6 @@ componentDidMount() {
 }
 
 render() {
-  {console.log(this.state.teams)}
   return (
     <div className="col-md-10">
       {this.state.teams.map((team, i) => {
