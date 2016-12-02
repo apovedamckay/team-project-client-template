@@ -49,13 +49,13 @@ export default class TeamPage extends React.Component {
     });
   }
   onChallenge(challengeContents) {
-    submitChallenge(challengeContents, 1, (teamReturn) => {
+    submitChallenge(challengeContents, this.state._id, (teamReturn) => {
       this.setState(teamReturn);
       this.refresh();
     });
   }
   onForumPost(forumPostContents) {
-    postForumPost("Member of team", forumPostContents, 1, (teamReturn) => {
+    postForumPost("Member of team", forumPostContents, this.state_id, (teamReturn) => {
       this.setState(teamReturn);
       this.refresh();
     });
