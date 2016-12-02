@@ -2,7 +2,7 @@ import React from 'react';
 import UserSummary from './UserSummary';
 import Schedule from './pageSchedule';
 import TeamSummary from './TeamSummary';
-import {getUserData, postReview} from '../server';
+import {getUserData, postUserReview} from '../server';
 import TeamReview from "./teamReview";
 import ReviewWriter from './reviewWriter';
 
@@ -32,7 +32,7 @@ export default class Profile extends React.Component {
   }
 
   onPost(postContents) {
-    postReview(postContents, 1, (reviewReturn) => {
+    postUserReview(postContents, this.state._id, (reviewReturn) => {
       this.setState(reviewReturn);
       this.refresh();
     });

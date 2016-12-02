@@ -4,7 +4,7 @@ import TeamSummary from './teamSummary';
 import TeamDescription from './teamDescription';
 import Roster from './roster';
 import TeamReview from "./teamReview";
-import {getTeamData, postReview, submitChallenge, postForumPost} from '../server';
+import {getTeamData, postTeamReview, submitChallenge, postForumPost} from '../server';
 import Navbar from './navbar';
 import LeftSidebar from './LeftSidebar';
 import ReviewWriter from './reviewWriter';
@@ -43,7 +43,7 @@ export default class TeamPage extends React.Component {
   }
 
   onPost(postContents) {
-    postReview(postContents, 1, (teamReturn) => {
+    postTeamReview(postContents, this.state._id, (teamReturn) => {
       this.setState(teamReturn);
       this.refresh();
     });
@@ -111,7 +111,7 @@ render() {
     renderForum(){
       return (true)
       // The line below is the actual team check, but it was commented out
-        // for demonstration purposes
+      // for demonstration purposes
       // return ((this.state.list).includes("Ilan Shenar"))
       ? <span>  {this.state.posts.map((post, i) => {
         return (

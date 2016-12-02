@@ -35,7 +35,12 @@ var initialData = {
             { 
                 "name": "Team Awesome",
                 "_id": 1
-            }]
+            },
+            {
+                "name": "Team Fun",
+                "_id": 3
+            }
+            ]
         },
         "2": {
           "_id": 2,

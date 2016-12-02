@@ -11,7 +11,8 @@ function emulateServerReturn(data, cb) {
 }
 
 
-export function postReview(contents, teamNumber, cb) {
+
+export function postTeamReview(contents, teamNumber, cb) {
   var team = readDocument('teams', teamNumber);
 
   team.reviews.push({
@@ -25,6 +26,20 @@ export function postReview(contents, teamNumber, cb) {
   // Return a resolved version of the feed item so React can
   // render it.
   emulateServerReturn(team, cb);
+}
+
+export function postUserReview(contents, userID, cb) {
+  var user = readDocument('users', userID);
+
+  user.player_review.push({
+    "stars": [
+        1, 2
+    ],
+    "text": contents
+  });
+
+  writeDocument('users', user);
+  emulateServerReturn(user, cb);
 }
 
 export function postProPic(img, userID, cb) {
