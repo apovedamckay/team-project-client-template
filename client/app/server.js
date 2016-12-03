@@ -72,19 +72,13 @@ function sendXHR(verb, resource, body, cb) {
 }
 
 export function postTeamReview(contents, teamNumber, cb) {
-  var team = readDocument('teams', teamNumber);
-
-  team.reviews.push({
-    "stars": [
-        1, 2
-    ],
-    "text": contents
-  });
-
-  writeDocument('teams', team);
-  // Return a resolved version of the feed item so React can
-  // render it.
-  emulateServerReturn(team, cb);
+  sendXHR('POST', '/teamReview', {
+    contents: contents,
+    teamNumber: teamNumber
+  }, (xhr) => {
+    // Return the new status update.
+  cb(JSON.parse(xhr.responseText));
+});
 }
 
 export function postUserReview(contents, userID, cb) {
@@ -126,8 +120,10 @@ export function postProPic(img, userID, cb) {
     }
 
 export function getTeamData(id) {
-    var teamData = readDocument('teams', id);
-    return teamData;
+    sendXHR('GET', '/team/' + id, undefined, (xhr) => {
+      // Call the callback with the data.
+      cb(JSON.parse(xhr.responseText));
+    });
 }
 
 export function getUserData(user,cb){
