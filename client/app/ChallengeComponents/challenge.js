@@ -4,6 +4,7 @@ export default class Challenge extends React.Component {
     constructor(props) {
       super(props)
       this.state = {
+        teams: [],
         isChallengeWindowOpen: false,
         challenger: "",
         challengedatemonth: "",
@@ -20,7 +21,13 @@ export default class Challenge extends React.Component {
             <form onSubmit={this.handleSubmit}>
               Your Team:
               <select value={this.state.challenger} onChange={this.handleChallenger}>
-                <option value="challenger1"> challenger1 </option>
+                {this.state.teams.map((team) => {
+                  return (
+                        <option value={team}>{team.name}</option>
+                      )
+                    })
+                  }
+                //<option value="challenger1"> challenger1 </option>
               </select>
               <br></br>
               Select the Date:
