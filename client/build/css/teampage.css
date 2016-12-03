@@ -1,0 +1,10 @@
+.static-sidebar {
+  display: block;
+  padding-right: 250px;
+  padding-left: 40px;
+}
+
+.right-sidebar {
+  display: block;
+  padding-left: 50px;
+}

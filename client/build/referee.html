@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>MatchUp Homepage</title>
+
+  <!-- Bootstrap -->
+  <link href="css/nb.css" rel="stylesheet">
+
+  <!-- Custom CSS goes here -->
+</head>
+<body>
+  <!-- Custom HTML goes here -->
+
+  <nav class="navbar navbar-custom navbar-fixed-top">
+    <div class="container">
+
+      <form class="navbar-form navbar-left" role="search">
+        <div class="input-group">
+          <input type="text" class="form-control fb-search" placeholder="Search MatchUp">
+          <span class="input-group-btn">
+            <button type="submit" class="btn btn-default">
+              <span class="glyphicon glyphicon-search"></span>
+            </button>
+          </span>
+        </div>
+      </form>
+      <div class="btn-group" role="group">
+       <button type="button" class="btn navbar-btn buttonfun">
+         Sports
+       </button>
+     </div>
+
+     <div class="btn-group" role="group">
+       <button type="button" class="btn navbar-btn buttonfun navbar-center">
+         MatchUp
+       </button>
+     </div>
+
+
+     <ul class="navbar-form navbar-right">
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle buttonfun" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         <a href="#">
+          <span class="glyphicon glyphicon-user"></span>
+        </a>
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="profile.html">My Profile</a><br>
+            <a class="dropdown-item" href="teampage.html">Team 1</a><br>
+            <a class="dropdown-item" href="homepage.html">Log Out :(</a>
+      </div>
+    </div>
+  </ul>
+</div>
+</nav>
+
+<div class="col-md-3 static-sidebar">
+  <div class="panel panel-default side-profile">
+    <div class="panel-body">
+      <img src="img/person.jpg" width="100%">
+      <h3><p class="text-center">Full Name</p></h3>
+      <h4><p class="text-center">@Username</p></h4>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-8">
+  <!-- About me -->
+  <div class="panel panel-default side-profile">
+    <div class="panel-body text-center">
+      <h3>About Me</h3>
+      <hr>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac nunc volutpat, efficitur dolor ac, ultrices tellus. Nam libero sem, ullamcorper vitae tellus eu, bibendum posuere quam. Nullam eu ipsum erat. Pellentesque nunc diam, accumsan sed lorem a, semper dignissim mi. Phasellus aliquam, mi sit amet ullamcorper viverra, risus metus luctus nibh, ut dignissim risus diam ac nunc. Vestibulum vulputate tellus id sollicitudin ultricies. Fusce scelerisque lectus ut massa facilisis, eu eleifend enim molestie. Praesent consequat ac mi vitae feugiat. Sed vestibulum bibendum auctor. Quisque condimentum tincidunt ligula. Vivamus at tempus justo, quis lacinia metus. Phasellus tempus, nisi placerat scelerisque iaculis, nisl arcu tincidunt lorem, ultricies venenatis felis turpis vulputate purus. Integer rhoncus finibus elit eu ornare.</p>
+     </div>
+  </div>
+  <!-- Recently refereed games -->
+  <div class="panel panel-default">
+    <div class="panel-body text-center">
+      <h4>Recently Refereed games</h4>
+    </div>
+    <div class="panel-footer">
+      <div class="row">
+        <div class="col-md-12">
+          <h4>Basketball</h4>
+          The Timberwolves vs. some highschool kids
+          <br>
+          Somehwere, USA
+          <br>
+          8/1/1997
+        </div>
+      </div>
+      <div class="row">
+        <hr>
+        <div class="col-md-12">
+          <h4>Football</h4>
+          The Timberwolves vs. some other highschool kids
+          <br>
+          Elsewhere, USA
+          <br>
+          8/14/1998
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Area of Operation-->
+  <div class="panel panel-default">
+    <div class="panel-body text-center">
+      <h3>Area of Operation</h3>
+      <div class="btn-contact">
+        <button type="button" class="btn btn-primary btn-contact">Contact Me!</button>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <img src="img/Area.png" width="100%">
+    </div>
+  </div>
+  <!--Reviews-->
+  <div class="panel panel-default">
+    <div class="panel-body text-center">
+      <h4>Reviews</h4>
+    </div>
+    <div class="panel-footer">
+      <div class="row">
+        <div class="col-md-12">
+          Rating:
+          <span class="glyphicon glyphicon-star"></span>
+          <br>
+          I clearly saw the other team's coach slip him a 20$ to allow them to have a dog as one of their players.
+        </div>
+      </div>
+      <div class="row">
+        <hr>
+        <div class="col-md-12">
+          Rating:
+          <span class="glyphicon glyphicon-star"></span>
+          <span class="glyphicon glyphicon-star"></span>
+          <span class="glyphicon glyphicon-star"></span>
+          <span class="glyphicon glyphicon-star"></span>
+          <span class="glyphicon glyphicon-star"></span>
+          <br>
+          This guys is a completely unbiased judge, don't trust the other reviews from the animal-haters.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<!-- App code -->
+<script src="js/bundle.js"></script>
+</body>
+</html>
