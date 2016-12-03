@@ -1,14 +1,54 @@
 var database = require('./database.js')
-// Imports the express Node module.
 var express = require('express');
-// Creates an Express server.
+var writeDocument = database.writeDocument;
+var addDocument = database.addDocument;
+var readDocument = database.readDocument;
+var validate = require('express-jsonschema').validate;
+
+
 var app = express();
-// Defines what happens when it receives the `GET /` request
 app.use(express.static('../client/build'));
 
-/**
-* Translate JSON Schema Validation failures into error 400s.
-*/
+function getUserIdFromToken(authorizationLine) {
+  try {
+    // Cut off "Bearer " from the header value.
+    var token = authorizationLine.slice(7);
+    // Convert the base64 string to a UTF-8 string.
+    var regularString = new Buffer(token, 'base64').toString('utf8');
+    // Convert the UTF-8 string into a JavaScript object.
+    var tokenObj = JSON.parse(regularString);
+    var id = tokenObj['id'];
+    // Check that id is a number.
+    if (typeof id === 'number') {
+    return id;
+    } else {
+    // Not a number. Return -1, an invalid ID.
+    return -1;
+    }
+  } catch (e) {
+// Return an invalid ID.
+return -1;
+}
+}
+
+function getUserData(userid){
+	var user = readDocument('users', userid);
+	return user;
+}
+
+app.get('/user/:userid/profile', function(req, res) {
+  var userid = parseInt(req.params.userid, 10);
+  var fromUser = getUserIdFromToken(req.get('Authorization'));
+  if(fromUser === userid) {
+    // send response
+    res.status(201);
+    res.send(getUserData(userid));
+  } else {
+    res.status(401).end();
+  }
+});
+
+
 app.use(function(err, req, res, next) {
 if (err.name === 'JsonSchemaValidation') {
 // Set a bad request http response status
