@@ -144,12 +144,11 @@ export function getTeamArray(id, cb){
   emulateServerReturn({teams: teamArray}, cb);
 }
 
+
 export function getSportData(id, cb){
-	var sportsArray = [];
-	for(var i = 1; i < 8; i++){
-		sportsArray[i-1] = readDocument("sports", i);
-	}
-	emulateServerReturn({sports: sportsArray}, cb);
+  sendXHR('GET','/sport/', undefined,(xhr)=>{
+    cb(JSON.parse(xhr.responseText));
+  })
 }
 
 export function postForumPost(author, contents, teamNumber, cb) {

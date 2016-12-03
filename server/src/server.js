@@ -31,6 +31,7 @@ return -1;
 }
 }
 
+//get user data
 function getUserData(userid){
 	var user = readDocument('users', userid);
 	return user;
@@ -48,6 +49,19 @@ app.get('/user/:userid/profile', function(req, res) {
   }
 });
 
+//get sport data
+function getSportData(){
+	var sportsArray = [];
+	for(var i = 1; i < 8; i++){
+		sportsArray[i-1] = readDocument("sports", i);
+	}
+	return ({sports: sportsArray});
+}
+
+app.get('/sport/', function(req, res){
+  res.status(201);
+  res.send(getSportData())
+})
 
 app.use(function(err, req, res, next) {
 if (err.name === 'JsonSchemaValidation') {
