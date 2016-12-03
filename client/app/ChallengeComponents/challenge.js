@@ -5,10 +5,11 @@ export default class Challenge extends React.Component {
       super(props)
       this.state = {
         isChallengeWindowOpen: false,
-        value: ""
-        //challenger: "",
-      //  challengedate: "",
-      //  challengetime: ""
+        challenger: "",
+        challengedatemonth: "",
+        challengedate: "",
+        challengetimehours: "",
+        challengetimeclock: ""
       }
     }
     render() {
@@ -16,33 +17,120 @@ export default class Challenge extends React.Component {
         <div>
           <button onClick={() => this.openChallengeWindow()}>Challenge Us!</button>
           <ChallengeWindow isOpen={this.state.isChallengeWindowOpen} onClose={() => this.closeChallengeWindow()}>
-            <div className="form-group">
-              <textarea className="form-control" rows="1" placeholder="Enter Challenging Team Name..."
-                    value={this.state.value}
-                    onChange={(e) => this.handleChange(e)} />
-            </div>
-            /*<form onSubmit={this.handleSubmit}>
-              Team:
-              <input type="text" value={this.state.challenger} onChange={this.handleChange} />
-              <br></br>Date:
-              <input type="text" value={this.state.challengedate} onChange={this.handleChange} />
-              <br></br>Time:
-              <input type="text" value={this.state.challengetime} onChange={this.handleChange} />
-              <input type="submit" value="Submit" />
-            </form>*/
-            <p><button onClick={() => this.closeChallengeWindow()}>Submit</button></p>
+            <form onSubmit={this.handleSubmit}>
+              Your Team:
+              <select value={this.state.challenger} onChange={this.handleChallenger}>
+                <option value="challenger1"> challenger1 </option>
+              </select>
+              <br></br>
+              Select the Date:
+              <select value={this.state.challengedatemonth} onChange={this.handleDateMonth}>
+                <option value="1"> 1 </option>
+                <option value="2"> 2 </option>
+                <option value="3"> 3 </option>
+                <option value="4"> 4 </option>
+                <option value="5"> 5 </option>
+                <option value="6"> 6 </option>
+                <option value="7"> 7 </option>
+                <option value="8"> 8 </option>
+                <option value="9"> 9 </option>
+                <option value="10"> 10 </option>
+                <option value="11"> 11 </option>
+                <option value="12"> 12 </option>
+              </select>
+              <select value={this.state.challengedate} onChange={this.handleDate}>
+                <option value="1"> 1 </option>
+                <option value="2"> 2 </option>
+                <option value="3"> 3 </option>
+                <option value="4"> 4 </option>
+                <option value="5"> 5 </option>
+                <option value="6"> 6 </option>
+                <option value="7"> 7 </option>
+                <option value="8"> 8 </option>
+                <option value="9"> 9 </option>
+                <option value="10"> 10 </option>
+                <option value="11"> 11 </option>
+                <option value="12"> 12 </option>
+                <option value="13"> 13 </option>
+                <option value="14"> 14 </option>
+                <option value="15"> 15 </option>
+                <option value="16"> 16 </option>
+                <option value="17"> 17 </option>
+                <option value="18"> 18 </option>
+                <option value="19"> 19 </option>
+                <option value="20"> 20 </option>
+                <option value="21"> 21 </option>
+                <option value="22"> 22 </option>
+                <option value="23"> 23 </option>
+                <option value="24"> 24 </option>
+                <option value="25"> 25 </option>
+                <option value="26"> 26 </option>
+                <option value="27"> 27 </option>
+                <option value="28"> 28 </option>
+                <option value="29"> 29 </option>
+                <option value="30"> 30 </option>
+                <option value="31"> 31 </option>
+              </select>
+              <br></br>
+              Select the Time:
+              <select value={this.state.challengetimehours} onChange={this.handleTime}>
+                <option value="1"> 1 </option>
+                <option value="2"> 2 </option>
+                <option value="3"> 3 </option>
+                <option value="4"> 4 </option>
+                <option value="5"> 5 </option>
+                <option value="6"> 6 </option>
+                <option value="7"> 7 </option>
+                <option value="8"> 8 </option>
+                <option value="9"> 9 </option>
+                <option value="10"> 10 </option>
+                <option value="11"> 11 </option>
+                <option value="12"> 12 </option>
+              </select>
+              <select value={this.state.challengetimeclock} onChange={this.handleTimePeriod}>
+                <option value="AM"> AM </option>
+                <option value="PM"> PM </option>
+              </select>
+              <input type="submit" value="Challenge!" />
+            </form>
           </ChallengeWindow>
         </div>
       )
     }
 
-    handleChange(event) {
-      event.preventDefault();
-      this.setState({value: event.target.value});
+  handleChallenger(event) {
+    event.preventDefault();
+    this.setState({challenger: event.target.value});
+  }
+
+  handleDateMonth(event) {
+    event.preventDefault();
+    this.setState({challengedatemonth: event.target.value});
+  }
+
+  handleDate(event) {
+    event.preventDefault();
+    this.setState({challengedate: event.target.value});
+  }
+
+  handleTime(event) {
+    event.preventDefault();
+    this.setState({challengetimehours: event.target.value});
+  }
+  handleTimePeriod(event) {
+    event.preventDefault();
+    this.setState({challengetimeclock: event.target.value});
   }
 
   handleSubmit(event) {
-    alert('submitted challenge as' );
+    this.closeChallengeWindow();
+    alert('submitted challenge as Team ' + this.state.challenger + ' on ' + this.state.challengedatemonth + '/' + this.state.challengedate + ' at ' + this.state.challengetimehours + this.state.challengetimeclock);
+    this.setState ({
+      challenger: "",
+      challengedate: "",
+      challengetimehours: "",
+      challengetimeclock: ""
+    })
     event.preventDefault();
   }
 
