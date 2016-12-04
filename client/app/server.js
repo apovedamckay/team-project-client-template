@@ -146,11 +146,12 @@ export function getSportData(id, cb){
 }
 
 export function postForumPost(author, contents, teamNumber, cb) {
-  var team = readDocument('teams', teamNumber);
-  team.posts.push({
-    "author": author,
-    "text": contents
-  });
-  writeDocument('teams', team);
-  emulateServerReturn(team, cb);
+  sendXHR('POST', '/forumPost', {
+    author: author,
+    contents: contents,
+    teamNumber: teamNumber
+  }, (xhr) => {
+    // Return the new status update.
+  cb(JSON.parse(xhr.responseText));
+});
 }
