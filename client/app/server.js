@@ -132,12 +132,11 @@ export function getUserData(user,cb){
   })
 }
 
+
 export function getTeamArray(id, cb){
-  var teamArray = [];
-  for(var i = 1; i < 4; i++){
-    teamArray[i-1] = readDocument('teams', i);
-  }
-  emulateServerReturn({teams: teamArray}, cb);
+  sendXHR('GET','/team/', undefined,(xhr)=>{
+    cb(JSON.parse(xhr.responseText));
+  })
 }
 
 

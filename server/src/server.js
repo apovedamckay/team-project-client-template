@@ -70,6 +70,19 @@ app.get('/team/:teamid', function(req, res){
   res.send(teamData);
 });
 
+function getTeamArray(){
+  var teamArray = [];
+  for(var i = 1; i < 4; i++){
+    teamArray[i-1] = readDocument('teams', i);
+  }
+  return ({teams: teamArray});
+}
+
+app.get ('/team/', function(req, res){
+  res.status(201);
+  res.send(getTeamArray())
+})
+
 
 function postTeamReview(contents, teamNumber) {
       var team = readDocument('teams', teamNumber);
@@ -86,6 +99,7 @@ function postTeamReview(contents, teamNumber) {
       // render it.
       return team ;
   }
+  
   app.post('/teamReview',
     validate({ body: TeamReviewSchema }), function(req, res) {
 
