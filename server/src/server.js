@@ -133,10 +133,10 @@ function postForumPost(author, contents, teamNumber) {
         "text": contents
       });
       writeDocument('teams', team);
-      return team ;
+      return team;
   }
 
-  app.post('/teamReview',
+  app.post('/forumPost',
     validate({ body: ForumSchema }), function(req, res) {
     var body = req.body;
     var newForumPost = postForumPost(body.author, body.contents, body.teamNumber);

@@ -147,7 +147,7 @@ export function getSportData(id, cb){
 }
 
 export function postForumPost(author, contents, teamNumber, cb) {
-  sendXHR('POST', '/teamReview', {
+  sendXHR('POST', '/forumPost', {
     author: author,
     contents: contents,
     teamNumber: teamNumber
