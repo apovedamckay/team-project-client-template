@@ -8,8 +8,8 @@ import {getTeamData, postTeamReview, submitChallenge, postForumPost} from '../se
 import Navbar from './navbar';
 import LeftSidebar from './LeftSidebar';
 import ReviewWriter from './reviewWriter';
-import TempChallenger from './tempChallenger';
-import TempChallengeSubmit from './tempChallengeSubmit';
+import Challenge from './challenge';
+import ChallengeRecieved from './ChallengeRecieved';
 import ForumPost from './forumPost';
 import PostToForum from './postToForum';
 
@@ -48,8 +48,8 @@ export default class TeamPage extends React.Component {
       this.refresh();
     });
   }
-  onChallenge(challengeContents) {
-    submitChallenge(challengeContents, this.state._id, (teamReturn) => {
+  onChallenge(challenger, challengedate, challengetime) {
+    submitChallenge(challenger, challengedate, challengetime, this.state._id, (teamReturn) => {
       this.setState(teamReturn);
       this.refresh();
     });
@@ -92,12 +92,12 @@ render() {
               <h2>Active Challenges:</h2>
               {this.state.Challenges.map((challenge, i) => {
                 return (
-                    <TempChallenger key={i} data={challenge} />
+                    <ChallengeRecieved key={i} data={challenge} />
                   )
                 })
               }
               <h4>Challenge Them!</h4>
-              <TempChallengeSubmit onChallenge={(challengeContents) => this.onChallenge(challengeContents)}/>
+              <Challenge onChallenge={(challenger, challengedate, challengetime) => this.onChallenge(challenger, challengedate, challengetime)}/>
               <h4>Private Team Chat:</h4>
               {this.renderForum()}
             </div>

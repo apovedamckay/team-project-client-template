@@ -107,16 +107,15 @@ export function postProPic(img, userID, cb) {
 }
 
 
-  export function submitChallenge(contents, teamNumber, cb) {
-    var team = readDocument('teams', teamNumber);
-
-    team.Challenges.push({
-      "Challenger": contents
+  export function submitChallenge(challenger,challengedate,challengetime, teamNumber, cb) {
+    sendXHR('POST', 'challenge', {
+      challenger: challenger,
+      challengedate: challengedate,
+      challengetime: challengetime,
+      teamNumber: teamNumber
+    }, (xhr) => {
+      cb(JSON.parse(xhr.responseText));
     });
-      writeDocument('teams', team);
-      // Return a resolved version of the feed item so React can
-      // render it.
-      emulateServerReturn(team, cb);
     }
 
 export function getTeamData(id) {

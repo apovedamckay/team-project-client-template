@@ -256,8 +256,9 @@ var initialData = {
               ],
               "Challenges": [
                 {
-                  "_id": 1,
-                  "Challenger": "Team Dope"
+                  "Challenger": 2,
+                  "challengedate": "9/9",
+                  "challengetime":"9AM"
                 }
               ],
               "posts": [
