@@ -4,7 +4,6 @@ var writeDocument = database.writeDocument;
 var addDocument = database.addDocument;
 var readDocument = database.readDocument;
 var TeamReviewSchema = require('./schemas/teamReviewSchema.json');
-var ForumPostSchema = require('./schemas/forumPostSchema.json');
 
 var validate = require('express-jsonschema').validate;
 
@@ -114,8 +113,23 @@ function postTeamReview(contents, teamNumber) {
     res.send(newUpdate);
   });
 
-
-
+  function postChallenge(challenger, challengedate, challengetime, teamNumber) {
+    var team = readDocument('teams', teamNumber);
+    team.Challenges.push({
+      "challenger": challenger,
+      "challengedate": challengedate,
+      "challengetime": challengetime
+    });
+    writeDocument('teams', team);
+    return team;
+  }
+  app.post('/challenge', function(req, res) {
+    var body = req.body;
+    var newUpdate = postChallenge(body.challenger,body.challengedate,body.challengetime,body.teamNumber);
+    res.status(201);
+    res.set('challenge', newUpdate);
+    res.send(newUpdate);
+  });
 app.use(function(err, req, res, next) {
 if (err.name === 'JsonSchemaValidation') {
 // Set a bad request http response status
@@ -126,24 +140,6 @@ next(err);
 }
 });
 
-function postForumPost(author, contents, teamNumber) {
-      var team = readDocument('teams', teamNumber);
-      team.posts.push({
-        "author": author,
-        "text": contents
-      });
-      writeDocument('teams', team);
-      return team;
-  }
-
-  app.post('/forumPost',
-    validate({ body: ForumSchema }), function(req, res) {
-    var body = req.body;
-    var newForumPost = postForumPost(body.author, body.contents, body.teamNumber);
-    res.status(201);
-    res.set('Comment', newForumPost);
-    res.send(newForumPost);
-  });
 
 // Reset database.
 app.post('/resetdb', function(req, res) {
