@@ -4,6 +4,7 @@ var writeDocument = database.writeDocument;
 var addDocument = database.addDocument;
 var readDocument = database.readDocument;
 var TeamReviewSchema = require('./schemas/teamReviewSchema.json');
+var ForumPostSchema = require('./schemas/forumPostSchema.json');
 
 var validate = require('express-jsonschema').validate;
 
@@ -99,7 +100,7 @@ function postTeamReview(contents, teamNumber) {
       // render it.
       return team ;
   }
-  
+
   app.post('/teamReview',
     validate({ body: TeamReviewSchema }), function(req, res) {
 
@@ -125,6 +126,24 @@ next(err);
 }
 });
 
+function postForumPost(author, contents, teamNumber) {
+      var team = readDocument('teams', teamNumber);
+      team.posts.push({
+        "author": author,
+        "text": contents
+      });
+      writeDocument('teams', team);
+      return team ;
+  }
+
+  app.post('/teamReview',
+    validate({ body: ForumSchema }), function(req, res) {
+    var body = req.body;
+    var newForumPost = postForumPost(body.author, body.contents, body.teamNumber);
+    res.status(201);
+    res.set('Comment', newForumPost);
+    res.send(newForumPost);
+  });
 
 // Reset database.
 app.post('/resetdb', function(req, res) {
