@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "contents": {
+      "type": "string",
+      "id": "contents"
+    },
+    "teamNumber": {
+      "type": "integer",
+      "id": "teamNumber"
+    }
+  },
+  "id": "/",
+  "required": [
+    "contents",
+    "teamNumber"
+  ]
+}
