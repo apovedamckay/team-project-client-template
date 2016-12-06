@@ -4,7 +4,7 @@ var writeDocument = database.writeDocument;
 var addDocument = database.addDocument;
 var readDocument = database.readDocument;
 var TeamReviewSchema = require('./schemas/teamReviewSchema.json');
-
+var ForumPostSchema = require('./schemas/ForumPostSchema.json');
 var validate = require('express-jsonschema').validate;
 
 
@@ -100,36 +100,56 @@ function postTeamReview(contents, teamNumber) {
       return team ;
   }
 
-  app.post('/teamReview',
-    validate({ body: TeamReviewSchema }), function(req, res) {
+app.post('/teamReview',
+  validate({ body: TeamReviewSchema }), function(req, res) {
 
-    var body = req.body;
-    // Check if requester is authorized to post this status update. // (The requester must be the author of the update.)
-    var newUpdate = postTeamReview(body.contents, body.teamNumber);
-    // When POST creates a new resource, we should tell the client about it // in the 'Location' header and use status code 201.
-    res.status(201);
-    res.set('Comment', newUpdate);
-    // Send the update!
-    res.send(newUpdate);
-  });
+  var body = req.body;
+  // Check if requester is authorized to post this status update. // (The requester must be the author of the update.)
+  var newUpdate = postTeamReview(body.contents, body.teamNumber);
+  // When POST creates a new resource, we should tell the client about it // in the 'Location' header and use status code 201.
+  res.status(201);
+  res.set('Comment', newUpdate);
+  // Send the update!
+  res.send(newUpdate);
+});
 
-  function postChallenge(challenger, challengedate, challengetime, teamNumber) {
-    var team = readDocument('teams', teamNumber);
-    team.Challenges.push({
-      "challenger": challenger,
-      "challengedate": challengedate,
-      "challengetime": challengetime
-    });
-    writeDocument('teams', team);
-    return team;
-  }
-  app.post('/challenge', function(req, res) {
-    var body = req.body;
-    var newUpdate = postChallenge(body.challenger,body.challengedate,body.challengetime,body.teamNumber);
-    res.status(201);
-    res.set('challenge', newUpdate);
-    res.send(newUpdate);
+function postChallenge(challenger, challengedate, challengetime, teamNumber) {
+  var team = readDocument('teams', teamNumber);
+  team.Challenges.push({
+    "challenger": challenger,
+    "challengedate": challengedate,
+    "challengetime": challengetime
   });
+  writeDocument('teams', team);
+  return team;
+}
+
+app.post('/challenge', function(req, res) {
+  var body = req.body;
+  var newUpdate = postChallenge(body.challenger,body.challengedate,body.challengetime,body.teamNumber);
+  res.status(201);
+  res.set('challenge', newUpdate);
+  res.send(newUpdate);
+});
+
+function postForumPost(author, contents, teamNumber) {
+  var team = readDocument('teams', teamNumber);
+  team.posts.push({
+    "author": author,
+    "text": contents
+  });
+  writeDocument('teams', team);
+  return team;
+}
+
+app.post('/forumPost', validate({ body: ForumPostSchema }), function(req, res) {
+  var body = req.body;
+  var newForumPost = postForumPost(body.author, body.contents, body.teamNumber);
+  res.status(201);
+  res.set('Comment', newForumPost);
+  res.send(newForumPost);
+});
+
 app.use(function(err, req, res, next) {
 if (err.name === 'JsonSchemaValidation') {
 // Set a bad request http response status
