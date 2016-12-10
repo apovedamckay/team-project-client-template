@@ -3,7 +3,7 @@ var express = require('express');
 var writeDocument = database.writeDocument;
 var addDocument = database.addDocument;
 var readDocument = database.readDocument;
-var TeamReviewSchema = require('./schemas/teamReviewSchema.json');
+var ReviewSchema = require('./schemas/ReviewSchema.json');
 var ForumPostSchema = require('./schemas/ForumPostSchema.json');
 var validate = require('express-jsonschema').validate;
 
@@ -92,7 +92,7 @@ app.get ('/team/', function(req, res){
   res.send(getTeamArray())
 })
 
-
+//Both User and Team Reviews
 function postTeamReview(contents, teamNumber) {
       var team = readDocument('teams', teamNumber);
 
@@ -109,16 +109,44 @@ function postTeamReview(contents, teamNumber) {
       return team ;
   }
 
-app.post('/teamReview', validate({ body: TeamReviewSchema }), function(req, res) {
+app.post('/teamReview', validate({ body: ReviewSchema }), function(req, res) {
   var body = req.body;
   // Check if requester is authorized to post this status update. // (The requester must be the author of the update.)
-  var newUpdate = postTeamReview(body.contents, body.teamNumber);
+  var newUpdate = postTeamReview(body.contents, body.id);
   // When POST creates a new resource, we should tell the client about it // in the 'Location' header and use status code 201.
   res.status(201);
   res.set('Comment', newUpdate);
   // Send the update!
   res.send(newUpdate);
 });
+
+  function postUserReview(contents, userid) {
+      var user = readDocument('users', userid);
+
+      user.player_review.push({
+        "stars": [
+            1, 2
+        ],
+        "text": contents
+      });
+
+      writeDocument('users', user);
+      // Return a resolved version of the feed item so React can
+      // render it.
+      return user ;
+  }
+
+  app.post('/userReview', validate({ body:  ReviewSchema}), function(req, res) {
+  var body = req.body;
+  // Check if requester is authorized to post this status update. // (The requester must be the author of the update.)
+  var newUpdate = postUserReview(body.contents, body.id);
+  // When POST creates a new resource, we should tell the client about it // in the 'Location' header and use status code 201.
+  res.status(201);
+  res.set('Comment', newUpdate);
+  // Send the update!
+  res.send(newUpdate);
+});
+
 
 function postChallenge(challenger, challengedate, challengetime, teamNumber) {
   var team = readDocument('teams', teamNumber);

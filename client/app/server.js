@@ -74,25 +74,22 @@ function sendXHR(verb, resource, body, cb) {
 export function postTeamReview(contents, teamNumber, cb) {
   sendXHR('POST', '/teamReview', {
     contents: contents,
-    teamNumber: teamNumber
+    id: teamNumber
   }, (xhr) => {
     // Return the new status update.
   cb(JSON.parse(xhr.responseText));
 });
 }
 
-export function postUserReview(contents, userID, cb) {
-  var user = readDocument('users', userID);
 
-  user.player_review.push({
-    "stars": [
-        1, 2
-    ],
-    "text": contents
-  });
-
-  writeDocument('users', user);
-  emulateServerReturn(user, cb);
+export function postUserReview(contents, userid, cb) {
+  sendXHR('POST', '/userReview', {
+    contents: contents,
+    id: userid
+  }, (xhr) => {
+    // Return the new status update.
+  cb(JSON.parse(xhr.responseText));
+});
 }
 
 export function postProPic(img, userID, cb) {
