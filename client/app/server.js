@@ -118,9 +118,8 @@ export function postProPic(img, userID, cb) {
     });
     }
 
-export function getTeamData(id) {
+export function getTeamData(id, cb) {
     sendXHR('GET', '/team/' + id, undefined, (xhr) => {
-      // Call the callback with the data.
       cb(JSON.parse(xhr.responseText));
     });
 }

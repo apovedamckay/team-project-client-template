@@ -40,14 +40,14 @@ function getUserData(userid){
 
 app.get('/user/:userid/profile', function(req, res) {
   var userid = parseInt(req.params.userid, 10);
-  var fromUser = getUserIdFromToken(req.get('Authorization'));
-  if(fromUser === userid) {
+  //var fromUser = getUserIdFromToken(req.get('Authorization'));
+  //if(fromUser === userid) {
     // send response
     res.status(201);
     res.send(getUserData(userid));
-  } else {
-    res.status(401).end();
-  }
+  //} else {
+  //  res.status(401).end();
+  //}
 });
 
 //get sport data
@@ -64,10 +64,15 @@ app.get('/sport/', function(req, res){
   res.send(getSportData())
 });
 
+function getTeamData(teamid){
+  var team = readDocument('teams', teamid);
+  return team;
+}
+
 app.get('/team/:teamid', function(req, res){
-  var teamData = readDocument('teams', req.params.id);
+  var teamId = parseInt(req.params.teamid, 10)
   res.status(201);
-  res.send(teamData);
+  res.send(getTeamData(teamId));
 });
 
 function getTeamArray(){
@@ -100,8 +105,7 @@ function postTeamReview(contents, teamNumber) {
       return team ;
   }
 
-app.post('/teamReview',
-  validate({ body: TeamReviewSchema }), function(req, res) {
+app.post('/teamReview', validate({ body: TeamReviewSchema }), function(req, res) {
 
   var body = req.body;
   // Check if requester is authorized to post this status update. // (The requester must be the author of the update.)
