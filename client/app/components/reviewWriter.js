@@ -1,11 +1,4 @@
 import React from 'react';
-//import Review from './pageReviews';
-import TeamSummary from './teamSummary';
-import TeamDescription from './teamDescription';
-import Roster from './roster';
-import TeamReview from "./teamReview";
-import Navbar from './navbar';
-import LeftSidebar from './LeftSidebar';
 
 
 export default class reviewWriter extends React.Component {
