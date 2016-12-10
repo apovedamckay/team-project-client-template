@@ -3,15 +3,19 @@
   "type": "object",
   "properties": {
     "author": {
-      "type": "string"
+      "type": "string",
+      "id": "author"
     },
     "contents": {
-      "type": "string"
+      "type": "string",
+      "id": "contents"
     },
     "teamNumber": {
-      "type": "string"
+      "type": "integer",
+      "id": "teamNumber"
     }
   },
+  "id": "/",
   "required": [
     "author",
     "contents",

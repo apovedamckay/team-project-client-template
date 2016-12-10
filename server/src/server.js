@@ -7,9 +7,13 @@ var TeamReviewSchema = require('./schemas/teamReviewSchema.json');
 var ForumPostSchema = require('./schemas/ForumPostSchema.json');
 var validate = require('express-jsonschema').validate;
 
-
 var app = express();
 app.use(express.static('../client/build'));
+
+var bodyParser = require('body-parser');
+app.use(bodyParser.text());
+app.use(bodyParser.json());
+
 function getUserIdFromToken(authorizationLine) {
   try {
     // Cut off "Bearer " from the header value.
@@ -106,7 +110,6 @@ function postTeamReview(contents, teamNumber) {
   }
 
 app.post('/teamReview', validate({ body: TeamReviewSchema }), function(req, res) {
-
   var body = req.body;
   // Check if requester is authorized to post this status update. // (The requester must be the author of the update.)
   var newUpdate = postTeamReview(body.contents, body.teamNumber);
