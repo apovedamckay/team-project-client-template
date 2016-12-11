@@ -1,8 +1,6 @@
-var database = require('./database.js')
 var express = require('express');
-var writeDocument = database.writeDocument;
-var addDocument = database.addDocument;
-var readDocument = database.readDocument;
+var app = express();
+
 var ReviewSchema = require('./schemas/ReviewSchema.json');
 var ForumPostSchema = require('./schemas/ForumPostSchema.json');
 var validate = require('express-jsonschema').validate;
@@ -10,13 +8,25 @@ var mongo_express = require('mongo-express/lib/middleware');
 // Import the default Mongo Express configuration
 var mongo_express_config = require('mongo-express/config.default.js');
 var ResetDatabase = require('./resetdatabase');
-
-var app = express();
-app.use(express.static('../client/build'));
-
 var bodyParser = require('body-parser');
+
+//TO BE REMOVED
+var database = require('./database.js')
+var writeDocument = database.writeDocument;
+var addDocument = database.addDocument;
+var readDocument = database.readDocument;
+
+app.use('/mongo_express', mongo_express(mongo_express_config));
+app.use(express.static('../client/build'));
 app.use(bodyParser.text());
 app.use(bodyParser.json());
+
+var MongoDB = require('mongodb');
+var MongoClient = MongoDB.MongoClient;
+var ObjectID = MongoDB.ObjectID;
+var url = 'mongodb://localhost:27017/MatchUp';
+
+MongoClient.connect(url, function(err, db) {
 
 function getUserIdFromToken(authorizationLine) {
   try {
@@ -218,4 +228,6 @@ res.send();
 // Starts the server on port 3000!
 app.listen(3000, function () {
 console.log('Example app listening on port 3000!');
+});
+
 });
