@@ -9,6 +9,7 @@ import SportsList from './components/sportsList';
 import LogOut from './components/LogOut';
 import BrowseTeam from './components/browseTeam';
 import WelcomePage from './components/welcomePage';
+import ErrorBanner from './components/errorbanner';
 
 
 class SportsPage extends React.Component {
@@ -88,6 +89,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
+      <div className="col-md-12">
+        <ErrorBanner />
+        </div>
       {this.props.children}</div>
     )
   }

@@ -6,6 +6,10 @@ var readDocument = database.readDocument;
 var ReviewSchema = require('./schemas/ReviewSchema.json');
 var ForumPostSchema = require('./schemas/ForumPostSchema.json');
 var validate = require('express-jsonschema').validate;
+var mongo_express = require('mongo-express/lib/middleware');
+// Import the default Mongo Express configuration
+var mongo_express_config = require('mongo-express/config.default.js');
+var ResetDatabase = require('./resetdatabase');
 
 var app = express();
 app.use(express.static('../client/build'));
