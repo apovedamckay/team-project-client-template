@@ -51,21 +51,34 @@ return -1;
 }
 
 //get user data
-function getUserData(userid){
-	var user = readDocument('users', userid);
-	return user;
+function getUserData(userid, callback){
+  db.collection('users').findOne({
+    _id: userid
+  }, function (err, userData) {
+    if (err) return callback(err);
+    else if(userData === null) {
+      return callback(null, null);
+    }
+    callback(null, userData)
+  });
 }
 
 app.get('/user/:userid/profile', function(req, res) {
-  var userid = parseInt(req.params.userid, 10);
-  //var fromUser = getUserIdFromToken(req.get('Authorization'));
-  //if(fromUser === userid) {
-    // send response
-    res.status(201);
-    res.send(getUserData(userid));
-  //} else {
-  //  res.status(401).end();
-  //}
+ var userid = req.params.userid;
+ console.log(userid);
+    getUserData(new ObjectID(userid), function(err, userData) {
+      if (err) {
+        // A database error happened.
+        // Internal Error: 500.
+        res.status(500).send("Database error: " + err);
+      } else if (userData === null) {
+        // Couldn't find the feed in the database.
+        res.status(400).send("Could not look up feed for user " + userid);
+      } else {
+        // Send data.
+        res.send(userData);
+      }
+    });
 });
 
 //get sport data
