@@ -138,13 +138,18 @@ app.post('/teamReview', validate({ body: ReviewSchema }), function(req, res) {
 
   app.post('/userReview', validate({ body:  ReviewSchema}), function(req, res) {
   var body = req.body;
-  // Check if requester is authorized to post this status update. // (The requester must be the author of the update.)
+  var fromUser = getUserIdFromToken(req.get('Authorization'));
+  if(fromUser === body.id){
+    res.status(401).end();
+  }
+  else{
   var newUpdate = postUserReview(body.contents, body.id);
   // When POST creates a new resource, we should tell the client about it // in the 'Location' header and use status code 201.
   res.status(201);
   res.set('Comment', newUpdate);
   // Send the update!
   res.send(newUpdate);
+}
 });
 
 
