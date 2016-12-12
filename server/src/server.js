@@ -1,8 +1,6 @@
-var database = require('./database.js')
 var express = require('express');
-var writeDocument = database.writeDocument;
-var addDocument = database.addDocument;
-var readDocument = database.readDocument;
+var app = express();
+
 var ReviewSchema = require('./schemas/ReviewSchema.json');
 var ForumPostSchema = require('./schemas/ForumPostSchema.json');
 var validate = require('express-jsonschema').validate;
@@ -10,13 +8,25 @@ var mongo_express = require('mongo-express/lib/middleware');
 // Import the default Mongo Express configuration
 var mongo_express_config = require('mongo-express/config.default.js');
 var ResetDatabase = require('./resetdatabase');
-
-var app = express();
-app.use(express.static('../client/build'));
-
 var bodyParser = require('body-parser');
+
+//TO BE REMOVED
+var database = require('./database.js')
+var writeDocument = database.writeDocument;
+var addDocument = database.addDocument;
+var readDocument = database.readDocument;
+
+app.use('/mongo_express', mongo_express(mongo_express_config));
+app.use(express.static('../client/build'));
 app.use(bodyParser.text());
 app.use(bodyParser.json());
+
+var MongoDB = require('mongodb');
+var MongoClient = MongoDB.MongoClient;
+var ObjectID = MongoDB.ObjectID;
+var url = 'mongodb://localhost:27017/MatchUp';
+
+MongoClient.connect(url, function(err, db) {
 
 function getUserIdFromToken(authorizationLine) {
   try {
@@ -41,21 +51,34 @@ return -1;
 }
 
 //get user data
-function getUserData(userid){
-	var user = readDocument('users', userid);
-	return user;
+function getUserData(userid, callback){
+  db.collection('users').findOne({
+    _id: userid
+  }, function (err, userData) {
+    if (err) return callback(err);
+    else if(userData === null) {
+      return callback(null, null);
+    }
+    callback(null, userData)
+  });
 }
 
 app.get('/user/:userid/profile', function(req, res) {
-  var userid = parseInt(req.params.userid, 10);
-  //var fromUser = getUserIdFromToken(req.get('Authorization'));
-  //if(fromUser === userid) {
-    // send response
-    res.status(201);
-    res.send(getUserData(userid));
-  //} else {
-  //  res.status(401).end();
-  //}
+ var userid = req.params.userid;
+ console.log(userid);
+    getUserData(new ObjectID(userid), function(err, userData) {
+      if (err) {
+        // A database error happened.
+        // Internal Error: 500.
+        res.status(500).send("Database error: " + err);
+      } else if (userData === null) {
+        // Couldn't find the feed in the database.
+        res.status(400).send("Could not look up feed for user " + userid);
+      } else {
+        // Send data.
+        res.send(userData);
+      }
+    });
 });
 
 //get sport data
@@ -124,35 +147,44 @@ app.post('/teamReview', validate({ body: ReviewSchema }), function(req, res) {
   res.send(newUpdate);
 });
 
-  function postUserReview(contents, userid) {
-      var user = readDocument('users', userid);
-
-      user.player_review.push({
-        "stars": [
-            1, 2
-        ],
+  function postUserReview(contents, userid, callback) {
+      var newReview = {
+        "stars": [1, 2],
         "text": contents
+      };
+      db.collection('users').updateOne({ _id: userid },
+        {
+          $push: {player_review: newReview}
+        }, 
+        function(err) {
+          if (err) {
+            return callback(err);
+          }
+          callback(null, newReview);
       });
-
-      writeDocument('users', user);
-      // Return a resolved version of the feed item so React can
-      // render it.
-      return user ;
-  }
+    }
 
   app.post('/userReview', validate({ body:  ReviewSchema}), function(req, res) {
   var body = req.body;
+  console.log("review " + body.id);
   var fromUser = getUserIdFromToken(req.get('Authorization'));
   if(fromUser === body.id){
     res.status(401).end();
   }
   else{
-  var newUpdate = postUserReview(body.contents, body.id);
-  // When POST creates a new resource, we should tell the client about it // in the 'Location' header and use status code 201.
-  res.status(201);
-  res.set('Comment', newUpdate);
-  // Send the update!
-  res.send(newUpdate);
+  postUserReview(body.contents, new ObjectID(body.id), function(err, userData) {
+      if (err) {
+        // A database error happened.
+        // Internal Error: 500.
+        res.status(500).send("Database error: " + err);
+      } else if (userData === null) {
+        // Couldn't find the feed in the database.
+        res.status(400).send("Could not look up feed for user " + body.id);
+      } else {
+        // Send data.
+        res.send(userData);
+      }
+    });
 }
 });
 
@@ -205,17 +237,19 @@ next(err);
 });
 
 
-// Reset database.
+/// Reset the database.
 app.post('/resetdb', function(req, res) {
-console.log("Resetting database...");
-// This is a debug route, so don't do any validation.
-database.resetDatabase();
-// res.send() sends an empty response with status code 200
-res.send();
+  console.log("Resetting database...");
+  ResetDatabase(db, function() {
+    res.send();
+  });
 });
+
 
 
 // Starts the server on port 3000!
 app.listen(3000, function () {
 console.log('Example app listening on port 3000!');
+});
+
 });

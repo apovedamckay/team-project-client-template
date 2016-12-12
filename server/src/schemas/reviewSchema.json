@@ -7,7 +7,7 @@
       "id": "contents"
     },
     "id": {
-      "type": "integer",
+      "type": "string",
       "id": "id"
     }
   },

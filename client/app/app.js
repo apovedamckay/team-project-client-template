@@ -47,7 +47,7 @@ class ProfilePage extends React.Component {
     return (
     <div>
     <Navbar />
-        <Profile user = {this.props.params.id} />
+        <Profile user = {"00000000000000000000000" + this.props.params.id} />
         </div>
         );
   }

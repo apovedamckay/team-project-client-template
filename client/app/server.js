@@ -8,9 +8,9 @@ function emulateServerReturn(data, cb) {
 }
 
 //token for id:1
-var token = 'eyJpZCI6MX0=';
+var token = 'eyJpZCI6IjAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMSJ9=';
 //users one through 5
-var userTokens = ['eyJpZCI6MX0=', 'eyJpZCI6Mn0=', 'eyJpZCI6M30=', 'eyJpZCI6NH0=', 'eyJpZCI6NX0=']
+var userTokens = ['eyJpZCI6IjAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMSJ9=', 'eyJpZCI6Mn0=', 'eyJpZCI6M30=', 'eyJpZCI6NH0=', 'eyJpZCI6NX0=']
 
 function sendXHR(verb, resource, body, cb) {
     var xhr = new XMLHttpRequest();
