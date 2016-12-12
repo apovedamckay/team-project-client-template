@@ -48,6 +48,10 @@ var initialData = {
                 {
                   "stars": [1,2],
                   "text": "did not like playing with him"
+                },
+                {
+                  "stars": [ 1, 2, 3, 4 ],
+                  "text": "Respectful guy."
                 }
           ],
               "location": "The Gym",

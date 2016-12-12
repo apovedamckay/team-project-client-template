@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export default class reviewWriter extends React.Component {
+export default class ReviewWriter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
