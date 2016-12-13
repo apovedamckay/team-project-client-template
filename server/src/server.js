@@ -117,7 +117,7 @@ app.get('/team/:teamid', function(req, res){
       res.status(400).send("Could not find Team " + userid);
     } else {
       // Send data.
-      res.send(userData);
+      res.send(teamData);
     }
   });
 });
@@ -244,7 +244,7 @@ function postForumPost(author, contents, teamNumber, callback) {
   };
   db.collection('teams').updateOne({ _id: teamNumber},
   {
-    $push {posts: newPost}
+    $push: {posts: newPost}
   }, function(err) {
     if(err) {
       return callback(err)
