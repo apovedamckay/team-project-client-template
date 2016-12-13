@@ -65,20 +65,12 @@ class BrowseTeamPage extends React.Component {
   }
 }
 
-class RefereePage extends React.Component {
-  render() {
-    return (
-      <p>This is the Referee page!</p>
-    );
-  }
-}
-
 class Team extends React.Component {
   render() {
     return(
       <div>
       <Navbar />
-      <TeamPage team={this.props.params.id} />
+      <TeamPage team={"00000000000000000000000" + this.props.params.id} />
       </div>
     )
   }
@@ -105,7 +97,6 @@ ReactDOM.render((
       <Route path="profile/:id" component={ProfilePage} />
       <Route path="sports/" component={SportsPage} />
       <Route path="team/:id" component={Team} />
-      <Route path="referee/" component={RefereePage} />
       <Route path="browse/" component={BrowseTeamPage} />
       <Route path="logout/" component={LogoutPage} />
       <Route path="Welcome/" component={Welcome} />
