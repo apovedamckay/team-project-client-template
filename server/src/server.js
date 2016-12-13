@@ -95,15 +95,31 @@ app.get('/sport/', function(req, res){
   res.send(getSportData())
 });
 
-function getTeamData(teamid){
-  var team = readDocument('teams', teamid);
-  return team;
+function getTeamData(teamid, callback){
+  db.collection('teams').findOne({
+    _id: teamid
+  }, function (err, teamData) {
+    if (err) return callback(err);
+    else if(teamData === null) {
+      return callback(null, null);
+    }
+    callback(null, teamData)
+  });
 }
 
 app.get('/team/:teamid', function(req, res){
-  var teamId = parseInt(req.params.teamid, 10)
-  res.status(201);
-  res.send(getTeamData(teamId));
+  var teamId = req.params.teamid;
+  console.log(teamId);
+  getTeamData(new ObjectID(teamId), function(err, teamData) {
+    if(err) {
+      res.status(500).send("Database error: " + err);
+    } else if (teamData === null) {
+      res.status(400).send("Could not find Team " + userid);
+    } else {
+      // Send data.
+      res.send(userData);
+    }
+  });
 });
 
 function getTeamArray(){
@@ -155,7 +171,7 @@ app.post('/teamReview', validate({ body: ReviewSchema }), function(req, res) {
       db.collection('users').updateOne({ _id: userid },
         {
           $push: {player_review: newReview}
-        }, 
+        },
         function(err) {
           if (err) {
             return callback(err);
@@ -189,23 +205,34 @@ app.post('/teamReview', validate({ body: ReviewSchema }), function(req, res) {
 });
 
 
-function postChallenge(challenger, challengedate, challengetime, teamNumber) {
-  var team = readDocument('teams', teamNumber);
-  team.Challenges.push({
+function postChallenge(challenger, challengedate, challengetime, teamNumber, callback) {
+  var newChallenge = {
     "challenger": challenger,
     "challengedate": challengedate,
     "challengetime": challengetime
+  };
+  db.collection('teams').updateOne({ _id: teamNumber },
+  {
+    $push: {Challenges: newChallenge}
+  }, function(err){
+    if(err) {
+      return callback(err);
+    }
+    callback(null, newChallenge);
   });
-  writeDocument('teams', team);
-  return team;
 }
 
 app.post('/challenge', function(req, res) {
   var body = req.body;
-  var newUpdate = postChallenge(body.challenger,body.challengedate,body.challengetime,body.teamNumber);
-  res.status(201);
-  res.set('challenge', newUpdate);
-  res.send(newUpdate);
+  postChallenge(body.challenger,body.challengedate,body.challengetime,body.teamNumber, function(err, teamData) {
+    if(err) {
+      res.status(500).send("Database error: " + err);
+    } else if (teamData === null) {
+      res.status(400).send("could not look up team for team " + body.id);
+    } else {
+      res.send(teamData);
+    }
+  });
 });
 
 function postForumPost(author, contents, teamNumber) {
