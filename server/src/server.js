@@ -136,31 +136,33 @@ app.get ('/team/', function(req, res){
 })
 
 //Both User and Team Reviews
-function postTeamReview(contents, teamNumber) {
-      var team = readDocument('teams', teamNumber);
-
-      team.reviews.push({
-        "stars": [
-            1, 2
-        ],
+function postTeamReview(contents, teamNumber, callback) {
+      var newReview = {
+        "stars": [1,2],
         "text": contents
+      }
+      db.collection('teams').updateOne({ _id: teamNumber },
+      {
+        $push: {reviews: newReview}
+      }, function(err) {
+        if(err) {
+          return callback(err);
+        }
+        callback(null, newReview);
       });
-
-      writeDocument('teams', team);
-      // Return a resolved version of the feed item so React can
-      // render it.
-      return team ;
   }
 
 app.post('/teamReview', validate({ body: ReviewSchema }), function(req, res) {
   var body = req.body;
-  // Check if requester is authorized to post this status update. // (The requester must be the author of the update.)
-  var newUpdate = postTeamReview(body.contents, body.id);
-  // When POST creates a new resource, we should tell the client about it // in the 'Location' header and use status code 201.
-  res.status(201);
-  res.set('Comment', newUpdate);
-  // Send the update!
-  res.send(newUpdate);
+  postTeamReview(body.contents, new ObjectID(body.id), function(err, teamData) {
+    if(err) {
+      res.status(500).send("Database error: " + err);
+    } else if(teamData === null) {
+      res.status(400).send("Could not look up team " + body.id);
+    } else {
+      res.send(teamData);
+    }
+  });
 });
 
   function postUserReview(contents, userid, callback) {
