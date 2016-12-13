@@ -28,6 +28,9 @@ var url = 'mongodb://localhost:27017/MatchUp';
 
 MongoClient.connect(url, function(err, db) {
 
+/**
+ * Get the user ID from a token. Returns -1 (an invalid ID) if it fails.
+ */
 function getUserIdFromToken(authorizationLine) {
   try {
     // Cut off "Bearer " from the header value.
@@ -37,17 +40,16 @@ function getUserIdFromToken(authorizationLine) {
     // Convert the UTF-8 string into a JavaScript object.
     var tokenObj = JSON.parse(regularString);
     var id = tokenObj['id'];
-    // Check that id is a number.
-    if (typeof id === 'number') {
-    return id;
-    } else {
-    // Not a number. Return -1, an invalid ID.
-    return -1;
-    }
+      if (typeof id === 'string') {
+        return id;
+      } else {
+        // Not a number. Return "", an invalid ID.
+        return "";
+      }
   } catch (e) {
-// Return an invalid ID.
-return -1;
-}
+    // Return an invalid ID.
+    return -1;
+  }
 }
 
 //get user data
@@ -184,7 +186,6 @@ app.post('/teamReview', validate({ body: ReviewSchema }), function(req, res) {
 
   app.post('/userReview', validate({ body:  ReviewSchema}), function(req, res) {
   var body = req.body;
-  console.log("review " + body.id);
   var fromUser = getUserIdFromToken(req.get('Authorization'));
   if(fromUser === body.id){
     res.status(401).end();

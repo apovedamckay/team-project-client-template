@@ -8,12 +8,10 @@ export default class LeftSidebar extends React.Component {
       <div className= "panel panel-default side-profile">
         <div className="panel-body">
           <img src="../img/person.jpg" width="100%"></img>
-          <h3><p className="text-center">Full Name</p></h3>
-          <h4><p className="text-center">@Username</p></h4>
+          <h3><p className="text-center">Ilan Shenar</p></h3>
+          <h12><p className="text-center">@Sp0rtsG0d420</p></h12>
           <hr></hr>
-          <Link to="{/profile/1}"><p className="text-center"> Profile</p></Link>
-          <br></br>
-          <Link to="{/Team/1}"><p className="text-center"> Team</p></Link>
+          <Link to="/profile/1"><p className="text-center"> Profile</p></Link>
         </div>
       </div>
     </div>

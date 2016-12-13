@@ -25,7 +25,7 @@ export default class SportsBox extends React.Component {
             <br></br>
             <Link to= {"/browse/"}>
                 <button type="button" className="btn navbar-btn btn-default">
-					<h2>See Whos Playing {this.state.name}!</h2>
+					<h8>See Whos Playing {this.state.name}!</h8>
 				</button>
         </Link>
             </div>
