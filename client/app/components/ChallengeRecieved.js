@@ -14,7 +14,7 @@ export default class ChallengeRecieved extends React.Component {
           <div className="panel-body">
               <div className="row">
                   <div className="col-md-12">
-                      You have been Challenged by {this.state.Challenger.name}
+                      You have been Challenged by test
                   </div>
               </div>
           </div>

@@ -97,15 +97,31 @@ app.get('/sport/', function(req, res){
   res.send(getSportData())
 });
 
-function getTeamData(teamid){
-  var team = readDocument('teams', teamid);
-  return team;
+function getTeamData(teamid, callback){
+  db.collection('teams').findOne({
+    _id: teamid
+  }, function (err, teamData) {
+    if (err) return callback(err);
+    else if(teamData === null) {
+      return callback(null, null);
+    }
+    callback(null, teamData)
+  });
 }
 
 app.get('/team/:teamid', function(req, res){
-  var teamId = parseInt(req.params.teamid, 10)
-  res.status(201);
-  res.send(getTeamData(teamId));
+  var teamId = req.params.teamid;
+  console.log(teamId);
+  getTeamData(new ObjectID(teamId), function(err, teamData) {
+    if(err) {
+      res.status(500).send("Database error: " + err);
+    } else if (teamData === null) {
+      res.status(400).send("Could not find Team " + userid);
+    } else {
+      // Send data.
+      res.send(teamData);
+    }
+  });
 });
 
 function getTeamArray(){
@@ -122,31 +138,33 @@ app.get ('/team/', function(req, res){
 })
 
 //Both User and Team Reviews
-function postTeamReview(contents, teamNumber) {
-      var team = readDocument('teams', teamNumber);
-
-      team.reviews.push({
-        "stars": [
-            1, 2
-        ],
+function postTeamReview(contents, teamNumber, callback) {
+      var newReview = {
+        "stars": [1,2],
         "text": contents
+      }
+      db.collection('teams').updateOne({ _id: teamNumber },
+      {
+        $push: {reviews: newReview}
+      }, function(err) {
+        if(err) {
+          return callback(err);
+        }
+        callback(null, newReview);
       });
-
-      writeDocument('teams', team);
-      // Return a resolved version of the feed item so React can
-      // render it.
-      return team ;
   }
 
 app.post('/teamReview', validate({ body: ReviewSchema }), function(req, res) {
   var body = req.body;
-  // Check if requester is authorized to post this status update. // (The requester must be the author of the update.)
-  var newUpdate = postTeamReview(body.contents, body.id);
-  // When POST creates a new resource, we should tell the client about it // in the 'Location' header and use status code 201.
-  res.status(201);
-  res.set('Comment', newUpdate);
-  // Send the update!
-  res.send(newUpdate);
+  postTeamReview(body.contents, new ObjectID(body.id), function(err, teamData) {
+    if(err) {
+      res.status(500).send("Database error: " + err);
+    } else if(teamData === null) {
+      res.status(400).send("Could not look up team " + body.id);
+    } else {
+      res.send(teamData);
+    }
+  });
 });
 
   function postUserReview(contents, userid, callback) {
@@ -157,7 +175,7 @@ app.post('/teamReview', validate({ body: ReviewSchema }), function(req, res) {
       db.collection('users').updateOne({ _id: userid },
         {
           $push: {player_review: newReview}
-        }, 
+        },
         function(err) {
           if (err) {
             return callback(err);
@@ -190,41 +208,63 @@ app.post('/teamReview', validate({ body: ReviewSchema }), function(req, res) {
 });
 
 
-function postChallenge(challenger, challengedate, challengetime, teamNumber) {
-  var team = readDocument('teams', teamNumber);
-  team.Challenges.push({
+function postChallenge(challenger, challengedate, challengetime, teamNumber, callback) {
+  var newChallenge = {
     "challenger": challenger,
     "challengedate": challengedate,
     "challengetime": challengetime
+  };
+  db.collection('teams').updateOne({ _id: teamNumber },
+  {
+    $push: {Challenges: newChallenge}
+  }, function(err){
+    if(err) {
+      return callback(err);
+    }
+    callback(null, newChallenge);
   });
-  writeDocument('teams', team);
-  return team;
 }
 
 app.post('/challenge', function(req, res) {
   var body = req.body;
-  var newUpdate = postChallenge(body.challenger,body.challengedate,body.challengetime,body.teamNumber);
-  res.status(201);
-  res.set('challenge', newUpdate);
-  res.send(newUpdate);
+  postChallenge(body.challenger,body.challengedate,body.challengetime,body.teamNumber, function(err, teamData) {
+    if(err) {
+      res.status(500).send("Database error: " + err);
+    } else if (teamData === null) {
+      res.status(400).send("could not look up team " + body.id);
+    } else {
+      res.send(teamData);
+    }
+  });
 });
 
-function postForumPost(author, contents, teamNumber) {
-  var team = readDocument('teams', teamNumber);
-  team.posts.push({
+function postForumPost(author, contents, teamNumber, callback) {
+  var newPost = {
     "author": author,
     "text": contents
+  };
+  db.collection('teams').updateOne({ _id: teamNumber},
+  {
+    $push: {posts: newPost}
+  }, function(err) {
+    if(err) {
+      return callback(err)
+    }
+    callback(null, newPost);
   });
-  writeDocument('teams', team);
-  return team;
 }
 
 app.post('/forumPost', validate({ body: ForumPostSchema }), function(req, res) {
   var body = req.body;
-  var newForumPost = postForumPost(body.author, body.contents, body.teamNumber);
-  res.status(201);
-  res.set('Comment', newForumPost);
-  res.send(newForumPost);
+  postForumPost(body.author, body.contents, body.teamNumber, function(err, teamData) {
+    if(err) {
+      res.status(500).send("Database error: " + err);
+    } else if(teamData === null) {
+      res.status(400).send("Could not look up team " + body.id);
+    } else {
+      res.send(teamData);
+    }
+  });
 });
 
 app.use(function(err, req, res, next) {
