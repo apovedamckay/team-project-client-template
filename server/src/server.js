@@ -230,29 +230,40 @@ app.post('/challenge', function(req, res) {
     if(err) {
       res.status(500).send("Database error: " + err);
     } else if (teamData === null) {
-      res.status(400).send("could not look up team for team " + body.id);
+      res.status(400).send("could not look up team " + body.id);
     } else {
       res.send(teamData);
     }
   });
 });
 
-function postForumPost(author, contents, teamNumber) {
-  var team = readDocument('teams', teamNumber);
-  team.posts.push({
+function postForumPost(author, contents, teamNumber, callback) {
+  var newPost = {
     "author": author,
     "text": contents
+  };
+  db.collection('teams').updateOne({ _id: teamNumber},
+  {
+    $push {posts: newPost}
+  }, function(err) {
+    if(err) {
+      return callback(err)
+    }
+    callback(null, newPost);
   });
-  writeDocument('teams', team);
-  return team;
 }
 
 app.post('/forumPost', validate({ body: ForumPostSchema }), function(req, res) {
   var body = req.body;
-  var newForumPost = postForumPost(body.author, body.contents, body.teamNumber);
-  res.status(201);
-  res.set('Comment', newForumPost);
-  res.send(newForumPost);
+  postForumPost(body.author, body.contents, body.teamNumber, function(err, teamData) {
+    if(err) {
+      res.status(500).send("Database error: " + err);
+    } else if(teamData === null) {
+      res.status(400).send("Could not look up team " + body.id);
+    } else {
+      res.send(teamData);
+    }
+  });
 });
 
 app.use(function(err, req, res, next) {
