@@ -20,15 +20,7 @@ export default class Challenge extends React.Component {
           <ChallengeWindow isOpen={this.state.isChallengeWindowOpen} onClose={() => this.closeChallengeWindow()}>
             <form onSubmit={this.handleSubmit}>
               Your Team:
-              <select value={this.state.challenger} onChange={this.handleChallenger}>
-                {this.state.teams.map((team) => {
-                  return (
-                        <option value={team}>{team.name}</option>
-                      )
-                    })
-                  }
-                //<option value="challenger1"> challenger1 </option>
-              </select>
+                 <textarea className="form-control" rows="1" placeholder="Your Team"></textarea>
               <br></br>
               Select the Date:
               <select value={this.state.challengedatemonth} onChange={this.handleDateMonth}>
