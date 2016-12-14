@@ -21,6 +21,8 @@ export default class SportsList extends React.Component {
   }
 
 	render() {
+    if(this.state !== undefined){
+    {console.log(this.state)}
 		return (
       <div className="col-md-10">
         {this.state.sports.map((sport, i) => {
@@ -31,5 +33,6 @@ export default class SportsList extends React.Component {
         }
        </div>
     )
+      }
 	}
 }

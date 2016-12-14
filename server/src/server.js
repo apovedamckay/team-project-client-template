@@ -84,17 +84,27 @@ app.get('/user/:userid/profile', function(req, res) {
 });
 
 //get sport data
-function getSportData(){
-	var sportsArray = [];
-	for(var i = 1; i < 8; i++){
-		sportsArray[i-1] = readDocument("sports", i);
-	}
-	return ({sports: sportsArray});
+function getSportData(callback){
+	db.collection('sports').find().toArray(function(err,items){
+    if(err) callback(err);
+    else callback(null, {sports: items});
+   });
 }
 
 app.get('/sport/', function(req, res){
-  res.status(201);
-  res.send(getSportData())
+  getSportData(function(err, sports){
+      if (err) {
+        // A database error happened.
+        // Internal Error: 500.
+        res.status(500).send("Database error: " + err);
+      } else if (sports === null) {
+        // Couldn't find the feed in the database.
+        res.status(400).send("Could not look up sports");
+      } else {
+        // Send data.
+        res.send(sports);
+      }
+    });
 });
 
 function getTeamData(teamid, callback){
