@@ -134,17 +134,29 @@ app.get('/team/:teamid', function(req, res){
   });
 });
 
-function getTeamArray(){
-  var teamArray = [];
-  for(var i = 1; i < 4; i++){
-    teamArray[i-1] = readDocument('teams', i);
-  }
-  return ({teams: teamArray});
+function getTeamArray(callback){
+  db.collection('teams').find().toArray(function(err,items){
+    if(err) callback(err);
+    else callback(null, {teams: items});
+}
+);
 }
 
+
 app.get ('/team/', function(req, res){
-  res.status(201);
-  res.send(getTeamArray())
+  getTeamArray(function(err, teams){
+      if (err) {
+        // A database error happened.
+        // Internal Error: 500.
+        res.status(500).send("Database error: " + err);
+      } else if (teams === null) {
+        // Couldn't find the feed in the database.
+        res.status(400).send("Could not look up teams");
+      } else {
+        // Send data.
+        res.send(teams);
+      }
+    });
 })
 
 //Both User and Team Reviews
