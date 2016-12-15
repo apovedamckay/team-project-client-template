@@ -32,7 +32,7 @@ var initialData = {
             "location": "The Gym",
             "summary": "just a guy looking to ball",
             "teamList": [
-            { 
+            {
                 "name": "Team Awesome",
                 "_id": 1
             },
@@ -59,7 +59,7 @@ var initialData = {
             "referee": false,
             "summary": "just a cool gal looking to have some fun",
             "teamList": [
-            { 
+            {
                 "name": "Team Awesome",
                 "_id": 1
             }]
@@ -81,7 +81,7 @@ var initialData = {
           "referee": false,
           "summary": "just an under average dude",
           "teamList": [
-            { 
+            {
                 "name": "Team Awesome",
                 "_id": 1
             }]
@@ -107,7 +107,7 @@ var initialData = {
             "referee": true,
             "summary": "just like to ref and watch ",
           "teamList": [
-            { 
+            {
                 "name": "Team Awesome",
                 "_id": 1
             }]
@@ -128,7 +128,7 @@ var initialData = {
             "referee": false,
             "summary": "just a girl trying to have fun",
           "teamList": [
-            { 
+            {
                 "name": "Team Awesome",
                 "_id": 1
             }]        },
@@ -486,7 +486,7 @@ window.alert("Database reset! Refreshing the page now...");
 document.location.reload(false);
 });
 xhr.send();
-}}>Reset Mock DB</button>
+}}>Reset DB</button>
 );
 }
 }

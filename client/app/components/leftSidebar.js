@@ -11,7 +11,7 @@ export default class LeftSidebar extends React.Component {
           <h3><p className="text-center">Ilan Shenar</p></h3>
           <h12><p className="text-center">@Sp0rtsG0d420</p></h12>
           <hr></hr>
-          <Link to="/profile/1"><p className="text-center"> Profile</p></Link>
+          <Link to="/profile/000000000000000000000001"><p className="text-center"> Profile</p></Link>
         </div>
       </div>
     </div>

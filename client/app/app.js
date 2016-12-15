@@ -4,7 +4,7 @@ import TeamPage from './components/teamPage';
 import Navbar from './components/navbar';
 import LeftSidebar from './components/LeftSidebar';
 import Profile from './components/profile';
-import { IndexRoute, Router, Route, hashHistory, Link } from 'react-router';
+import { IndexRoute, Router, Route, hashHistory} from 'react-router';
 import SportsList from './components/sportsList';
 import LogOut from './components/LogOut';
 import BrowseTeam from './components/browseTeam';
@@ -47,7 +47,7 @@ class ProfilePage extends React.Component {
     return (
     <div>
     <Navbar />
-        <Profile user = {"00000000000000000000000" + this.props.params.id} />
+        <Profile user = {this.props.params.id} />
         </div>
         );
   }
@@ -70,7 +70,7 @@ class Team extends React.Component {
     return(
       <div>
       <Navbar />
-      <TeamPage team={"00000000000000000000000" + this.props.params.id} />
+      <TeamPage team={this.props.params.id} />
       </div>
     )
   }

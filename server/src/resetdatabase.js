@@ -31,11 +31,11 @@ var initialData = {
               "teamList": [
               {
                   "name": "Team Awesome",
-                  "_id": 1
+                  "_id": new ObjectID("000000000000000000000001")
               },
               {
                   "name": "Team Fun",
-                  "_id": 3
+                  "_id": new ObjectID("000000000000000000000003")
               }
               ]
           },
@@ -62,7 +62,7 @@ var initialData = {
               "teamList": [
               {
                   "name": "Team Awesome",
-                  "_id": 1
+                  "_id": new ObjectID("000000000000000000000001")
               }]
           },
           "3": {
@@ -84,7 +84,7 @@ var initialData = {
             "teamList": [
               {
                   "name": "Team Awesome",
-                  "_id": 1
+                  "_id": new ObjectID("000000000000000000000001")
               }]
           },
           "4": {
@@ -110,7 +110,7 @@ var initialData = {
             "teamList": [
               {
                   "name": "Team Awesome",
-                  "_id": 1
+                  "_id": new ObjectID("000000000000000000000001")
               }]
           },
           "5": {
@@ -131,7 +131,7 @@ var initialData = {
             "teamList": [
               {
                   "name": "Team Awesome",
-                  "_id": 1
+                  "_id": new ObjectID("000000000000000000000001")
               }]        },
           "6": {
             "_id":  new ObjectID("000000000000000000000006"),
@@ -245,19 +245,19 @@ var initialData = {
               ],
               "list": [{
                   "name": "Max Galat",
-                  "_id": 3
+                  "_id": new ObjectID("000000000000000000000003")
               },
               {
                   "name": "Ilan Shenar",
-                  "_id": 1
+                  "_id": new ObjectID("000000000000000000000001")
               },
               {
                   "name": "Katherine Jones",
-                  "_id": 9
+                  "_id": new ObjectID("000000000000000000000009")
               },
               {
                   "name": "Jean Webb",
-                  "_id": 2
+                  "_id": new ObjectID("000000000000000000000002")
               }
 
               ],
@@ -292,7 +292,7 @@ var initialData = {
               "description": "We are just people having fun",
               "reviews": [
                   {
-                    "_id": 1,
+                    "_id": new ObjectID("000000000000000000000001"),
                       "stars": [
                           1, 2
                       ],
@@ -301,25 +301,25 @@ var initialData = {
               ],
               "list": [{
                   "name": "Max Galat",
-                  "_id": 3
+                  "_id": new ObjectID("000000000000000000000003")
               },
               {
                   "name": "Ilan Shenar",
-                  "_id": 1
+                  "_id": new ObjectID("000000000000000000000001")
               },
               {
                   "name": "Katherine Jones",
-                  "_id": 9
+                  "_id": new ObjectID("000000000000000000000009")
               },
               {
                   "name": "Jean Webb",
-                  "_id": 2
+                  "_id": new ObjectID("000000000000000000000002")
               }
 
               ],
               "Challenges": [
                 {
-                  "_id": 1,
+                  "_id": new ObjectID("000000000000000000000001"),
                   "Challenger": "Team Awesome"
                 }
               ],
@@ -337,31 +337,31 @@ var initialData = {
               "description": "We are a very solid team",
               "reviews": [
                   {
-                    "_id": 1,
+                    "_id": new ObjectID("000000000000000000000001"),
                       "stars": [1],
                       "text": "Bad sportsmanship."
                   },
                   {
-                    "_id": 2,
+                    "_id": new ObjectID("000000000000000000000002"),
                       "stars": [1,2],
                       "text": "Average sportsmanship."
                   }
               ],
               "list": [{
                   "name": "Max Galat",
-                  "_id": 3
+                  "_id": new ObjectID("000000000000000000000003")
               },
               {
                   "name": "Ilan Shenar",
-                  "_id": 1
+                  "_id": new ObjectID("000000000000000000000001")
               },
               {
                   "name": "Katherine Jones",
-                  "_id": 9
+                  "_id": new ObjectID("000000000000000000000009")
               },
               {
                   "name": "Jean Webb",
-                  "_id": 2
+                  "_id": new ObjectID("000000000000000000000002")
               }
 
               ],
@@ -441,7 +441,7 @@ function resetDatabase(db, cb) {
   // "for" loop over asynchronous operations.
   var collections = Object.keys(initialData);
   var i = 0;
-  
+
   // Processes the next collection in the collections array.
   // If we have finished processing all of the collections,
   // it triggers the callback.
@@ -455,7 +455,7 @@ function resetDatabase(db, cb) {
       cb();
     }
   }
-  
+
   // Start processing the first collection!
   processNextCollection();
 }
