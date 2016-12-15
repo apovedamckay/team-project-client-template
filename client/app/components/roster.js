@@ -11,12 +11,12 @@ export default class Roster extends React.Component {
   render() {
     return (
       <div className="col-md-2 right-sidebar">
-          <ul className="nav nav-pills nav-stacked">
-              <li role="presentation">Team Members</li>
+          <ul className="list-group">
+              <h5 role="presentation">Team Members</h5>
               {this.state.list.map((member) => {
                 return (
                 <Link to={"/profile/" + member._id}> 
-                      <li>{member.name}</li>
+                      <li className="list-group-item">{member.name}</li>
                  </Link>
                     )
                   })
