@@ -126,7 +126,7 @@ app.get('/team/:teamid', function(req, res){
     if(err) {
       res.status(500).send("Database error: " + err);
     } else if (teamData === null) {
-      res.status(400).send("Could not find Team " + userid);
+      res.status(400).send("Could not find Team " + teamId);
     } else {
       // Send data.
       res.send(teamData);
