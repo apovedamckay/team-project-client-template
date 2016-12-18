@@ -71,9 +71,10 @@ function sendXHR(verb, resource, body, cb) {
     }
 }
 
-export function postTeamReview(contents, teamNumber, cb) {
+export function postTeamReview(contents, stars, teamNumber, cb) {
   sendXHR('POST', '/teamReview', {
     contents: contents,
+    stars: stars,
     id: teamNumber
   }, (xhr) => {
     // Return the new status update.
@@ -82,9 +83,10 @@ export function postTeamReview(contents, teamNumber, cb) {
 }
 
 
-export function postUserReview(contents, userid, cb) {
+export function postUserReview(contents, stars, userid, cb) {
   sendXHR('POST', '/userReview', {
     contents: contents,
+    stars: stars,
     id: userid
   }, (xhr) => {
     // Return the new status update.

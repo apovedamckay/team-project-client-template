@@ -11,7 +11,7 @@ export default class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-       show: null, 
+       show: null,
        first_name: "",
        last_name: "",
        username: "",
@@ -31,8 +31,8 @@ export default class Profile extends React.Component {
     };
   }
 
-  onPost(postContents) {
-    postUserReview(postContents, this.state._id, (reviewReturn) => {
+  onPost(postContents, stars) {
+    postUserReview(postContents, stars, this.state._id, (reviewReturn) => {
       this.setState(reviewReturn);
       this.refresh();
     });
@@ -72,7 +72,7 @@ render() {
                 })
               }
               <h4>Write a Review:</h4>
-              <ReviewWriter onPost={(postContents) => this.onPost(postContents)}/>
+              <ReviewWriter onPost={(postContents, stars) => this.onPost(postContents, stars)}/>
     </div>
     </div>
 

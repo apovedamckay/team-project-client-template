@@ -6,6 +6,10 @@
       "type": "string",
       "id": "contents"
     },
+    "stars": {
+      "type": "integer",
+      "id": "stars"
+    },
     "teamNumber": {
       "type": "integer",
       "id": "teamNumber"
