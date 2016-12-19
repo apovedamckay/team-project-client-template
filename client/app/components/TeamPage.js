@@ -99,7 +99,7 @@ render() {
               <h4>Challenge Them!</h4>
               <Challenge onChallenge={(challenger, challengedate, challengetime) => this.onChallenge(challenger, challengedate, challengetime)}/>
               <h4>Private Team Chat:</h4>
-              {this.renderForum()};
+              {this.renderForum()}
             </div>
         {roster}
     </div>
@@ -109,7 +109,14 @@ render() {
       )
     }
     renderForum(){
-      return (true)
+      var isMember = false;
+      for(var i = 0; i < this.state.list.length; i++){
+        var obj = this.state.list[i];
+        if( obj._id == "000000000000000000000001"){
+          isMember = true;
+        }
+      }
+      return (isMember)
       ? <span>  {this.state.posts.map((post, i) => {
         return (
             <ForumPost key={i} data={post} />

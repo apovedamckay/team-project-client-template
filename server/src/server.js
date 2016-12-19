@@ -291,9 +291,8 @@ app.post('/forumPost',validate({ body:  ForumPostSchema}), function(req, res) {
       res.status(400).send("Could not look up feed for user " + fromUser);
     } else {
       // Send data.
-      console.log(userData.username);
       username = userData.username;
-      postForumPost(username, body.contents, new ObjectID(body.id), function(err, teamData) {
+      postForumPost(username, body.contents, new ObjectID(body.teamNumber), function(err, teamData) {
         if(err) {
           res.status(500).send("Database error: " + err);
         } else if(teamData === null) {

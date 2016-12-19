@@ -270,10 +270,10 @@ var initialData = {
               ],
               "posts": [
                   {
-                      "author": "Max Galat",
+                      "author": "goodguymax",
                       "text": "I wish I had more team members..."
                   },{
-                    "author": "Max Galat",
+                    "author": "goodguymax",
                     "text": "I feel so lonely T_T"
                   }
               ]

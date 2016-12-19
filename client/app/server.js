@@ -143,12 +143,11 @@ export function getSportData(id, cb){
   })
 }
 
-export function postForumPost( contents, teamNumber, cb) {
+export function postForumPost( conts, teamNum, cb) {
   sendXHR('POST', '/forumPost', {
-    contents: contents,
-    id: teamNumber
+    contents: conts,
+    teamNumber: teamNum
   }, (xhr) => {
-    // Return the new status update.
   cb(JSON.parse(xhr.responseText));
 });
 }
