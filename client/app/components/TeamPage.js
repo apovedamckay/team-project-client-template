@@ -1,6 +1,6 @@
 import React from 'react';
 //import Review from './pageReviews';
-import TeamSummary from './teamSummary';
+import TeamSummary from './TeamSummary';
 import TeamDescription from './teamDescription';
 import Roster from './roster';
 import TeamReview from "./teamReview";
