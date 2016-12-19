@@ -42,8 +42,8 @@ export default class TeamPage extends React.Component {
     });
   }
 
-  onPost(postContents) {
-    postTeamReview(postContents, this.state._id, (teamReturn) => {
+  onPost(postContents, stars) {
+    postTeamReview(postContents, stars, this.state._id, (teamReturn) => {
       this.setState(teamReturn);
       this.refresh();
     });
@@ -88,7 +88,7 @@ render() {
                 })
               }
               <h4>Write a Review:</h4>
-              <ReviewWriter onPost={(postContents) => this.onPost(postContents)}/>
+              <ReviewWriter onPost={(postContents, stars) => this.onPost(postContents, stars)}/>
               <h2>Active Challenges:</h2>
               {this.state.Challenges.map((challenge, i) => {
                 return (

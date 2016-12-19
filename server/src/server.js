@@ -152,9 +152,13 @@ app.get ('/team/', function(req, res){
 })
 
 //Both User and Team Reviews
-function postTeamReview(contents, teamNumber, callback) {
+function postTeamReview(contents, stars, teamNumber, callback) {
+      var starArr = [];
+      for (var i=0; i<stars; i++) {
+        starArr[i] = i;
+      }
       var newReview = {
-        "stars": [1,2],
+        "stars": starArr,
         "text": contents
       }
       db.collection('teams').updateOne({ _id: teamNumber },
@@ -170,7 +174,7 @@ function postTeamReview(contents, teamNumber, callback) {
 
 app.post('/teamReview', validate({ body: ReviewSchema }), function(req, res) {
   var body = req.body;
-  postTeamReview(body.contents, new ObjectID(body.id), function(err, teamData) {
+  postTeamReview(body.contents, body.stars, new ObjectID(body.id), function(err, teamData) {
     if(err) {
       res.status(500).send("Database error: " + err);
     } else if(teamData === null) {
@@ -181,9 +185,13 @@ app.post('/teamReview', validate({ body: ReviewSchema }), function(req, res) {
   });
 });
 
-  function postUserReview(contents, userid, callback) {
+  function postUserReview(contents, stars, userid, callback) {
+    var starArr = [];
+    for (var i=0; i<stars; i++) {
+      starArr[i] = i;
+    }
       var newReview = {
-        "stars": [1, 2],
+        "stars": starArr,
         "text": contents
       };
       db.collection('users').updateOne({ _id: userid },
@@ -205,7 +213,7 @@ app.post('/teamReview', validate({ body: ReviewSchema }), function(req, res) {
     res.status(401).end();
   }
   else{
-  postUserReview(body.contents, new ObjectID(body.id), function(err, userData) {
+  postUserReview(body.contents, body.stars, new ObjectID(body.id), function(err, userData) {
       if (err) {
         // A database error happened.
         // Internal Error: 500.
