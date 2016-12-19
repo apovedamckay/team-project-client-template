@@ -257,6 +257,7 @@ function postForumPost(author, contents, teamNumber, callback) {
     "author": author,
     "text": contents
   };
+  console.log(newPost);
   db.collection('teams').updateOne({ _id: teamNumber},
   {
     $push: {posts: newPost}
@@ -268,15 +269,31 @@ function postForumPost(author, contents, teamNumber, callback) {
   });
 }
 
-app.post('/forumPost', validate({ body: ForumPostSchema }), function(req, res) {
+app.post('/forumPost', function(req, res) {
   var body = req.body;
-  postForumPost(body.author, body.contents, body.teamNumber, function(err, teamData) {
-    if(err) {
+  var fromUser = getUserIdFromToken(req.get('Authorization'));
+  var username = "temp";
+  getUserData(new ObjectID(fromUser), function(err, userData) {
+    if (err) {
+      // A database error happened.
+      // Internal Error: 500.
       res.status(500).send("Database error: " + err);
-    } else if(teamData === null) {
-      res.status(400).send("Could not look up team " + body.id);
+    } else if (userData === null) {
+      // Couldn't find the feed in the database.
+      res.status(400).send("Could not look up feed for user " + fromUser);
     } else {
-      res.send(teamData);
+      // Send data.
+      console.log(userData.username);
+      username = userData.username;
+      postForumPost(username, body.contents, new ObjectID(body.id), function(err, teamData) {
+        if(err) {
+          res.status(500).send("Database error: " + err);
+        } else if(teamData === null) {
+          res.status(400).send("Could not look up team " + body.id);
+        } else {
+          res.send(teamData);
+        }
+      });
     }
   });
 });

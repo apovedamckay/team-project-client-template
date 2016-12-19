@@ -304,10 +304,6 @@ var initialData = {
                   "_id": new ObjectID("000000000000000000000003")
               },
               {
-                  "name": "Ilan Shenar",
-                  "_id": new ObjectID("000000000000000000000001")
-              },
-              {
                   "name": "Katherine Jones",
                   "_id": new ObjectID("000000000000000000000009")
               },

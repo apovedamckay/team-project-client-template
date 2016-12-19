@@ -55,7 +55,7 @@ export default class TeamPage extends React.Component {
     });
   }
   onForumPost(forumPostContents) {
-    postForumPost("Member of team", forumPostContents, this.state_id, (teamReturn) => {
+    postForumPost(forumPostContents, this.state._id, (teamReturn) => {
       this.setState(teamReturn);
       this.refresh();
     });
@@ -99,7 +99,7 @@ render() {
               <h4>Challenge Them!</h4>
               <Challenge onChallenge={(challenger, challengedate, challengetime) => this.onChallenge(challenger, challengedate, challengetime)}/>
               <h4>Private Team Chat:</h4>
-              {this.renderForum()}
+              {this.renderForum()};
             </div>
         {roster}
     </div>
@@ -110,9 +110,6 @@ render() {
     }
     renderForum(){
       return (true)
-      // The line below is the actual team check, but it was commented out
-      // for demonstration purposes
-      // return ((this.state.list).includes("Ilan Shenar"))
       ? <span>  {this.state.posts.map((post, i) => {
         return (
             <ForumPost key={i} data={post} />
@@ -121,6 +118,6 @@ render() {
       }
     <PostToForum onForumPost={(forumPostContents) => this.onForumPost(forumPostContents)}/>
     </span>
-    : <span> You're not a member of this team.</span>;
+    : <span> You're not a member of this team </span>
     }
 }

@@ -141,11 +141,10 @@ export function getSportData(id, cb){
   })
 }
 
-export function postForumPost(author, contents, teamNumber, cb) {
+export function postForumPost( contents, teamNumber, cb) {
   sendXHR('POST', '/forumPost', {
-    author: author,
     contents: contents,
-    teamNumber: teamNumber
+    id: teamNumber
   }, (xhr) => {
     // Return the new status update.
   cb(JSON.parse(xhr.responseText));
