@@ -63,6 +63,14 @@ var initialData = {
               {
                   "name": "Team Awesome",
                   "_id": new ObjectID("000000000000000000000001")
+              },
+              {
+                  "name": "Team Dope",
+                  "_id": new ObjectID("000000000000000000000002")
+              },
+              {
+                  "name": "Team Fun",
+                  "_id": new ObjectID("000000000000000000000003")
               }]
           },
           "3": {
@@ -85,6 +93,14 @@ var initialData = {
               {
                   "name": "Team Awesome",
                   "_id": new ObjectID("000000000000000000000001")
+              },
+              {
+                  "name": "Team Dope",
+                  "_id": new ObjectID("000000000000000000000002")
+              },
+              {
+                  "name": "Team Fun",
+                  "_id": new ObjectID("000000000000000000000003")
               }]
           },
           "4": {
@@ -132,7 +148,8 @@ var initialData = {
               {
                   "name": "Team Awesome",
                   "_id": new ObjectID("000000000000000000000001")
-              }]        },
+              }]
+          },
           "6": {
             "_id":  new ObjectID("000000000000000000000006"),
               "first_name": "Mark",
@@ -148,7 +165,11 @@ var initialData = {
               "email": "TheDirtySanchez@nesn.org",
               "referee": false,
               "summary": "I like football",
-              "teamList": ["Team Dope"]
+              "teamList": [
+                {
+                    "name": "Team Dope",
+                    "_id": new ObjectID("000000000000000000000002")
+                }]
           },
           "7": {
             "_id":  new ObjectID("000000000000000000000007"),
@@ -170,7 +191,12 @@ var initialData = {
               "email": "kim@tuck.org",
               "referee": true,
               "summary": "just like to ref and play ",
-              "teamList": ["Team Dope"]
+              "teamList": [
+                {
+                    "name": "Team Dope",
+                    "_id": new ObjectID("000000000000000000000002")
+                }
+              ]
           },
           "8": {
             "_id":  new ObjectID("000000000000000000000008"),
@@ -187,7 +213,11 @@ var initialData = {
               "email": "katlong@umass.edu",
               "referee": false,
               "summary": "I like soccer a lot",
-              "teamList": ["Team Dope"]
+              "teamList": [
+                {
+                    "name": "Team Dope",
+                    "_id": new ObjectID("000000000000000000000002")
+                }]
           },
           "9": {
             "_id":  new ObjectID("000000000000000000000009"),
@@ -200,7 +230,20 @@ var initialData = {
               "email": "KatJones@gmail.com",
               "referee": false,
               "summary": "Just starting out. Looking for a team",
-              "teamList": []
+              "teamList": [
+                {
+                    "name": "Team Awesome",
+                    "_id": new ObjectID("000000000000000000000001")
+                },
+                {
+                    "name": "Team Dope",
+                    "_id": new ObjectID("000000000000000000000002")
+                },
+                {
+                    "name": "Team Fun",
+                    "_id": new ObjectID("000000000000000000000003")
+                }
+                ]
           },
           "10": {
             "_id":  new ObjectID("000000000000000000000010"),
@@ -218,7 +261,20 @@ var initialData = {
               "email": "teresa@hughes.org",
               "referee": true,
               "summary": "Just became a ref",
-              "teamList": ["Team Dope"]
+              "teamList": [
+                {
+                    "name": "Team Awesome",
+                    "_id": new ObjectID("000000000000000000000001")
+                },
+                {
+                    "name": "Team Dope",
+                    "_id": new ObjectID("000000000000000000000002")
+                },
+                {
+                    "name": "Team Fun",
+                    "_id": new ObjectID("000000000000000000000003")
+                }
+                ]
           }
 
       },
@@ -244,22 +300,33 @@ var initialData = {
                   }
               ],
               "list": [{
+                "name": "Ilan Shenar",
+                "_id": new ObjectID("000000000000000000000001")
+              },
+              {
+                  "name": "Jean Webb",
+                  "_id": new ObjectID("000000000000000000000002")
+              },
+              {
                   "name": "Max Galat",
                   "_id": new ObjectID("000000000000000000000003")
               },
               {
-                  "name": "Ilan Shenar",
-                  "_id": new ObjectID("000000000000000000000001")
+                  "name": "Ernest Brooks",
+                  "_id": new ObjectID("000000000000000000000004")
+              },
+              {
+                  "name": "Virginia Shaw",
+                  "_id": new ObjectID("000000000000000000000005")
               },
               {
                   "name": "Katherine Jones",
                   "_id": new ObjectID("000000000000000000000009")
               },
               {
-                  "name": "Jean Webb",
-                  "_id": new ObjectID("000000000000000000000002")
+                  "name": "Teresa Hughes",
+                  "_id": new ObjectID("000000000000000000000010")
               }
-
               ],
               "Challenges": [
                 {
@@ -300,18 +367,33 @@ var initialData = {
                   }
               ],
               "list": [{
+                  "name": "Jean Webb",
+                  "_id": new ObjectID("000000000000000000000002")
+              },
+              {
                   "name": "Max Galat",
                   "_id": new ObjectID("000000000000000000000003")
+              },
+              {
+                  "name": "Mark Sanchez",
+                  "_id": new ObjectID("000000000000000000000006")
+              },
+              {
+                  "name": "Kimberly Tucker",
+                  "_id": new ObjectID("000000000000000000000007")
+              },
+              {
+                  "name": "Kathy Long",
+                  "_id": new ObjectID("000000000000000000000008")
               },
               {
                   "name": "Katherine Jones",
                   "_id": new ObjectID("000000000000000000000009")
               },
               {
-                  "name": "Jean Webb",
-                  "_id": new ObjectID("000000000000000000000002")
+                  "name": "Teresa Hughes",
+                  "_id": new ObjectID("000000000000000000000010")
               }
-
               ],
               "Challenges": [
                 {
@@ -344,23 +426,25 @@ var initialData = {
                   }
               ],
               "list": [{
-                  "name": "Max Galat",
-                  "_id": new ObjectID("000000000000000000000003")
-              },
-              {
                   "name": "Ilan Shenar",
                   "_id": new ObjectID("000000000000000000000001")
               },
               {
-                  "name": "Katherine Jones",
-                  "_id": new ObjectID("000000000000000000000009")
-              },
-              {
                   "name": "Jean Webb",
                   "_id": new ObjectID("000000000000000000000002")
-              }
-
-              ],
+              },
+              {
+                "name": "Max Galat",
+                "_id": new ObjectID("000000000000000000000003")
+              },
+              {
+              "name": "Katherine Jones",
+              "_id": new ObjectID("000000000000000000000009")
+              },
+              {
+                  "name": "Teresa Hughes",
+                  "_id": new ObjectID("000000000000000000000010")
+              }],
               "Challenges": [],
               "posts": []
           }

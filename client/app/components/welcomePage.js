@@ -15,7 +15,7 @@ export default class WelcomePage extends React.Component {
 			<Link to={"/profile/000000000000000000000007"}><li>Kim Tucker</li></Link>
 			<Link to={"/profile/000000000000000000000008"}><li>Kathy Long</li></Link>
 			<Link to={"/profile/000000000000000000000009"}><li>Kimberly Jones</li></Link>
-			<Link to={"/profile/0000000000000000000000010"}><li>Teresa Hughes</li></Link>
+			<Link to={"/profile/000000000000000000000010"}><li>Teresa Hughes</li></Link>
 
 		</div>
 		)
