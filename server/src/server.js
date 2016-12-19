@@ -277,7 +277,7 @@ function postForumPost(author, contents, teamNumber, callback) {
   });
 }
 
-app.post('/forumPost', function(req, res) {
+app.post('/forumPost',validate({ body:  ForumPostSchema}), function(req, res) {
   var body = req.body;
   var fromUser = getUserIdFromToken(req.get('Authorization'));
   var username = "temp";
